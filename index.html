@@ -9,29 +9,30 @@
         /* Общие стили */
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f5f5f5;
+            background-color: #f3f6fa;
             color: #333;
             margin: 0;
             padding: 0;
         }
 
         header {
-            background-color: #2e3b4e;
-            color: #fff;
-            padding: 20px 0;
+            background-color: #374151;
+            color: #f3f6fa;
+            padding: 20px;
             text-align: center;
             font-size: 1.8rem;
             font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         nav {
-            background-color: #354458;
+            background-color: #475569;
             padding: 10px 0;
             text-align: center;
         }
 
         nav a {
-            color: #fff;
+            color: #f3f6fa;
             margin: 0 15px;
             text-decoration: none;
             font-weight: bold;
@@ -40,7 +41,7 @@
         }
 
         nav a:hover {
-            color: #f5a623;
+            color: #60a5fa;
         }
 
         section {
@@ -54,7 +55,7 @@
 
         h2 {
             font-size: 1.5rem;
-            color: #2e3b4e;
+            color: #374151;
             margin-bottom: 15px;
         }
 
@@ -66,8 +67,8 @@
         }
 
         .service-button {
-            background-color: #eef1f5;
-            color: #2e3b4e;
+            background-color: #f3f6fa;
+            color: #374151;
             border: 1px solid #d1d5db;
             border-radius: 5px;
             padding: 10px;
@@ -79,12 +80,12 @@
         }
 
         .service-button.selected {
-            background-color: #f5a623;
+            background-color: #60a5fa;
             color: #fff;
         }
 
         .service-button:hover {
-            background-color: #d9e2ef;
+            background-color: #e2e8f0;
         }
 
         .summary {
@@ -117,7 +118,7 @@
         }
 
         form button {
-            background-color: #2e3b4e;
+            background-color: #374151;
             color: #fff;
             border: none;
             cursor: pointer;
@@ -125,21 +126,21 @@
         }
 
         form button:hover {
-            background-color: #1c2635;
+            background-color: #1f2937;
         }
 
         footer {
             text-align: center;
             padding: 15px;
-            background-color: #2e3b4e;
-            color: #fff;
+            background-color: #374151;
+            color: #f3f6fa;
             margin-top: 20px;
             font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
-    <header>Сборка и ремонт ПК</header>
+    <header>Ваш компьютер — наша головная боль!</header>
     <nav>
         <a href="#services">Услуги</a>
         <a href="#form">Отправить заявку</a>
@@ -171,11 +172,12 @@
             <input type="tel" id="phone" placeholder="Ваш номер телефона" required>
             <button type="button" onclick="sendToWhatsApp()">Отправить в WhatsApp</button>
             <button type="button" onclick="sendToTelegram()">Отправить в Telegram</button>
+            <button type="button" onclick="sendToEmail()">Отправить на почту</button>
         </form>
     </section>
 
     <footer>
-        <p>&copy; 2024 Сборка и ремонт ПК. Надежность и профессионализм.</p>
+        <p>Ваша задача - наша работа.</p>
     </footer>
 
     <script>
@@ -217,16 +219,15 @@
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
             const message = `Имя: ${name}\nТелефон: ${phone}\nУслуги:\n${selectedServices.map(item => `${item.name} - ${item.price} ₽`).join('\n')}\nИтог: ${totalPrice} ₽`;
-            const botToken = "ВАШ_ТОКЕН_БОТА";
-            const chatId = "ВАШ_CHAT_ID";
-            fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`)
-                .then(response => {
-                    if (response.ok) {
-                        alert('Заявка отправлена через Telegram!');
-                    } else {
-                        alert('Ошибка при отправке в Telegram.');
-                    }
-                });
+            window.open(`https://t.me/79166042444?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        function sendToEmail() {
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const message = `Имя: ${name}\nТелефон: ${phone}\nУслуги:\n${selectedServices.map(item => `${item.name} - ${item.price} ₽`).join('\n')}\nИтог: ${totalPrice} ₽`;
+            const mailto = `mailto:zwv0101@gmail.com?subject=Заявка с сайта&body=${encodeURIComponent(message)}`;
+            window.open(mailto, '_blank');
         }
     </script>
 </body>
