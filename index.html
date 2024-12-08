@@ -6,249 +6,164 @@
     <title>Сборка и ремонт ПК</title>
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Основные стили */
+        /* Основные стили Amazon-подобного дизайна */
         body {
             font-family: 'Inconsolata', monospace;
-            background-color: #f7f9fc;
-            color: #2c3e50;
+            background-color: #ffffff;
+            color: #111;
             margin: 0;
             padding: 0;
             line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
 
-        /* Шапка */
         header {
-            background-color: #2c3e50;
-            color: #ecf0f1;
-            padding: 20px 0;
+            background-color: #232f3e; /* Тёмно-синий цвет */
+            color: #fff;
+            padding: 20px;
             text-align: center;
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            width: 100%;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        header a {
-            color: #ecf0f1;
-            text-decoration: none;
-            font-family: 'Inconsolata', monospace;
-        }
-
-        /* Навигация */
         nav {
             display: flex;
             justify-content: center;
-            background-color: #34495e;
+            background-color: #37475a; /* Более светлый оттенок синего */
             padding: 10px 0;
-            width: 100%;
         }
 
         nav a {
-            color: #ecf0f1;
+            color: #fff;
             text-decoration: none;
             font-size: 1rem;
-            padding: 10px 20px;
-            margin: 0 5px;
+            margin: 0 15px;
+            padding: 8px 15px;
             border-radius: 5px;
-            font-weight: 500;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            transition: background-color 0.3s;
         }
 
         nav a:hover {
-            background-color: #2c3e50;
-            transform: scale(1.1);
+            background-color: #232f3e;
         }
 
-        /* Секции */
         section {
-            max-width: 900px;
-            margin: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
             padding: 20px;
-            background-color: #ecf0f1;
-            border: 1px solid #dcdde1;
+            background-color: #f3f3f3;
+            border: 1px solid #ddd;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 90%;
-            text-align: center;
         }
 
         h2 {
-            color: #34495e;
-            font-family: 'Inconsolata', monospace;
-            font-size: 1.8rem;
+            color: #232f3e;
             margin-bottom: 15px;
         }
 
-        input, button, select {
-            display: block;
-            width: 80%;
-            margin: 15px auto;
-            padding: 12px;
-            font-family: 'Inconsolata', monospace;
-            font-size: 1rem;
-            border: 1px solid #bdc3c7;
-            border-radius: 5px;
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
         }
 
-        input::placeholder {
-            color: #7f8c8d;
-        }
-
-        button {
-            background-color: #3498db;
+        .service-button {
+            background-color: #ffa41c; /* Оранжевый цвет Amazon */
             color: #fff;
-            font-weight: bold;
-            cursor: pointer;
             border: none;
+            padding: 12px;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-align: center;
             transition: background-color 0.3s ease, transform 0.3s ease;
-            width: 50%;
-            margin-top: 15px;
         }
 
-        button:hover {
-            background-color: #2980b9;
+        .service-button:hover {
+            background-color: #e08e0b;
             transform: scale(1.05);
         }
 
-        footer {
-            text-align: center;
-            padding: 15px;
-            background-color: #2c3e50;
-            color: #ecf0f1;
-            margin-top: 20px;
-            font-size: 0.9rem;
-            width: 100%;
-        }
-
-        footer a {
-            color: #ecf0f1;
-            text-decoration: underline;
-        }
-
-        /* Стили для выбора услуги */
-        .service-options {
+        form {
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            gap: 20px;
+            align-items: center;
+            gap: 15px;
             margin-top: 20px;
         }
 
-        .service-options button {
-            background-color: #2980b9;
-            color: #fff;
-            font-size: 1.2rem;
-            padding: 15px;
-            width: 250px;
-            border: none;
+        form input, form button {
+            width: 100%;
+            max-width: 500px;
+            padding: 12px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
             border-radius: 5px;
+        }
+
+        form button {
+            background-color: #ffa41c;
+            color: #fff;
+            border: none;
+            font-weight: bold;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
-        .service-options button:hover {
-            background-color: #3498db;
+        form button:hover {
+            background-color: #e08e0b;
             transform: scale(1.05);
         }
-
-        /* Адаптивность */
-        @media (max-width: 768px) {
-            nav a {
-                padding: 8px 10px;
-                font-size: 0.9rem;
-            }
-            section {
-                padding: 15px;
-            }
-        }
     </style>
-    <script>
-        let selectedServices = [];
-
-        function showSection(section) {
-            document.querySelectorAll('section').forEach(sec => sec.style.display = 'none');
-            document.querySelector(`.${section}`).style.display = 'block';
-        }
-
-        function selectService(service, price) {
-            if (selectedServices.includes(service)) {
-                selectedServices = selectedServices.filter(item => item !== service);
-            } else {
-                selectedServices.push(service);
-            }
-            updateTotalPrice();
-        }
-
-        function updateTotalPrice() {
-            const totalPrice = selectedServices.length * 3000; // Assume each service costs 3000 units
-            document.getElementById('total-price').textContent = `Общая стоимость: ${totalPrice} ₽`;
-        }
-
-        function submitForm() {
-            const formData = {
-                name: document.querySelector('input[placeholder="Ваше имя"]').value,
-                reason: document.querySelector('input[placeholder="Причина обращения"]').value,
-                services: selectedServices.join(', '),
-                totalPrice: selectedServices.length * 3000
-            };
-            console.log(formData);
-            // Send formData to server or email using a server-side solution
-            alert('Заявка отправлена!');
-        }
-    </script>
 </head>
 <body>
-    <!-- Шапка -->
-    <header>
-        <a href="#">Сборка и ремонт ПК</a>
-    </header>
-
-    <!-- Навигация -->
+    <header>Сборка и ремонт ПК</header>
     <nav>
-        <a href="#" onclick="showSection('home')">Главная</a>
-        <a href="#" onclick="showSection('services')">Услуги</a>
-        <a href="#" onclick="showSection('contacts')">Контакты</a>
+        <a href="#services">Услуги</a>
+        <a href="#form">Отправить заявку</a>
     </nav>
 
-    <!-- Главная -->
-    <section class="home" style="display: block;">
-        <h2>Причина обращения</h2>
-        <input type="text" placeholder="Причина обращения">
-        <h2>Ваше имя</h2>
-        <input type="text" placeholder="Ваше имя">
-        <button onclick="submitForm()">Отправить</button>
-        <h2>Часто задаваемые вопросы</h2>
-        <p><b>Как записаться?</b> Просто отправьте заявку на сайте. Мы ответим в ближайшее время.</p>
-        <p><b>Сколько занимает ремонт?</b> В среднем от 1 до 3 дней, в зависимости от сложности.</p>
-    </section>
-
     <!-- Услуги -->
-    <section class="services" style="display: none;">
+    <section id="services">
         <h2>Наши услуги</h2>
-        <div class="service-options">
-            <button onclick="selectService('Сборка компьютера', 3000)">Сборка компьютера</button>
-            <button onclick="selectService('Сборка игрового компьютера', 3000)">Сборка игрового компьютера</button>
-            <button onclick="selectService('Сборка сервера', 3000)">Сборка сервера</button>
-            <button onclick="selectService('Консультация', 3000)">Консультация</button>
-            <button onclick="selectService('Установка ОС', 3000)">Установка ОС</button>
-            <button onclick="selectService('Создание сайта', 3000)">Создание сайта</button>
+        <div class="service-grid">
+            <button class="service-button">Сборка компьютера</button>
+            <button class="service-button">Игровой компьютер</button>
+            <button class="service-button">Сборка сервера</button>
+            <button class="service-button">Консультация</button>
+            <button class="service-button">Установка ОС</button>
+            <button class="service-button">Создание сайта</button>
         </div>
-        <h3 id="total-price">Общая стоимость: 0 ₽</h3>
     </section>
 
-    <!-- Контакты -->
-    <section class="contacts" style="display: none;">
-        <h2>Связаться с нами</h2>
-        <p><b>WhatsApp:</b> <a href="https://wa.me/79166042444" target="_blank">Написать в WhatsApp</a></p>
-        <p><b>Telegram:</b> <a href="https://t.me/79166042444" target="_blank">Написать в Telegram</a></p>
+    <!-- Форма заявки -->
+    <section id="form">
+        <h2>Отправить заявку</h2>
+        <form>
+            <input type="text" placeholder="Ваше имя" required>
+            <input type="tel" placeholder="Ваш номер телефона" required>
+            <button type="button" onclick="sendToWhatsApp()">Отправить в WhatsApp</button>
+            <button type="button" onclick="sendToTelegram()">Отправить в Telegram</button>
+        </form>
     </section>
 
-    <!-- Подвал -->
-    <footer>
-        <p>&copy; 2024 Сборка и ремонт ПК. Надежность и профессионализм.</p>
-    </footer>
+    <script>
+        function sendToWhatsApp() {
+            const name = document.querySelector('input[placeholder="Ваше имя"]').value;
+            const phone = document.querySelector('input[placeholder="Ваш номер телефона"]').value;
+            const message = `Имя: ${name}%0AТелефон: ${phone}`;
+            window.open(`https://wa.me/79166042444?text=${message}`, '_blank');
+        }
+
+        function sendToTelegram() {
+            const name = document.querySelector('input[placeholder="Ваше имя"]').value;
+            const phone = document.querySelector('input[placeholder="Ваш номер телефона"]').value;
+            const message = `Имя: ${name}%0AТелефон: ${phone}`;
+            const botToken = "ВАШ_ТОКЕН_БОТА"; // Замените на токен бота
+            const chatId = "ВАШ_CHAT_ID"; // Замените на ваш chat ID
+            fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${message}`);
+            alert('Заявка отправлена через Telegram!');
+        }
+    </script>
 </body>
 </html>
