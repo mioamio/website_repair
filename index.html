@@ -209,30 +209,36 @@
         }
 
         function handleSubmit(event) {
-            event.preventDefault(); // Останавливаем отправку формы на внешний сайт
+    event.preventDefault(); // Останавливаем стандартную отправку формы
 
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const reason = document.getElementById('reason').value;
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const reason = document.getElementById('reason').value;
 
-            // Проверяем, что форма заполнена
-            if (name && phone && reason && (selectedServices.length > 0 || reason)) {
-                const submitButton = document.getElementById('submit-btn');
-                submitButton.textContent = 'Отправлено';
-                submitButton.disabled = true; // Отключаем кнопку после отправки
+    // Проверяем заполнение всех полей
+    if (name && phone && reason && (selectedServices.length > 0 || reason)) {
+        const submitButton = document.getElementById('submit-btn');
+        submitButton.textContent = 'Отправлено';
+        submitButton.disabled = true;
 
-                // Восстановим кнопку через 5 секунд
-                setTimeout(() => {
-                    submitButton.textContent = 'Отправить на почту';
-                    submitButton.disabled = false;
-                }, 5000);
+        // Имитация отправки данных
+        console.log({
+            name,
+            phone,
+            reason,
+            services: selectedServices,
+            total: totalPrice,
+        });
 
-                // Отправляем форму через AJAX или просто сбрасываем её
-                document.getElementById('request-form').submit();
-            } else {
-                alert('Пожалуйста, заполните все обязательные поля и выберите хотя бы одну услугу.');
-            }
-        }
+        // Восстанавливаем состояние кнопки через 5 секунд
+        setTimeout(() => {
+            submitButton.textContent = 'Отправить на почту';
+            submitButton.disabled = false;
+        }, 5000);
+    } else {
+        alert('Пожалуйста, заполните все обязательные поля.');
+    }
+}
     </script>
 </body>
 </html>
