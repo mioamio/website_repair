@@ -209,7 +209,7 @@
         }
 
         function handleSubmit(event) {
-            event.preventDefault();
+            event.preventDefault(); // Останавливаем отправку формы на внешний сайт
 
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
@@ -221,7 +221,13 @@
                 submitButton.textContent = 'Отправлено';
                 submitButton.disabled = true; // Отключаем кнопку после отправки
 
-                // Дополнительно, можно добавить обработку отправки формы через AJAX, если нужно
+                // Восстановим кнопку через 5 секунд
+                setTimeout(() => {
+                    submitButton.textContent = 'Отправить на почту';
+                    submitButton.disabled = false;
+                }, 5000);
+
+                // Отправляем форму через AJAX или просто сбрасываем её
                 document.getElementById('request-form').submit();
             } else {
                 alert('Пожалуйста, заполните все обязательные поля и выберите хотя бы одну услугу.');
