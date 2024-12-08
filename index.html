@@ -110,11 +110,15 @@
             gap: 15px;
         }
 
-        form input, form button {
+        form input, form textarea, form button {
             padding: 10px;
             font-size: 1rem;
             border-radius: 5px;
             border: 1px solid #d1d5db;
+        }
+
+        form textarea {
+            resize: vertical;
         }
 
         form button {
@@ -140,10 +144,10 @@
     </style>
 </head>
 <body>
-    <header>Ваш компьютер — наша головная боль!</header>
+    <header>Давайте решим ваши компьютерные задачи вместе!</header>
     <nav>
         <a href="#services">Услуги</a>
-        <a href="#form">Отправить заявку</a>
+        <a href="#form">Оставить заявку</a>
     </nav>
 
     <!-- Услуги -->
@@ -166,13 +170,16 @@
 
     <!-- Форма заявки -->
     <section id="form">
-        <h2>Отправить заявку</h2>
+        <h2>Оставить заявку</h2>
         <form>
             <input type="text" id="name" placeholder="Ваше имя" required>
             <input type="tel" id="phone" placeholder="Ваш номер телефона" required>
-            <button type="button" onclick="sendToWhatsApp()">Отправить в WhatsApp</button>
-            <button type="button" onclick="sendToTelegram()">Отправить в Telegram</button>
-            <button type="button" onclick="sendToEmail()">Отправить на почту</button>
+            <textarea id="reason" rows="4" placeholder="Причина обращения" required></textarea>
+            <div style="display: flex; gap: 10px;">
+                <button type="button" onclick="sendToWhatsApp()">Отправить в WhatsApp</button>
+                <button type="button" onclick="sendToTelegram()">Отправить в Telegram</button>
+                <button type="button" onclick="sendToEmail()">Отправить на почту</button>
+            </div>
         </form>
     </section>
 
@@ -211,22 +218,26 @@
         function sendToWhatsApp() {
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
-            const message = `Имя: ${name}%0AТелефон: ${phone}%0AУслуги:%0A${selectedServices.map(item => `${item.name} - ${item.price} ₽`).join('%0A')}%0AИтог: ${totalPrice} ₽`;
+            const reason = document.getElementById('reason').value;
+            const message = `Имя: ${name}%0AТелефон: ${phone}%0AПричина: ${reason}%0AУслуги:%0A${selectedServices.map(item => `${item.name} - ${item.price} ₽`).join('%0A')}%0AИтог: ${totalPrice} ₽`;
             window.open(`https://wa.me/79166042444?text=${message}`, '_blank');
         }
 
         function sendToTelegram() {
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
-            const message = `Имя: ${name}\nТелефон: ${phone}\nУслуги:\n${selectedServices.map(item => `${item.name} - ${item.price} ₽`).join('\n')}\nИтог: ${totalPrice} ₽`;
+            const reason = document.getElementById('reason').value;
+            const message = `Имя: ${name}\nТелефон: ${phone}\nПричина: ${reason}\nУслуги:\n${selectedServices.map(item => `${item.name} - ${item.price} ₽`).join('\n')}\nИтог: ${totalPrice} ₽`;
             window.open(`https://t.me/79166042444?text=${encodeURIComponent(message)}`, '_blank');
         }
 
         function sendToEmail() {
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
-            const message = `Имя: ${name}\nТелефон: ${phone}\nУслуги:\n${selectedServices.map(item => `${item.name} - ${item.price} ₽`).join('\n')}\nИтог: ${totalPrice} ₽`;
-            const mailto = `mailto:zwv0101@gmail.com?subject=Заявка с сайта&body=${encodeURIComponent(message)}`;
+            const reason = document.getElementById('reason').value;
+            const subject = "Заявка с сайта";
+            const body = `Имя: ${name}\nТелефон: ${phone}\nПричина: ${reason}\nУслуги:\n${selectedServices.map(item => `${item.name} - ${item.price} ₽`).join('\n')}\nИтог: ${totalPrice} ₽`;
+            const mailto = `mailto:zwv0101@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
             window.open(mailto, '_blank');
         }
     </script>
