@@ -4,9 +4,138 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Сборка и ремонт ПК</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Стили из предыдущего примера остаются без изменений */
+        /* Общие стили */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #2e3b4e;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        nav {
+            background-color: #354458;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #f5a623;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: #2e3b4e;
+            margin-bottom: 15px;
+        }
+
+        .service-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: space-between;
+        }
+
+        .service-button {
+            background-color: #eef1f5;
+            color: #2e3b4e;
+            border: 1px solid #d1d5db;
+            border-radius: 5px;
+            padding: 10px;
+            width: 48%;
+            font-size: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .service-button.selected {
+            background-color: #f5a623;
+            color: #fff;
+        }
+
+        .service-button:hover {
+            background-color: #d9e2ef;
+        }
+
+        .summary {
+            margin-top: 20px;
+            border-top: 1px solid #d1d5db;
+            padding-top: 15px;
+        }
+
+        .summary ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .summary ul li {
+            margin-bottom: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        form input, form button {
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #d1d5db;
+        }
+
+        form button {
+            background-color: #2e3b4e;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #1c2635;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #2e3b4e;
+            color: #fff;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
@@ -42,9 +171,12 @@
             <input type="tel" id="phone" placeholder="Ваш номер телефона" required>
             <button type="button" onclick="sendToWhatsApp()">Отправить в WhatsApp</button>
             <button type="button" onclick="sendToTelegram()">Отправить в Telegram</button>
-            <button type="button" onclick="sendToEmail()">Отправить на почту</button>
         </form>
     </section>
+
+    <footer>
+        <p>&copy; 2024 Сборка и ремонт ПК. Надежность и профессионализм.</p>
+    </footer>
 
     <script>
         let selectedServices = [];
@@ -95,21 +227,6 @@
                         alert('Ошибка при отправке в Telegram.');
                     }
                 });
-        }
-
-        function sendToEmail() {
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const subject = `Новая заявка с сайта`;
-            const body = `
-                Имя: ${name}\n
-                Телефон: ${phone}\n
-                Услуги:\n
-                ${selectedServices.map(item => `${item.name} - ${item.price} ₽`).join('\n')}\n
-                Итог: ${totalPrice} ₽
-            `;
-            const mailtoLink = `mailto:zwv0101@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            window.location.href = mailtoLink;
         }
     </script>
 </body>
