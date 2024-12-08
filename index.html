@@ -17,7 +17,7 @@
         }
 
         header {
-            background-color: #232f3e; /* Тёмно-синий цвет */
+            background-color: #232f3e;
             color: #fff;
             padding: 20px;
             text-align: center;
@@ -28,7 +28,7 @@
         nav {
             display: flex;
             justify-content: center;
-            background-color: #37475a; /* Более светлый оттенок синего */
+            background-color: #37475a;
             padding: 10px 0;
         }
 
@@ -68,7 +68,7 @@
         }
 
         .service-button {
-            background-color: #ffa41c; /* Оранжевый цвет Amazon */
+            background-color: #ffa41c;
             color: #fff;
             border: none;
             padding: 12px;
@@ -77,6 +77,10 @@
             cursor: pointer;
             text-align: center;
             transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .service-button.selected {
+            background-color: #e08e0b;
         }
 
         .service-button:hover {
@@ -114,6 +118,19 @@
             background-color: #e08e0b;
             transform: scale(1.05);
         }
+
+        .summary {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #111;
+            text-align: center;
+        }
+
+        .summary ul {
+            list-style: none;
+            padding: 0;
+        }
     </style>
 </head>
 <body>
@@ -127,12 +144,17 @@
     <section id="services">
         <h2>Наши услуги</h2>
         <div class="service-grid">
-            <button class="service-button">Сборка компьютера</button>
-            <button class="service-button">Игровой компьютер</button>
-            <button class="service-button">Сборка сервера</button>
-            <button class="service-button">Консультация</button>
-            <button class="service-button">Установка ОС</button>
-            <button class="service-button">Создание сайта</button>
+            <button class="service-button" onclick="toggleService('Сборка компьютера', 3000)">Сборка компьютера</button>
+            <button class="service-button" onclick="toggleService('Игровой компьютер', 5000)">Игровой компьютер</button>
+            <button class="service-button" onclick="toggleService('Сборка сервера', 7000)">Сборка сервера</button>
+            <button class="service-button" onclick="toggleService('Консультация', 1000)">Консультация</button>
+            <button class="service-button" onclick="toggleService('Установка ОС', 2000)">Установка ОС</button>
+            <button class="service-button" onclick="toggleService('Создание сайта', 10000)">Создание сайта</button>
+        </div>
+        <div class="summary">
+            <p>Выбранные услуги:</p>
+            <ul id="selected-services"></ul>
+            <p>Общая стоимость: <span id="total-price">0</span> ₽</p>
         </div>
     </section>
 
@@ -140,28 +162,55 @@
     <section id="form">
         <h2>Отправить заявку</h2>
         <form>
-            <input type="text" placeholder="Ваше имя" required>
-            <input type="tel" placeholder="Ваш номер телефона" required>
+            <input type="text" id="name" placeholder="Ваше имя" required>
+            <input type="tel" id="phone" placeholder="Ваш номер телефона" required>
             <button type="button" onclick="sendToWhatsApp()">Отправить в WhatsApp</button>
             <button type="button" onclick="sendToTelegram()">Отправить в Telegram</button>
         </form>
     </section>
 
     <script>
+        let selectedServices = [];
+        let totalPrice = 0;
+
+        function toggleService(service, price) {
+            const index = selectedServices.findIndex(item => item.name === service);
+            const button = Array.from(document.querySelectorAll('.service-button')).find(btn => btn.textContent === service);
+
+            if (index > -1) {
+                selectedServices.splice(index, 1);
+                button.classList.remove('selected');
+                totalPrice -= price;
+            } else {
+                selectedServices.push({ name: service, price });
+                button.classList.add('selected');
+                totalPrice += price;
+            }
+
+            updateSummary();
+        }
+
+        function updateSummary() {
+            const serviceList = document.getElementById('selected-services');
+            const totalPriceElement = document.getElementById('total-price');
+            serviceList.innerHTML = selectedServices.map(item => `<li>${item.name} - ${item.price} ₽</li>`).join('');
+            totalPriceElement.textContent = totalPrice;
+        }
+
         function sendToWhatsApp() {
-            const name = document.querySelector('input[placeholder="Ваше имя"]').value;
-            const phone = document.querySelector('input[placeholder="Ваш номер телефона"]').value;
-            const message = `Имя: ${name}%0AТелефон: ${phone}`;
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const message = `Имя: ${name}%0AТелефон: ${phone}%0AУслуги:%0A${selectedServices.map(item => `${item.name} - ${item.price} ₽`).join('%0A')}%0AИтог: ${totalPrice} ₽`;
             window.open(`https://wa.me/79166042444?text=${message}`, '_blank');
         }
 
         function sendToTelegram() {
-            const name = document.querySelector('input[placeholder="Ваше имя"]').value;
-            const phone = document.querySelector('input[placeholder="Ваш номер телефона"]').value;
-            const message = `Имя: ${name}%0AТелефон: ${phone}`;
-            const botToken = "ВАШ_ТОКЕН_БОТА"; // Замените на токен бота
-            const chatId = "ВАШ_CHAT_ID"; // Замените на ваш chat ID
-            fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${message}`);
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const message = `Имя: ${name}\nТелефон: ${phone}\nУслуги:\n${selectedServices.map(item => `${item.name} - ${item.price} ₽`).join('\n')}\nИтог: ${totalPrice} ₽`;
+            const botToken = "ВАШ_ТОКЕН_БОТА";
+            const chatId = "ВАШ_CHAT_ID";
+            fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`);
             alert('Заявка отправлена через Telegram!');
         }
     </script>
