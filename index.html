@@ -4,208 +4,236 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Сборка и ремонт ПК</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Общие стили */
+        /* Основные стили */
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f3f6fa;
-            color: #333;
+            font-family: 'Inconsolata', monospace;
+            background-color: #f7f9fc;
+            color: #2c3e50;
             margin: 0;
             padding: 0;
-        }
-
-        header {
-            background-color: #374151;
-            color: #f3f6fa;
-            padding: 20px;
-            text-align: center;
-            font-size: 1.8rem;
-            font-weight: bold;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        section {
-            max-width: 800px;
-            margin: 20px auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            color: #374151;
-            margin-bottom: 15px;
-        }
-
-        .service-grid {
+            line-height: 1.6;
             display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .service-button {
-            background-color: #f3f6fa;
-            color: #374151;
-            border: 1px solid #d1d5db;
-            border-radius: 5px;
-            padding: 10px;
-            width: 48%;
-            font-size: 1rem;
+        /* Шапка */
+        header {
+            background-color: #34495e;
+            color: #ecf0f1;
+            padding: 20px 0;
             text-align: center;
-            cursor: pointer;
+            font-size: 2rem;
+            font-weight: 700;
+            width: 100%;
+        }
+
+        header a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-family: 'Inconsolata', monospace;
+        }
+
+        /* Навигация */
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #34495e;
+            padding: 10px 0;
+            width: 100%;
+        }
+
+        nav a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 5px;
+            font-weight: 500;
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
-        .service-button.selected {
-            background-color: #60a5fa;
-            color: #fff;
+        nav a:hover {
+            background-color: #2c3e50;
+            transform: scale(1.1);
         }
 
-        .service-button:hover {
-            background-color: #e2e8f0;
+        /* Секции */
+        section {
+            max-width: 900px;
+            margin: 20px;
+            padding: 20px;
+            background-color: #ecf0f1;
+            border: 1px solid #dcdde1;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            text-align: center;
         }
 
-        .summary {
-            margin-top: 20px;
-            border-top: 1px solid #d1d5db;
-            padding-top: 15px;
+        h2 {
+            color: #34495e;
+            font-family: 'Inconsolata', monospace;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
         }
 
-        .summary ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .summary ul li {
-            margin-bottom: 10px;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        form input, form textarea, form button {
-            padding: 10px;
+        input, button, select {
+            display: block;
+            width: 80%;
+            margin: 15px auto;
+            padding: 12px;
+            font-family: 'Inconsolata', monospace;
             font-size: 1rem;
+            border: 1px solid #bdc3c7;
             border-radius: 5px;
-            border: 1px solid #d1d5db;
         }
 
-        form textarea {
-            resize: vertical;
+        input::placeholder {
+            color: #7f8c8d;
         }
 
-        form button {
-            background-color: #374151;
+        button {
+            background-color: #3498db;
             color: #fff;
-            border: none;
+            font-weight: bold;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            border: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            width: 50%;
+            margin-top: 15px;
         }
 
-        form button:hover {
-            background-color: #1f2937;
+        button:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
         }
 
         footer {
             text-align: center;
             padding: 15px;
-            background-color: #374151;
-            color: #f3f6fa;
+            background-color: #34495e;
+            color: #ecf0f1;
             margin-top: 20px;
             font-size: 0.9rem;
+            width: 100%;
+        }
+
+        footer a {
+            color: #ecf0f1;
+            text-decoration: underline;
+        }
+
+        /* Кнопки выбора мессенджеров */
+        .service-options button {
+            background-color: #2980b9;
+            color: #fff;
+            font-size: 1.2rem;
+            padding: 15px;
+            width: 250px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .service-options button:hover {
+            background-color: #3498db;
+            transform: scale(1.05);
         }
     </style>
 </head>
 <body>
-    <header>Ремонт ПК и помощь в сборке</header>
+    <!-- Шапка -->
+    <header>
+        <a href="#">Ремонт ПК и помощь в сборке</a>
+    </header>
+
+    <!-- Навигация -->
+    <nav>
+        <a href="#" onclick="showSection('home')">Главная</a>
+        <a href="#" onclick="showSection('services')">Услуги</a>
+        <a href="#" onclick="showSection('contacts')">Контакты</a>
+    </nav>
+
+    <!-- Главная -->
+    <section class="home" style="display: block;">
+        <h2>Причина обращения</h2>
+        <textarea id="reason" placeholder="Опишите вашу проблему или запрос" required></textarea>
+
+        <!-- Кнопка отправки с выбором -->
+        <div style="display: flex; gap: 10px; justify-content: center;">
+            <button type="button" onclick="sendToWhatsApp()">Отправить в WhatsApp</button>
+            <button type="button" onclick="sendToTelegram()">Отправить в Telegram</button>
+            <button type="submit" onclick="sendToEmail()">Отправить на почту</button>
+        </div>
+    </section>
 
     <!-- Услуги -->
-    <section id="services">
+    <section class="services" style="display: none;">
         <h2>Наши услуги</h2>
-        <div class="service-grid">
-            <button class="service-button" onclick="toggleService('Сборка компьютера', 3000)">Сборка компьютера</button>
-            <button class="service-button" onclick="toggleService('Игровой компьютер', 5000)">Игровой компьютер</button>
-            <button class="service-button" onclick="toggleService('Сборка сервера', 7000)">Сборка сервера</button>
-            <button class="service-button" onclick="toggleService('Консультация', 1000)">Консультация</button>
-            <button class="service-button" onclick="toggleService('Установка ОС', 2000)">Установка ОС</button>
-            <button class="service-button" onclick="toggleService('Создание сайта', 10000)">Создание сайта</button>
-        </div>
-        <div class="summary">
-            <p>Выбранные услуги:</p>
-            <ul id="selected-services"></ul>
-            <p>Общая стоимость: <span id="total-price">0</span> ₽</p>
+        <div class="service-options">
+            <button onclick="selectService('Сборка компьютера')">Сборка компьютера</button>
+            <button onclick="selectService('Сборка игрового компьютера')">Сборка игрового компьютера</button>
+            <button onclick="selectService('Консультация по выбору комплектующих')">Консультация</button>
+            <button onclick="selectService('Установка ОС')">Установка ОС</button>
+            <button onclick="selectService('Создание сайта')">Создание сайта</button>
         </div>
     </section>
 
-    <!-- Форма заявки -->
-    <section id="form">
-        <h2>Оставить заявку</h2>
-        <form action="https://formspree.io/f/mwkaqzow" method="POST">
-            <input type="text" id="name" placeholder="Ваше имя" name="name" required>
-            <input type="tel" id="phone" placeholder="Ваш номер телефона" name="phone" required>
-            <textarea id="reason" rows="4" placeholder="Причина обращения" name="reason" required></textarea>
-            <div style="display: flex; gap: 10px;">
-                <button type="button" onclick="sendToWhatsApp()">Отправить в WhatsApp</button>
-                <button type="button" onclick="sendToTelegram()">Отправить в Telegram</button>
-                <button type="submit">Отправить на почту</button>
-            </div>
-        </form>
+    <!-- Контакты -->
+    <section class="contacts" style="display: none;">
+        <h2>Связаться с нами</h2>
+        <p>WhatsApp: <a href="https://wa.me/79166042444" target="_blank">Написать в WhatsApp</a></p>
+        <p>Telegram: <a href="https://t.me/79166042444" target="_blank">Написать в Telegram</a></p>
     </section>
 
+    <!-- Подвал -->
     <footer>
-        <p>Ваша задача - наша работа.</p>
+        <p>Ваша задача - наша работа</p>
     </footer>
 
     <script>
-        let selectedServices = [];
-        let totalPrice = 0;
-
-        function toggleService(service, price) {
-            const index = selectedServices.findIndex(item => item.name === service);
-            const button = Array.from(document.querySelectorAll('.service-button')).find(btn => btn.textContent === service);
-
-            if (index > -1) {
-                selectedServices.splice(index, 1);
-                button.classList.remove('selected');
-                totalPrice -= price;
-            } else {
-                selectedServices.push({ name: service, price });
-                button.classList.add('selected');
-                totalPrice += price;
-            }
-
-            updateSummary();
-        }
-
-        function updateSummary() {
-            const serviceList = document.getElementById('selected-services');
-            const totalPriceElement = document.getElementById('total-price');
-            serviceList.innerHTML = selectedServices.map(item => `<li>${item.name} - ${item.price} ₽</li>`).join('');
-            totalPriceElement.textContent = totalPrice;
-        }
-
+        // Отправка в WhatsApp
         function sendToWhatsApp() {
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const reason = document.getElementById('reason').value;
-            const message = `Имя: ${name}%0AТелефон: ${phone}%0AПричина: ${reason}%0AУслуги:%0A${selectedServices.map(item => `${item.name} - ${item.price} ₽`).join('%0A')}%0AИтог: ${totalPrice} ₽`;
-            window.open(`https://wa.me/79166042444?text=${message}`, '_blank');
+            const reason = document.getElementById("reason").value;
+            const message = `Заявка на ремонт ПК: \nПричина: ${reason}`;
+            const whatsappUrl = `https://wa.me/79166042444?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
         }
 
+        // Отправка в Telegram
         function sendToTelegram() {
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const reason = document.getElementById('reason').value;
-            const message = `Имя: ${name}\nТелефон: ${phone}\nПричина: ${reason}\nУслуги:\n${selectedServices.map(item => `${item.name} - ${item.price} ₽`).join('\n')}\nИтог: ${totalPrice} ₽`;
-            window.open(`https://t.me/79166042444?text=${encodeURIComponent(message)}`, '_blank');
+            const reason = document.getElementById("reason").value;
+            const message = `Заявка на ремонт ПК: \nПричина: ${reason}`;
+            const telegramUrl = `https://t.me/79166042444?text=${encodeURIComponent(message)}`;
+            window.open(telegramUrl, '_blank');
+        }
+
+        // Отправка на почту через Formspree
+        function sendToEmail() {
+            const reason = document.getElementById("reason").value;
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'https://formspree.io/f/xzzbqdwg'; // Замените на ваш URL от Formspree
+
+            const emailInput = document.createElement('input');
+            emailInput.type = 'hidden';
+            emailInput.name = 'email';
+            emailInput.value = 'example@domain.com'; // Укажите свой email
+
+            const reasonInput = document.createElement('input');
+            reasonInput.type = 'hidden';
+            reasonInput.name = 'message';
+            reasonInput.value = reason;
+
+            form.appendChild(emailInput);
+            form.appendChild(reasonInput);
+            document.body.appendChild(form);
+            form.submit();
         }
     </script>
 </body>
