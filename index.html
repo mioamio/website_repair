@@ -251,16 +251,25 @@
         }
 
         function sendToTelegram() {
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const reason = document.getElementById('reason').value;
-            const message = `Имя: ${name}\nТелефон: ${phone}\nПричина: ${reason}\nУслуги:\n${selectedServices.map(item => `${item.name} - ${item.price} ₽`).join('\n')}\nИтог: ${totalPrice} ₽`;
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const reason = document.getElementById('reason').value;
+    const message = `Имя: ${name}\nТелефон: ${phone}\nПричина: ${reason}\nУслуги:\n${selectedServices.map(item => `${item.name} - ${item.price} ₽`).join('\n')}\nИтог: ${totalPrice} ₽`;
 
-            const token = 'ВАШ_ТОКЕН_БОТА';
-            const chatId = 'ВАШ_ID_ЧАТА';
-            const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
-            fetch(url);
-        }
+    const token = '7084790444:AAG-DG5losDEYzPNZY-1X6y4SbzO2_EmkUE';  // Токен вашего бота
+    const chatId = '123456789';  // Ваш chat_id, который вы получили на шаге 1
+    const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+
+    fetch(url)
+        .then(response => {
+            if (response.ok) {
+                console.log('Сообщение отправлено');
+            } else {
+                console.error('Ошибка при отправке сообщения');
+            }
+        })
+        .catch(error => console.error('Ошибка запроса:', error));
+}
 
         function formatPhoneNumber() {
             const phoneInput = document.getElementById('phone');
