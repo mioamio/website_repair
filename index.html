@@ -203,9 +203,8 @@
             <input type="tel" id="phone" placeholder="Ваш номер телефона" name="phone" required>
             <textarea id="reason" rows="4" placeholder="Причина обращения" name="reason" required></textarea>
             <div style="display: flex; gap: 10px; justify-content: center;">
-                <button type="button" onclick="sendToWhatsApp()">Отправить в WhatsApp</button>
-                <button type="button" onclick="sendToTelegram()">Отправить в Telegram</button>
-                <button type="submit" id="order-call-button">Заказать звонок</button>
+                <button type="button" id="whatsapp-button" onclick="sendToWhatsApp()">Отправить в WhatsApp</button>
+                <button type="submit" id="telegram-button">Отправить в Telegram</button>
             </div>
         </form>
     </section>
@@ -247,29 +246,19 @@
             const phone = document.getElementById('phone').value;
             const reason = document.getElementById('reason').value;
             const message = `Имя: ${name}%0AТелефон: ${phone}%0AПричина: ${reason}%0AУслуги:%0A${selectedServices.map(item => `${item.name} - ${item.price} ₽`).join('%0A')}%0AИтог: ${totalPrice} ₽`;
+
+            // Изменяем текст кнопки на "Перенаправляем..."
+            const whatsappButton = document.getElementById('whatsapp-button');
+            whatsappButton.textContent = 'Перенаправляем в чат...';
+
+            // Открываем WhatsApp
             window.open(`https://wa.me/79166042444?text=${message}`, '_blank');
+
+            // Через 5 секунд восстанавливаем исходное название кнопки
+            setTimeout(() => {
+                whatsappButton.textContent = 'Отправить в WhatsApp';
+            }, 5000);
         }
-
-        function sendToTelegram() {
-    const name = document.getElementById('name').value;
-    const phone = document.getElementById('phone').value;
-    const reason = document.getElementById('reason').value;
-    const message = `Имя: ${name}\nТелефон: ${phone}\nПричина: ${reason}\nУслуги:\n${selectedServices.map(item => `${item.name} - ${item.price} ₽`).join('\n')}\nИтог: ${totalPrice} ₽`;
-
-    const token = '7084790444:AAG-DG5losDEYzPNZY-1X6y4SbzO2_EmkUE';  // Токен вашего бота
-    const chatId = '123456789';  // Ваш chat_id, который вы получили на шаге 1
-    const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
-
-    fetch(url)
-        .then(response => {
-            if (response.ok) {
-                console.log('Сообщение отправлено');
-            } else {
-                console.error('Ошибка при отправке сообщения');
-            }
-        })
-        .catch(error => console.error('Ошибка запроса:', error));
-}
 
         function formatPhoneNumber() {
             const phoneInput = document.getElementById('phone');
@@ -297,56 +286,61 @@
         document.getElementById('phone').addEventListener('input', formatPhoneNumber);
 
         function orderCall() {
-    const nameField = document.getElementById('name');
-    const phoneField = document.getElementById('phone');
-    const reasonField = document.getElementById('reason');
+            const nameField = document.getElementById('name');
+            const phoneField = document.getElementById('phone');
+            const reasonField = document.getElementById('reason');
 
-    let isValid = true;
+            let isValid = true;
 
-    if (!nameField.value) {
-        nameField.classList.add('error');
-        isValid = false;
-    } else {
-        nameField.classList.remove('error');
-        nameField.classList.add('success');
-        nameField.value = nameField.value.charAt(0).toUpperCase() + nameField.value.slice(1);
-    }
+            if (selectedServices.some(service => service.name === 'Ремонт ПК/Ноутбука')) {
+                if (!nameField.value) {
+                    nameField.classList.add('error');
+                    isValid = false;
+                } else {
+                    nameField.classList.remove('error');
+                    nameField.classList.add('success');
+                    nameField.value = nameField.value.charAt(0).toUpperCase() + nameField.value.slice(1);
+                }
 
-    // Обновленная проверка номера телефона
-    const phoneValue = phoneField.value.replace(/\D/g, '');  // Убираем все нецифровые символы
-    if (phoneValue.length !== 11) {  // Проверка на 11 цифр
-        phoneField.classList.add('error');
-        isValid = false;
-    } else {
-        phoneField.classList.remove('error');
-        phoneField.classList.add('success');
-    }
+                const phoneValue = phoneField.value.replace(/\D/g, '');
+                if (phoneValue.length !== 11) {
+                    phoneField.classList.add('error');
+                    isValid = false;
+                } else {
+                    phoneField.classList.remove('error');
+                    phoneField.classList.add('success');
+                }
 
-    if (!reasonField.value) {
-        reasonField.classList.add('error');
-        isValid = false;
-    } else {
-        reasonField.classList.remove('error');
-        reasonField.classList.add('success');
-    }
+                if (!reasonField.value) {
+                    reasonField.classList.add('error');
+                    isValid = false;
+                } else {
+                    reasonField.classList.remove('error');
+                    reasonField.classList.add('success');
+                }
+            }
 
-    if (!isValid) {
-        alert('Пожалуйста, заполните все поля корректно.');
-        return false;
-    }
+            if (!isValid) {
+                alert('Пожалуйста, заполните все поля корректно.');
+                return false;
+            }
 
-    document.getElementById('order-call-button').textContent = "Заявка отправлена";
-    setTimeout(function() {
-        document.getElementById('order-call-button').textContent = "Заказать звонок";
-    }, 5000);
+            const message = `Запрос на звонок от: ${nameField.value}\nТелефон: ${phoneField.value}\nПричина: ${reasonField.value}`;
+            const token = '7084790444:AAG-DG5losDEYzPNZY-1X6y4SbzO2_EmkUE';
+            const chatId = '156734752';
+            const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+            fetch(url);
 
-    const message = `Запрос на звонок от: ${nameField.value}\nТелефон: ${phoneField.value}\nПричина: ${reasonField.value}`;
-    const token = '7084790444:AAG-DG5losDEYzPNZY-1X6y4SbzO2_EmkUE';
-    const chatId = '156734752';
-    const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
-    fetch(url);
+            // Меняем текст кнопки на "Отправлено"
+            const telegramButton = document.getElementById('telegram-button');
+            telegramButton.textContent = 'Отправлено';
 
-    return false;  // Останавливаем отправку формы
+            // Через 5 секунд восстанавливаем исходное название кнопки
+            setTimeout(() => {
+                telegramButton.textContent = 'Отправить в Telegram';
+            }, 5000);
+
+            return false;  // Останавливаем отправку формы
         }
     </script>
 </body>
