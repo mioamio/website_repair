@@ -3,99 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сборка и ремонт ПК</title>
+    <title>Ремонт ПК и помощь в установке ПО</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Общие стили */
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #eef7f9;
+            background-color: #f5f6f7;
             color: #333;
             margin: 0;
             padding: 0;
+            text-align: center;
         }
 
         header {
-            background-color: #62b6cb;
+            background-color: #1877f2;
             color: #fff;
             padding: 20px;
             text-align: center;
-            font-size: 1.8rem;
+            font-size: 2.4rem;
             font-weight: bold;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background-image: url('https://images.pexels.com/photos/9242892/pexels-photo-9242892.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); 
+            background-size: cover;
+            background-position: center;
+            height: 150px; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            transition: background-color 0.3s ease;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: -1;
+        }
+
+        header h1 {
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
         }
 
         section {
-            max-width: 800px;
-            margin: 20px auto;
+            max-width: 900px;
+            margin: 30px auto;
             background-color: #fff;
-            padding: 20px;
+            padding: 25px;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         h2 {
-            font-size: 1.5rem;
-            color: #006d77;
-            margin-bottom: 15px;
+            font-size: 1.8rem;
+            color: #1877f2;
+            margin-bottom: 30px;
+            text-align: center;
         }
 
         .service-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
-            justify-content: space-between;
+            gap: 25px;
+            justify-content: center;
         }
 
         .service-button {
-            background-color: #e5f4f6;
-            color: #006d77;
-            border: 1px solid #bee3e7;
+            background-color: #f0f2f5;
+            color: #1877f2;
+            border: 1px solid #ddd;
             border-radius: 5px;
-            padding: 10px;
-            width: 48%;
-            font-size: 1rem;
+            padding: 15px 25px;
+            width: 200px;
+            font-size: 1.1rem;
             text-align: center;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.3s ease;
+            box-sizing: border-box;
         }
 
         .service-button.selected {
-            background-color: #62b6cb;
+            background-color: #1877f2;
             color: #fff;
         }
 
         .service-button:hover {
-            background-color: #bee3e7;
+            background-color: #e4e6eb;
+        }
+
+        .order-call-button {
+            background-color: #ffc107;
+            color: #fff;
+        }
+
+        .order-call-button:hover {
+            background-color: #e0a800;
         }
 
         .summary {
-            margin-top: 20px;
-            border-top: 1px solid #bee3e7;
-            padding-top: 15px;
+            margin-top: 30px;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
         }
 
         .summary ul {
             list-style-type: none;
             padding: 0;
             margin: 0;
+            text-align: left;
+            font-size: 1rem;
         }
 
         .summary ul li {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         form {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 20px;
+            margin-top: 30px;
         }
 
         form input, form textarea, form button {
-            padding: 10px;
+            padding: 15px;
             font-size: 1rem;
             border-radius: 5px;
-            border: 1px solid #bee3e7;
+            border: 1px solid #ddd;
         }
 
         form textarea {
@@ -103,7 +142,7 @@
         }
 
         form button {
-            background-color: #62b6cb;
+            background-color: #1877f2;
             color: #fff;
             border: none;
             cursor: pointer;
@@ -111,32 +150,44 @@
         }
 
         form button:hover {
-            background-color: #006d77;
+            background-color: #145dbf;
         }
 
         footer {
             text-align: center;
-            padding: 15px;
-            background-color: #62b6cb;
+            padding: 20px;
+            background-color: #1877f2;
             color: #fff;
-            margin-top: 20px;
-            font-size: 0.9rem;
+            margin-top: 40px;
+            font-size: 1.1rem;
+        }
+
+        body {
+            background-image: url('https://images.pexels.com/photos/6754844/pexels-photo-6754844.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); 
+            background-size: cover;
+            background-position: center;
+            transition: background-image 0.3s ease;
+        }
+
+        .error {
+            border: 2px solid red;
+        }
+
+        .success {
+            border: 2px solid green;
         }
     </style>
 </head>
 <body>
-    <header>Ремонт ПК и помощь в сборке</header>
+    <header><h1>Ремонт компьютеров и ноутбуков</h1></header>
 
-    <!-- Услуги -->
     <section id="services">
         <h2>Наши услуги</h2>
         <div class="service-grid">
-            <button class="service-button" onclick="toggleService('Сборка компьютера', 3000)">Сборка компьютера</button>
-            <button class="service-button" onclick="toggleService('Игровой компьютер', 5000)">Игровой компьютер</button>
-            <button class="service-button" onclick="toggleService('Сборка сервера', 7000)">Сборка сервера</button>
-            <button class="service-button" onclick="toggleService('Консультация', 1000)">Консультация</button>
-            <button class="service-button" onclick="toggleService('Установка ОС', 2000)">Установка ОС</button>
-            <button class="service-button" onclick="toggleService('Создание сайта', 10000)">Создание сайта</button>
+            <button class="service-button" onclick="toggleService('Ремонт ПК/Ноутбука', 3000)">Ремонт ПК/Ноутбука</button>
+            <button class="service-button" onclick="toggleService('Сборка игрового компьютера', 5000)">Сборка игрового компьютера</button>
+            <button class="service-button" onclick="toggleService('Помощь в подборе комплектующих', 1000)">Помощь в подборе комплектующих</button>
+            <button class="service-button" onclick="toggleService('Установка ПО', 2000)">Установка ПО</button>
         </div>
         <div class="summary">
             <p>Выбранные услуги:</p>
@@ -145,16 +196,16 @@
         </div>
     </section>
 
-    <!-- Форма заявки -->
     <section id="form">
         <h2>Оставить заявку</h2>
-        <form id="request-form">
+        <form id="request-form" onsubmit="return orderCall()">
             <input type="text" id="name" placeholder="Ваше имя" name="name" required>
             <input type="tel" id="phone" placeholder="Ваш номер телефона" name="phone" required>
             <textarea id="reason" rows="4" placeholder="Причина обращения" name="reason" required></textarea>
-            <div style="display: flex; gap: 10px;">
+            <div style="display: flex; gap: 10px; justify-content: center;">
                 <button type="button" onclick="sendToWhatsApp()">Отправить в WhatsApp</button>
                 <button type="button" onclick="sendToTelegram()">Отправить в Telegram</button>
+                <button type="submit" id="order-call-button">Заказать звонок</button>
             </div>
         </form>
     </section>
@@ -204,7 +255,87 @@
             const phone = document.getElementById('phone').value;
             const reason = document.getElementById('reason').value;
             const message = `Имя: ${name}\nТелефон: ${phone}\nПричина: ${reason}\nУслуги:\n${selectedServices.map(item => `${item.name} - ${item.price} ₽`).join('\n')}\nИтог: ${totalPrice} ₽`;
-            window.open(`https://t.me/topvselennaya?text=${encodeURIComponent(message)}`, '_blank');
+
+            const token = 'ВАШ_ТОКЕН_БОТА';
+            const chatId = 'ВАШ_ID_ЧАТА';
+            const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+            fetch(url);
+        }
+
+        function formatPhoneNumber() {
+            const phoneInput = document.getElementById('phone');
+            let phoneValue = phoneInput.value.replace(/\D/g, '');
+
+            if (phoneValue.length > 10) {
+                phoneValue = phoneValue.substring(0, 10);
+            }
+
+            if (phoneValue.length === 1) {
+                phoneValue = '+7 (' + phoneValue;
+            } else if (phoneValue.length > 1 && phoneValue.length <= 4) {
+                phoneValue = '+7 (' + phoneValue.substring(1, 4);
+            } else if (phoneValue.length > 4 && phoneValue.length <= 7) {
+                phoneValue = '+7 (' + phoneValue.substring(1, 4) + ') ' + phoneValue.substring(4, 7);
+            } else if (phoneValue.length > 7 && phoneValue.length <= 9) {
+                phoneValue = '+7 (' + phoneValue.substring(1, 4) + ') ' + phoneValue.substring(4, 7) + '-' + phoneValue.substring(7, 9);
+            } else if (phoneValue.length > 9 && phoneValue.length <= 10) {
+                phoneValue = '+7 (' + phoneValue.substring(1, 4) + ') ' + phoneValue.substring(4, 7) + '-' + phoneValue.substring(7, 9) + '-' + phoneValue.substring(9, 11);
+            }
+
+            phoneInput.value = phoneValue;
+        }
+
+        document.getElementById('phone').addEventListener('input', formatPhoneNumber);
+
+        function orderCall() {
+            const nameField = document.getElementById('name');
+            const phoneField = document.getElementById('phone');
+            const reasonField = document.getElementById('reason');
+
+            let isValid = true;
+
+            if (!nameField.value) {
+                nameField.classList.add('error');
+                isValid = false;
+            } else {
+                nameField.classList.remove('error');
+                nameField.classList.add('success');
+                nameField.value = nameField.value.charAt(0).toUpperCase() + nameField.value.slice(1);
+            }
+
+            if (!phoneField.value || phoneField.value.length !== 16) {
+                phoneField.classList.add('error');
+                isValid = false;
+            } else {
+                phoneField.classList.remove('error');
+                phoneField.classList.add('success');
+            }
+
+            if (!reasonField.value) {
+                reasonField.classList.add('error');
+                isValid = false;
+            } else {
+                reasonField.classList.remove('error');
+                reasonField.classList.add('success');
+            }
+
+            if (!isValid) {
+                alert('Пожалуйста, заполните все поля корректно.');
+                return false;
+            }
+
+            document.getElementById('order-call-button').textContent = "Заявка отправлена";
+            setTimeout(function() {
+                document.getElementById('order-call-button').textContent = "Заказать звонок";
+            }, 5000);
+
+            const message = `Запрос на звонок от: ${nameField.value}\nТелефон: ${phoneField.value}\nПричина: ${reasonField.value}`;
+            const token = 'ВАШ_ТОКЕН_БОТА';
+            const chatId = 'ВАШ_ID_ЧАТА';
+            const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+            fetch(url);
+
+            return false;  // Останавливаем отправку формы
         }
     </script>
 </body>
