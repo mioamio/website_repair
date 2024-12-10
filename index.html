@@ -14,6 +14,9 @@
             margin: 0;
             padding: 0;
             text-align: center;
+            background-size: cover;
+            background-position: center;
+            transition: background-image 0.3s ease;
         }
 
         header {
@@ -24,7 +27,6 @@
             font-size: 2.4rem;
             font-weight: bold;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            background-image: url('https://images.pexels.com/photos/9242892/pexels-photo-9242892.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); 
             background-size: cover;
             background-position: center;
             height: 150px; 
@@ -51,7 +53,7 @@
         }
 
         section {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 30px auto;
             background-color: #fff;
             padding: 25px;
@@ -162,19 +164,67 @@
             font-size: 1.1rem;
         }
 
-        body {
-            background-image: url('https://images.pexels.com/photos/6754844/pexels-photo-6754844.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); 
-            background-size: cover;
-            background-position: center;
-            transition: background-image 0.3s ease;
-        }
-
         .error {
             border: 2px solid red;
         }
 
         .success {
             border: 2px solid green;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .service-button {
+                width: 160px;
+                font-size: 1rem;
+            }
+
+            form input, form textarea, form button {
+                font-size: 0.9rem;
+                padding: 12px;
+            }
+
+            .service-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            footer {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .service-button {
+                width: 100%;
+                padding: 10px;
+                font-size: 1rem;
+            }
+
+            .service-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .summary {
+                font-size: 0.9rem;
+            }
+
+            form input, form textarea, form button {
+                font-size: 0.9rem;
+                padding: 10px;
+            }
+
+            footer {
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
@@ -325,7 +375,7 @@
                 return false;
             }
 
-            const message = `Запрос на звонок от: ${nameField.value}\nТелефон: ${phoneField.value}\nПричина: ${reasonField.value}`;
+            const message = `Заявка: ${nameField.value}\nТелефон: ${phoneField.value}\nОбращение: ${reasonField.value}`;
             const token = '7084790444:AAG-DG5losDEYzPNZY-1X6y4SbzO2_EmkUE';
             const chatId = '156734752';
             const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
@@ -338,7 +388,7 @@
             // Через 5 секунд восстанавливаем исходное название кнопки
             setTimeout(() => {
                 telegramButton.textContent = 'Отправить в Telegram';
-            }, 5000);
+            }, 3000);
 
             return false;  // Останавливаем отправку формы
         }
