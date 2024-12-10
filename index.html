@@ -9,15 +9,15 @@
         /* Общие стили */
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f3f6fa;
+            background-color: #eef7f9;
             color: #333;
             margin: 0;
             padding: 0;
         }
 
         header {
-            background-color: #374151;
-            color: #f3f6fa;
+            background-color: #62b6cb;
+            color: #fff;
             padding: 20px;
             text-align: center;
             font-size: 1.8rem;
@@ -36,7 +36,7 @@
 
         h2 {
             font-size: 1.5rem;
-            color: #374151;
+            color: #006d77;
             margin-bottom: 15px;
         }
 
@@ -48,9 +48,9 @@
         }
 
         .service-button {
-            background-color: #f3f6fa;
-            color: #374151;
-            border: 1px solid #d1d5db;
+            background-color: #e5f4f6;
+            color: #006d77;
+            border: 1px solid #bee3e7;
             border-radius: 5px;
             padding: 10px;
             width: 48%;
@@ -61,17 +61,17 @@
         }
 
         .service-button.selected {
-            background-color: #60a5fa;
+            background-color: #62b6cb;
             color: #fff;
         }
 
         .service-button:hover {
-            background-color: #e2e8f0;
+            background-color: #bee3e7;
         }
 
         .summary {
             margin-top: 20px;
-            border-top: 1px solid #d1d5db;
+            border-top: 1px solid #bee3e7;
             padding-top: 15px;
         }
 
@@ -95,7 +95,7 @@
             padding: 10px;
             font-size: 1rem;
             border-radius: 5px;
-            border: 1px solid #d1d5db;
+            border: 1px solid #bee3e7;
         }
 
         form textarea {
@@ -103,7 +103,7 @@
         }
 
         form button {
-            background-color: #374151;
+            background-color: #62b6cb;
             color: #fff;
             border: none;
             cursor: pointer;
@@ -111,14 +111,14 @@
         }
 
         form button:hover {
-            background-color: #1f2937;
+            background-color: #006d77;
         }
 
         footer {
             text-align: center;
             padding: 15px;
-            background-color: #374151;
-            color: #f3f6fa;
+            background-color: #62b6cb;
+            color: #fff;
             margin-top: 20px;
             font-size: 0.9rem;
         }
@@ -148,14 +148,13 @@
     <!-- Форма заявки -->
     <section id="form">
         <h2>Оставить заявку</h2>
-        <form id="request-form" action="https://formspree.io/f/mwkaqzow" method="POST">
+        <form id="request-form">
             <input type="text" id="name" placeholder="Ваше имя" name="name" required>
             <input type="tel" id="phone" placeholder="Ваш номер телефона" name="phone" required>
             <textarea id="reason" rows="4" placeholder="Причина обращения" name="reason" required></textarea>
             <div style="display: flex; gap: 10px;">
                 <button type="button" onclick="sendToWhatsApp()">Отправить в WhatsApp</button>
                 <button type="button" onclick="sendToTelegram()">Отправить в Telegram</button>
-                <button type="submit" id="submit-btn" onclick="handleSubmit(event)">Отправить на почту</button>
             </div>
         </form>
     </section>
@@ -193,52 +192,20 @@
         }
 
         function sendToWhatsApp() {
-    const name = document.getElementById('name').value;
-    const phone = document.getElementById('phone').value;
-    const reason = document.getElementById('reason').value;
-    const message = `Имя: ${name}%0AТелефон: ${phone}%0AПричина: ${reason}%0AУслуги:%0A${selectedServices.map(item => `${item.name} - ${item.price} ₽`).join('%0A')}%0AИтог: ${totalPrice} ₽`;
-    window.open(`https://wa.me/79166042444?text=${message}`, '_blank');
-}
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const reason = document.getElementById('reason').value;
+            const message = `Имя: ${name}%0AТелефон: ${phone}%0AПричина: ${reason}%0AУслуги:%0A${selectedServices.map(item => `${item.name} - ${item.price} ₽`).join('%0A')}%0AИтог: ${totalPrice} ₽`;
+            window.open(`https://wa.me/79166042444?text=${message}`, '_blank');
+        }
 
         function sendToTelegram() {
-    const name = document.getElementById('name').value;
-    const phone = document.getElementById('phone').value;
-    const reason = document.getElementById('reason').value;
-    const message = `Имя: ${name}\nТелефон: ${phone}\nПричина: ${reason}\nУслуги:\n${selectedServices.map(item => `${item.name} - ${item.price} ₽`).join('\n')}\nИтог: ${totalPrice} ₽`;
-    window.open(`https://t.me/topvselennaya?start=${encodeURIComponent(message)}`, '_blank');
-}
-
-        function handleSubmit(event) {
-    event.preventDefault(); // Останавливаем стандартную отправку формы
-
-    const name = document.getElementById('name').value;
-    const phone = document.getElementById('phone').value;
-    const reason = document.getElementById('reason').value;
-
-    // Проверяем заполнение всех полей
-    if (name && phone && reason && (selectedServices.length > 0 || reason)) {
-        const submitButton = document.getElementById('submit-btn');
-        submitButton.textContent = 'Отправлено';
-        submitButton.disabled = true;
-
-        // Имитация отправки данных
-        console.log({
-            name,
-            phone,
-            reason,
-            services: selectedServices,
-            total: totalPrice,
-        });
-
-        // Восстанавливаем состояние кнопки через 5 секунд
-        setTimeout(() => {
-            submitButton.textContent = 'Отправить на почту';
-            submitButton.disabled = false;
-        }, 5000);
-    } else {
-        alert('Пожалуйста, заполните все обязательные поля.');
-    }
-}
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const reason = document.getElementById('reason').value;
+            const message = `Имя: ${name}\nТелефон: ${phone}\nПричина: ${reason}\nУслуги:\n${selectedServices.map(item => `${item.name} - ${item.price} ₽`).join('\n')}\nИтог: ${totalPrice} ₽`;
+            window.open(`https://t.me/topvselennaya?text=${encodeURIComponent(message)}`, '_blank');
+        }
     </script>
 </body>
 </html>
