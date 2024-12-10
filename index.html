@@ -266,8 +266,8 @@
             const phoneInput = document.getElementById('phone');
             let phoneValue = phoneInput.value.replace(/\D/g, '');
 
-            if (phoneValue.length > 10) {
-                phoneValue = phoneValue.substring(0, 10);
+            if (phoneValue.length > 11) {
+                phoneValue = phoneValue.substring(0, 11);
             }
 
             if (phoneValue.length === 1) {
@@ -278,7 +278,7 @@
                 phoneValue = '+7 (' + phoneValue.substring(1, 4) + ') ' + phoneValue.substring(4, 7);
             } else if (phoneValue.length > 7 && phoneValue.length <= 9) {
                 phoneValue = '+7 (' + phoneValue.substring(1, 4) + ') ' + phoneValue.substring(4, 7) + '-' + phoneValue.substring(7, 9);
-            } else if (phoneValue.length > 9 && phoneValue.length <= 10) {
+            } else if (phoneValue.length > 9 && phoneValue.length <= 11) {
                 phoneValue = '+7 (' + phoneValue.substring(1, 4) + ') ' + phoneValue.substring(4, 7) + '-' + phoneValue.substring(7, 9) + '-' + phoneValue.substring(9, 11);
             }
 
@@ -288,54 +288,56 @@
         document.getElementById('phone').addEventListener('input', formatPhoneNumber);
 
         function orderCall() {
-            const nameField = document.getElementById('name');
-            const phoneField = document.getElementById('phone');
-            const reasonField = document.getElementById('reason');
+    const nameField = document.getElementById('name');
+    const phoneField = document.getElementById('phone');
+    const reasonField = document.getElementById('reason');
 
-            let isValid = true;
+    let isValid = true;
 
-            if (!nameField.value) {
-                nameField.classList.add('error');
-                isValid = false;
-            } else {
-                nameField.classList.remove('error');
-                nameField.classList.add('success');
-                nameField.value = nameField.value.charAt(0).toUpperCase() + nameField.value.slice(1);
-            }
+    if (!nameField.value) {
+        nameField.classList.add('error');
+        isValid = false;
+    } else {
+        nameField.classList.remove('error');
+        nameField.classList.add('success');
+        nameField.value = nameField.value.charAt(0).toUpperCase() + nameField.value.slice(1);
+    }
 
-            if (!phoneField.value || phoneField.value.length !== 16) {
-                phoneField.classList.add('error');
-                isValid = false;
-            } else {
-                phoneField.classList.remove('error');
-                phoneField.classList.add('success');
-            }
+    // Обновленная проверка номера телефона
+    const phoneValue = phoneField.value.replace(/\D/g, '');  // Убираем все нецифровые символы
+    if (phoneValue.length !== 11) {  // Проверка на 11 цифр
+        phoneField.classList.add('error');
+        isValid = false;
+    } else {
+        phoneField.classList.remove('error');
+        phoneField.classList.add('success');
+    }
 
-            if (!reasonField.value) {
-                reasonField.classList.add('error');
-                isValid = false;
-            } else {
-                reasonField.classList.remove('error');
-                reasonField.classList.add('success');
-            }
+    if (!reasonField.value) {
+        reasonField.classList.add('error');
+        isValid = false;
+    } else {
+        reasonField.classList.remove('error');
+        reasonField.classList.add('success');
+    }
 
-            if (!isValid) {
-                alert('Пожалуйста, заполните все поля корректно.');
-                return false;
-            }
+    if (!isValid) {
+        alert('Пожалуйста, заполните все поля корректно.');
+        return false;
+    }
 
-            document.getElementById('order-call-button').textContent = "Заявка отправлена";
-            setTimeout(function() {
-                document.getElementById('order-call-button').textContent = "Заказать звонок";
-            }, 5000);
+    document.getElementById('order-call-button').textContent = "Заявка отправлена";
+    setTimeout(function() {
+        document.getElementById('order-call-button').textContent = "Заказать звонок";
+    }, 5000);
 
-            const message = `Запрос на звонок от: ${nameField.value}\nТелефон: ${phoneField.value}\nПричина: ${reasonField.value}`;
-            const token = 'ВАШ_ТОКЕН_БОТА';
-            const chatId = 'ВАШ_ID_ЧАТА';
-            const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
-            fetch(url);
+    const message = `Запрос на звонок от: ${nameField.value}\nТелефон: ${phoneField.value}\nПричина: ${reasonField.value}`;
+    const token = '7084790444:AAG-DG5losDEYzPNZY-1X6y4SbzO2_EmkUE';
+    const chatId = '156734752';
+    const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+    fetch(url);
 
-            return false;  // Останавливаем отправку формы
+    return false;  // Останавливаем отправку формы
         }
     </script>
 </body>
