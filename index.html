@@ -53,10 +53,14 @@
         header {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 4rem 2rem 8rem;
+            padding: 2rem 1rem 4rem;
             text-align: center;
             position: relative;
-            margin-bottom: -6rem;
+            margin-bottom: -3rem;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
 
         header::after {
@@ -79,15 +83,19 @@
             letter-spacing: -0.025em;
             position: relative;
             z-index: 1;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
 
         section {
             max-width: 1200px;
-            margin: 2rem auto;
-            padding: 2rem;
+            margin: 1.5rem auto;
+            padding: 1.5rem;
             background: var(--section-bg);
-            border-radius: 16px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.05);
             position: relative;
             z-index: 2;
         }
@@ -102,17 +110,17 @@
 
         .service-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .service-button {
             background: white;
             border: 1px solid var(--border-color);
-            padding: 1.5rem;
-            border-radius: 12px;
-            font-size: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
             font-weight: 500;
             color: var(--text-color);
             cursor: pointer;
@@ -200,12 +208,12 @@
 
         @media (max-width: 768px) {
             section {
-                margin: 1rem;
-                padding: 1.5rem;
+                margin: 0.75rem;
+                padding: 1rem;
             }
 
             header h1 {
-                font-size: 2rem;
+                font-size: 1.75rem;
             }
 
             .service-grid {
@@ -320,9 +328,9 @@
 
         .cart {
             background: white;
-            margin: 2rem auto;
-            padding: 2rem;
-            border-radius: 16px;
+            margin: 1.5rem auto;
+            padding: 1.5rem;
+            border-radius: 12px;
             box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
             max-width: 800px;
         }
@@ -340,10 +348,10 @@
             grid-template-columns: 1fr auto auto;
             align-items: center;
             gap: 1rem;
-            padding: 1.25rem;
+            padding: 1rem;
             background: var(--background-color);
-            border-radius: 12px;
-            margin-bottom: 1rem;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
             transition: all 0.2s ease;
         }
 
@@ -425,98 +433,83 @@
             font-size: 1.25rem;
         }
 
-        .cart-empty {
-            text-align: center;
-            padding: 2rem;
-            color: var(--text-color);
-            opacity: 0.7;
-        }
-
-        .cart-item-price {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
         @media (max-width: 768px) {
-            header {
-                padding: 3rem 1.5rem 6rem;
-                margin-bottom: -4rem;
-                text-align: center;
+            .cart {
+                margin: 1rem;
+                padding: 1rem;
+                border-radius: 10px;
             }
 
-            .cart {
-                margin: 1.5rem;
-                padding: 1.5rem;
+            .cart h3 {
+                font-size: 1.25rem;
+                margin-bottom: 1rem;
             }
 
             .cart-item {
                 grid-template-columns: 1fr;
                 text-align: center;
-                padding: 1rem;
-            }
-
-            .cart-item span {
-                text-align: center;
-                margin: 0.5rem 0;
-            }
-
-            .cart-item-price {
-                flex-direction: column;
-                align-items: center;
+                padding: 0.75rem;
                 gap: 0.5rem;
             }
 
-            .cart-total {
-                justify-content: center;
-                text-align: center;
+            .cart-item span {
+                display: block;
+                margin: 0.25rem 0;
             }
 
-            .service-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .service-button {
-                width: 100%;
-                text-align: center;
-            }
-
-            .service-description,
-            .service-features,
-            .summary,
-            form {
-                max-width: 100%;
-                text-align: center;
-                padding: 0 1rem;
-            }
-
-            .service-features ul {
-                text-align: center;
-                padding-left: 0;
-            }
-
-            .service-features li {
-                text-align: center;
-                padding-left: 0;
-            }
-
-            .service-features li:before {
-                display: none;
-            }
-
-            form input,
-            form textarea {
-                text-align: center;
+            .cart-item span:last-of-type {
+                min-width: auto;
             }
 
             .remove-item-btn {
-                margin: 0 auto;
+                margin: 0.5rem auto 0;
+                width: 28px;
+                height: 28px;
+                font-size: 1rem;
+            }
+
+            .cart-total {
+                margin-top: 1.5rem;
+                padding-top: 1rem;
+                flex-direction: column;
+                align-items: center;
             }
 
             .cart-total p {
+                font-size: 1.1rem;
                 text-align: center;
-                width: 100%;
+                margin: 0;
+            }
+
+            .clear-cart-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+                margin-top: 0.75rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .cart {
+                margin: 0.75rem;
+                padding: 0.75rem;
+            }
+
+            .cart-item {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+
+            .cart h3 {
+                font-size: 1.1rem;
+            }
+
+            .cart-total p {
+                font-size: 1rem;
+            }
+
+            .clear-cart-btn {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.85rem;
             }
         }
 
@@ -564,6 +557,27 @@
                 border: 1px solid CanvasText;
             }
         }
+
+        /* Дополнительные оптимизации для очень маленьких экранов */
+        @media (max-width: 360px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .service-button {
+                padding: 0.6rem;
+                font-size: 0.85rem;
+            }
+
+            form div {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            form button {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -576,11 +590,6 @@
             <button class="service-button" onclick="toggleService('Сборка игрового компьютера', 5000)">Сборка игрового компьютера</button>
             <button class="service-button" onclick="toggleService('Помощь в подборе комплектующих', 1000)">Помощь в подборе комплектующих</button>
             <button class="service-button" onclick="toggleService('Установка ПО', 1000)">Установка ПО</button>
-        </div>
-        <div class="summary">
-            <p>Выбранные услуги:</p>
-            <ul id="selected-services"></ul>
-            <p>Общая стоимость: <span id="total-price">0</span> ₽</p>
         </div>
     </section>
 
