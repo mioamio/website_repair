@@ -31,15 +31,23 @@
             --text-color: #1e293b;
             --section-bg: #ffffff;
             --border-color: #e2e8f0;
+            --system-font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 
+                          Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 
+                          'Helvetica Neue', sans-serif;
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: var(--system-font);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
             margin: 0;
             padding: 0;
             background: var(--background-color);
             color: var(--text-color);
             line-height: 1.6;
+            -webkit-text-size-adjust: 100%;
+            font-synthesis: none;
         }
 
         header {
@@ -472,6 +480,34 @@
         .summary {
             transition: opacity 0.3s ease;
         }
+
+        @media (hover: none) {
+            .service-button:hover {
+                transform: none;
+                box-shadow: none;
+            }
+            
+            .cart-item:hover {
+                transform: none;
+                box-shadow: none;
+            }
+        }
+
+        @supports (-webkit-touch-callout: none) {
+            input, 
+            textarea {
+                font-size: 16px;
+            }
+        }
+
+        @media (forced-colors: active) {
+            .service-button,
+            .cart-item,
+            form input,
+            form textarea {
+                border: 1px solid CanvasText;
+            }
+        }
     </style>
 </head>
 <body>
@@ -648,7 +684,7 @@ ${selectedServices.map(item => `${item.name} - ${formatPrice(item.price)}`).join
             const reason = document.getElementById('reason').value;
 
             if (!name || !phone) {
-                alert('Пож��луйста, заполните имя и номер телефона');
+                alert('Пожалуйста, заполните имя и номер телефона');
                 return;
             }
             
@@ -665,7 +701,16 @@ ${reason ? `Причина обращения: ${reason}%0A` : ''}
             const whatsappButton = document.getElementById('whatsapp-button');
             whatsappButton.textContent = 'Перенаправляем в чат...';
 
-            window.open(`https://wa.me/79166042444?text=${message}`, '_blank');
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            const whatsappUrl = isMobile ? 
+                `whatsapp://send?phone=79166042444&text=${message}` : 
+                `https://wa.me/79166042444?text=${message}`;
+
+            const newWindow = window.open(whatsappUrl, '_blank');
+            
+            if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+                alert('Пожалуйста, разрешите всплывающие окна или установите WhatsApp');
+            }
 
             setTimeout(() => {
                 whatsappButton.textContent = 'Отправить в WhatsApp';
@@ -673,6 +718,9 @@ ${reason ? `Причина обращения: ${reason}%0A` : ''}
         }
 
         function formatPhoneNumber(input) {
+            const cursorPos = input.selectionStart;
+            const oldLength = input.value.length;
+            
             let value = input.value.replace(/\D/g, '');
             if (value.length === 0) {
                 input.value = '';
@@ -698,6 +746,10 @@ ${reason ? `Причина обращения: ${reason}%0A` : ''}
             }
             
             input.value = formattedNumber;
+
+            const newLength = input.value.length;
+            const newCursorPos = cursorPos + (newLength - oldLength);
+            input.setSelectionRange(newCursorPos, newCursorPos);
         }
 
         document.addEventListener('DOMContentLoaded', function() {
