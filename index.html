@@ -391,7 +391,7 @@
                 return false;
             }
 
-            const message = `Заявка: ${nameField.value}\nТелефон: ${phoneField.value}\nОбращение: ${reasonField.value}`;
+            const message = `Имя: ${nameField.value}\nТелефон: ${phoneField.value}\nОбращение: ${reasonField.value}`;
             const token = '7084790444:AAG-DG5losDEYzPNZY-1X6y4SbzO2_EmkUE';
             const chatId = '156734752';
             const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
