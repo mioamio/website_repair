@@ -22,6 +22,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ремонт ПК и помощь в установке ПО</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Компьютерная мастерская",
+        "description": "Ремонт компьютеров и ноутбуков, установка ПО",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Зеленоград",
+            "addressRegion": "Москва",
+            "addressCountry": "RU"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "55.984109",
+            "longitude": "37.100298"
+        },
+        "url": "https://netrepair.ru",
+        "telephone": "+79166042444",
+        "openingHours": "Mo-Su 09:00-21:00",
+        "priceRange": "₽₽",
+        "additionalType": "http://schema.org/ComputerStore",
+        "hasMap": "https://yandex.ru/maps/?ll=37.100298,55.984109&z=17",
+        "areaServed": ["Зеленоград", "Андреевка"],
+        "location": [
+            {
+                "@type": "Place",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Зеленоград",
+                    "addressRegion": "Москва",
+                    "addressCountry": "RU"
+                },
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "55.984109",
+                    "longitude": "37.100298"
+                }
+            },
+            {
+                "@type": "Place",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Андреевка",
+                    "addressRegion": "Московская область",
+                    "addressCountry": "RU"
+                },
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "55.980951",
+                    "longitude": "37.130935"
+                }
+            }
+        ]
+    }
+    </script>
     <style>
         :root {
             --primary-color: #2563eb;
@@ -614,6 +670,19 @@
         let selectedServices = [];
         let totalPrice = 0;
 
+        const LOCATIONS = {
+            main: {
+                lat: 55.984109,
+                lon: 37.100298,
+                address: "Зеленоград"
+            },
+            secondary: {
+                lat: 55.980951,
+                lon: 37.130935,
+                address: "Андреевка"
+            }
+        };
+
         function toggleService(service, price) {
             const normalizedService = service.normalize();
             const index = selectedServices.findIndex(item => item.name === normalizedService);
@@ -708,6 +777,11 @@
                 return false;
             }
 
+            const locationInfo = `
+Наши адреса:
+1. ${LOCATIONS.main.address}: https://yandex.ru/maps/?ll=${LOCATIONS.main.lon},${LOCATIONS.main.lat}&z=17
+2. ${LOCATIONS.secondary.address}: https://yandex.ru/maps/?ll=${LOCATIONS.secondary.lon},${LOCATIONS.secondary.lat}&z=17`;
+
             const message = `
 Новая заявка!
 Имя: ${nameField.value}
@@ -717,7 +791,7 @@ ${reasonField.value ? `Причина обращения: ${reasonField.value}\n
 ${selectedServices.map(item => `${item.name} - ${formatPrice(item.price)}`).join('\n')}
 
 Итого: ${formatPrice(totalPrice)}
-`;
+${locationInfo}`;
 
             const token = '7084790444:AAG-DG5losDEYzPNZY-1X6y4SbzO2_EmkUE';
             const chatId = '156734752';
@@ -727,7 +801,7 @@ ${selectedServices.map(item => `${item.name} - ${formatPrice(item.price)}`).join
                 .then(response => {
                     if (response.ok) {
                         const telegramButton = document.getElementById('telegram-button');
-                        telegramButton.textContent = 'Отправле��о';
+                        telegramButton.textContent = 'Отправлено';
                         setTimeout(() => {
                             telegramButton.textContent = 'Отправить в Telegram';
                         }, 3000);
@@ -749,9 +823,14 @@ ${selectedServices.map(item => `${item.name} - ${formatPrice(item.price)}`).join
             const reason = document.getElementById('reason').value;
 
             if (!name || !phone) {
-                alert('Пожалуйс��а, заполните имя и номер телефона');
+                alert('Пожалуйста, заполните имя и номер телефона');
                 return;
             }
+
+            const locationInfo = `
+%0AНаши адреса:%0A
+1. ${LOCATIONS.main.address}: https://yandex.ru/maps/?ll=${LOCATIONS.main.lon},${LOCATIONS.main.lat}&z=17%0A
+2. ${LOCATIONS.secondary.address}: https://yandex.ru/maps/?ll=${LOCATIONS.secondary.lon},${LOCATIONS.secondary.lat}&z=17`;
             
             const servicesMessage = selectedServices.map(item => 
                 `${item.name} - ${formatPrice(item.price)}`
@@ -761,7 +840,8 @@ ${selectedServices.map(item => `${item.name} - ${formatPrice(item.price)}`).join
 Телефон: ${phone}%0A
 ${reason ? `Причина обращения: ${reason}%0A` : ''}
 %0AВыбранные услуги:%0A${servicesMessage}
-%0AИтого: ${formatPrice(totalPrice)}`;
+%0AИтого: ${formatPrice(totalPrice)}
+${locationInfo}`;
 
             const whatsappButton = document.getElementById('whatsapp-button');
             whatsappButton.textContent = 'Перенаправляем в чат...';
@@ -771,11 +851,7 @@ ${reason ? `Причина обращения: ${reason}%0A` : ''}
                 `whatsapp://send?phone=79166042444&text=${message}` : 
                 `https://wa.me/79166042444?text=${message}`;
 
-            const newWindow = window.open(whatsappUrl, '_blank');
-            
-            if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
-                alert('Пожалуйста, разрешите всплывающие окна или установите WhatsApp');
-            }
+            window.open(whatsappUrl, '_blank');
 
             setTimeout(() => {
                 whatsappButton.textContent = 'Отправить в WhatsApp';
