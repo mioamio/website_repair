@@ -22,7 +22,7 @@
         }
 
         body {
-            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
             margin: 0;
             padding: 0;
             background: var(--background-color);
@@ -31,22 +31,29 @@
         }
 
         header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: var(--primary-color);
             color: white;
             padding: 2rem 1rem;
             text-align: center;
+            position: relative;
+            margin-bottom: 0;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
 
         nav {
-            background: var(--section-bg);
-            padding: 1rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-top: 1rem;
         }
 
         nav a {
-            color: var(--primary-color);
+            color: #2563eb;
             text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
             margin: 0 1rem;
+            line-height: 1.5;
         }
 
         .faq-container {
@@ -102,63 +109,43 @@
                 padding: 1rem;
             }
         }
+
+        header h1 {
+            font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            font-size: 2rem;
+            margin: 0;
+            font-weight: 900;
+            letter-spacing: -0.025em;
+            position: relative;
+            z-index: 1;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Частые вопросы о ремонте компьютеров</h1>
+        <h1>Компьютерная мастерская</h1>
     </header>
 
-    <nav style="text-align: center; padding: 1rem; background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-    <a href="index.html" style="color: #2563eb; text-decoration: none; margin: 0 1rem;">Главная</a>
-    <a href="faq.html" style="color: #2563eb; text-decoration: none; margin: 0 1rem;">О нас</a>
-</nav>
+    <nav style="background: white; padding: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <div style="text-align: center;">
+            <a href="index.html" style="color: #2563eb; text-decoration: none; font-weight: bold; font-size: 18px; margin: 0 1rem;">Главная</a>
+            <a href="faq.html" style="color: #2563eb; text-decoration: none; font-weight: bold; font-size: 18px; margin: 0 1rem;">О нас</a>
+        </div>
+    </nav>
 
     <div class="faq-container">
         <div class="faq-item">
-            <h3>🏠 Где находится ваш сервисный центр?</h3>
-            <p>Наш сервисный центр находится в Голубом (Московская область). Мы также обслуживаем близлежащий район: Андреевка. Возможен выезд мастера на дом.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>💰 Сколько стоит ремонт?</h3>
-            <table class="price-table">
-                <tr>
-                    <th>Услуга</th>
-                    <th>Стоимость</th>
-                </tr>
-                <tr>
-                    <td>Диагностика компьютера/ноутбука</td>
-                    <td>Бесплатно</td>
-                </tr>
-                <tr>
-                    <td>Ремонт ПК/ноутбука</td>
-                    <td>от 1500 ₽ до 3000 ₽</td>
-                </tr>
-                <tr>
-                    <td>Сборка игрового компьютера</td>
-                    <td>5000 ₽</td>
-                </tr>
-                <tr>
-                    <td>Установка Windows</td>
-                    <td>1000 ₽</td>
-                </tr>
-            </table>
+            <h3>🏠 Где находится мастерская?</h3>
+            <p>Наш сервисный центр находится в Голубом (Московская область). Мы также обслуиваем близлежащий район: Андреевка. Возможен выезд мастера на дом.</p>
         </div>
 
         <div class="faq-item">
             <h3>⚡ Какие сроки ремонта?</h3>
             <p>Большинство ремонтных работ выполняется в течение 1-2 дней. Сложные случаи могут занять до 3 дней.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>🚗 Выезжаете ли вы на дом?</h3>
-            <p>Да, мы предоставляем услугу выезда мастера на дом в Голубом и ближайших районах. Выезд осуществляется время с 9:00 до 23:00.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>📝 Предоставляете ли вы гарантию?</h3>
-            <p>Да, на все виды работ предоставляется гарантия до 6 месяцев. На установленные комплектующие действует гарантия производителя</p>
         </div>
         
     </div>
@@ -169,11 +156,6 @@
     </footer>
 
     <script>
-        // Отключаем контекстное меню
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-        });
-
         // Отключаем выделение текста
         document.addEventListener('selectstart', function(e) {
             e.preventDefault();
