@@ -20,15 +20,23 @@
             --text-color: #1e293b;
             --section-bg: #ffffff;
             --border-color: #e2e8f0;
+	    --system-font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 
+                          Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 
+                          'Helvetica Neue', sans-serif;
         }
 
         body {
-            font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            font-family: var(--system-font);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
             margin: 0;
             padding: 0;
             background: var(--background-color);
             color: var(--text-color);
             line-height: 1.6;
+            -webkit-text-size-adjust: 100%;
+            font-synthesis: none;
         }
 
         header {
@@ -38,10 +46,16 @@
             text-align: center;
             position: relative;
             margin-bottom: 0;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
+        }
+
+	header h1 {
+            font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            font-size: 2rem;
+            margin: 0;
+            font-weight: 900;
+            letter-spacing: -0.025em;
+            position: relative;
+            z-index: 1;
         }
 
         nav {
@@ -98,12 +112,13 @@
             color: white;
             padding: 2rem;
             text-align: center;
-            margin-top: 2rem;
+            margin-top: 4rem;
         }
 
         @media (max-width: 768px) {
             .faq-container {
-                padding: 0 0.5rem;
+		margin: 0.75rem;
+                padding: 1rem;
             }
             
             .faq-item {
@@ -111,32 +126,19 @@
             }
         }
 
-        header h1 {
-            font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
-            font-size: 2rem;
-            margin: 0;
-            font-weight: 900;
-            letter-spacing: -0.025em;
-            position: relative;
-            z-index: 1;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
     </style>
 </head>
+
 <body style="text-align: center; margin: 0; padding: 0;">
     <header>
+
         <h1>Компьютерная мастерская на дому и на выезде</h1>
     </header>
 
-    <nav style="background: white; padding: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-        <div>
-            <a href="index.html" style="color: #2563eb; text-decoration: none; font-weight: bold; font-size: 18px; margin: 0 1rem;">Главная</a>
-            <a href="faq.html" style="color: #2563eb; text-decoration: none; font-weight: bold; font-size: 18px; margin: 0 1rem;">О нас</a>
-            <a href="download.html" style="color: #2563eb; text-decoration: none; font-weight: bold; font-size: 18px; margin: 0 1rem;">Скачать</a>
-        </div>
+    <nav style="text-align: center; padding: 1rem; background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <a href="index.html" style="color: #2563eb; text-decoration: none; font-weight: bold; font-size: 18px; margin: 0 1rem;">Главная</a>
+        <a href="faq.html" style="color: #2563eb; text-decoration: none; font-weight: bold; font-size: 18px; margin: 0 1rem;">О нас</a>
+        <a href="download.html" style="color: #2563eb; text-decoration: none; font-weight: bold; font-size: 18px; margin: 0 1rem;">Скачать</a>
     </nav>
 
     <div class="faq-container" style="max-width: 800px; margin: 0 auto; padding: 1rem;">
