@@ -94,6 +94,7 @@
         ]
     }
     </script>
+
     <style>
         :root {
             --primary-color: #2563eb;
@@ -112,38 +113,19 @@
             background: var(--background-color);
             color: var(--text-color);
             line-height: 1.6;
-            text-align: center;
         }
 
         header {
-        background: var(--primary-color);
-        color: white;
-        padding: 2rem 1rem;
-        text-align: center;
-        margin-bottom: 1rem;
-        position: relative;
-        z-index: 1000;
-    }
-
-    nav {
-        background: white;
-        padding: 1rem;
-        text-align: center;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        position: sticky;
-        top: 0;
-        z-index: 999;
-        margin-top: 1rem; /* Добавляем отступ сверху */
-    }
-
-
-        header h1 {
-            font-size: 2rem;
-            margin: 0;
-            font-weight: 900;
-            letter-spacing: -0.025em;
+            background: var(--primary-color);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            margin-bottom: 0;
         }
 
+        nav {
+            margin-top: 1rem;
+        }
 
         nav a {
             color: #2563eb;
@@ -151,13 +133,6 @@
             font-weight: bold;
             font-size: 18px;
             margin: 0 1rem;
-            transition: color 0.3s ease;
-            display: inline-block;
-            padding: 0.5rem 0;
-        }
-
-        nav a:hover {
-            color: var(--primary-color);
         }
 
         @media (max-width: 768px) {
