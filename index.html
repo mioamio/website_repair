@@ -222,19 +222,24 @@
         form {
             max-width: 600px;
             margin: 0 auto;
+            padding: 0 1rem;
         }
 
         form input,
         form textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid #e1e1e1;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            background: var(--button-bg);
-            color: var(--text-color);
-        }
+    width: calc(100% - 2rem); /* Учитываем padding */
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: var(--section-bg);
+    color: var(--text-color);
+    display: block; /* Добавляем для лучшего центрирования */
+    margin-left: auto; /* Центрируем */
+    margin-right: auto; /* Центрируем */
+}
 
         form input:focus,
         form textarea:focus {
@@ -243,17 +248,26 @@
             box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
         }
 
-        form button {
-            background: var(--secondary-color);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 1rem 2rem;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
+        form div {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 1.5rem;
+    width: 100%;
+}
+
+form button {
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: calc(50% - 5px); /* Половина ширины с учетом gap */
+}
 
         form button:hover {
             background: var(--primary-color);
@@ -269,24 +283,36 @@
         }
 
         @media (max-width: 768px) {
-            section {
-                margin: 0.75rem;
-                padding: 1rem;
-            }
+    form {
+        padding: 0 0.5rem;
+    }
 
-            header h1 {
-                font-size: 1.75rem;
-            }
+    form input,
+    form textarea {
+        width: calc(100% - 2rem);
+        margin-bottom: 0.8rem;
+    }
 
-            .service-grid {
-                grid-template-columns: 1fr;
-            }
+    form div {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
 
-            .theme-switch-wrapper {
-                top: auto;
-                bottom: 1rem;
-            }
-        }
+    form button {
+        width: 100%;
+    }
+}
+    @media (max-width: 360px) {
+    form input,
+    form textarea {
+        font-size: 16px; /* Оптимальный размер для мобильных устройств */
+        padding: 0.8rem;
+    }
+
+    form button {
+        padding: 0.8rem 1.5rem;
+    }
+}
 
         .error {
             border-color: var(--accent-color) !important;
