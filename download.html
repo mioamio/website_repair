@@ -37,7 +37,9 @@
         --section-bg: #ffffff;
         --border-color: #e2e8f0;
     }
-
+        html {
+    overflow-y: scroll; /* Всегда показывать вертикальную полосу прокрутки */
+}
     body {
     min-height: 100vh;
     display: flex;
@@ -48,6 +50,8 @@
     color: var(--text-color);
     line-height: 1.6;
     font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    width: 100vw;
+    overflow-x: hidden;
 }
 
     header {
