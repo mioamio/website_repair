@@ -45,15 +45,14 @@
         }
 
         body {
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Центрирование по горизонтали */
-            justify-content: center; /* Центрирование по вертикали */
-            background: var(--background-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
-        }
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
 
         header {
     width: 100%;
@@ -82,7 +81,6 @@
     background: white;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     margin-bottom: 2rem;
-    margin-top: 0;
 }
 
         nav a {
@@ -95,30 +93,29 @@
         .content {
     flex: 1;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 2rem auto;
     padding: 0 1rem;
     width: 100%;
     box-sizing: border-box;
     text-align: center;
-    margin-top: 0;
 }
 
         .issues-container {
-            display: flex;
-            gap: 2rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-            justify-content: center; /* Центрирование карточек по горизонтали */
-        }
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
         .issue-card {
-            flex: 1 1 300px; /* Гибкая ширина карточек */
-            background: var(--section-bg);
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            text-align: center;
-        }
+    flex: 1 1 300px;
+    background: var(--section-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
 
         .problem-section h4, 
         .solution-section h4 {
@@ -170,6 +167,12 @@
             text-align: center;
             margin-top: auto;
         }
+       
+       @media (max-width: 768px) {
+    .issue-card {
+        flex: 1 1 100%;
+    }
+}
 
         @media (max-width: 768px) {
             .issue-header h3 {
