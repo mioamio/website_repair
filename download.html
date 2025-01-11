@@ -59,34 +59,36 @@
         font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
     }
 
-header {
-        background: var(--primary-color);
-        color: white;
-        padding: 1.5rem 1rem;
-        text-align: center;
-        margin-bottom: 0;
-    }
-        header h1 {
-        font-size: 1.8rem;
-        margin: 0;
-        font-weight: 700;
-    }
-        nav {
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        padding: 1rem;
-        background: white;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        margin-bottom: 2rem;
-    }
+    header {
+    background: var(--primary-color);
+    color: white;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    margin-bottom: 0;
+}
 
-    nav a {
-        color: var(--primary-color);
-        text-decoration: none;
-        font-weight: 500;
-        font-size: 1rem;
-    }
+header h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    font-weight: 700;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+    background: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+nav a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+}
 
 .content {
         flex: 1;
@@ -179,64 +181,59 @@ footer {
         margin-top: auto;
     }
 
-       @media (max-width: 768px) {
-        header h1 {
-            font-size: 1.5rem;
-        }
-
-        nav {
-            gap: 1rem;
-            padding: 0.75rem;
-        }
-
-        nav a {
-            font-size: 0.9rem;
-        }
-
-        .download-button {
-            padding: 0.6rem 1.2rem;
-            font-size: 0.9rem;
-            margin: 0.4rem 0.3rem;
-        }
+    @media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5rem;
     }
 
-    @media (max-width: 360px) {
-        header h1 {
-            font-size: 1.3rem;
-        }
+    nav {
+        gap: 1rem;
+        padding: 0.75rem;
+    }
 
-        nav {
-            gap: 0.5rem;
-            padding: 0.5rem;
-        }
+    nav a {
+        font-size: 0.9rem;
+    }
+}
 
-        nav a {
-            font-size: 0.8rem;
-        }
+@media (max-width: 360px) {
+    header h1 {
+        font-size: 1.3rem;
+    }
+
+    nav {
+        gap: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    nav a {
+        font-size: 0.8rem;
+    }
+}
 
         .download-button {
             padding: 0.5rem 1rem;
             font-size: 0.8rem;
             margin: 0.3rem 0.2rem;
         }
-    }
+        
 </style>
 </head>
 
 <body style="text-align: center; margin: 0; padding: 0;">
     <body>
-    <header>
-        <a href="index.html">
-            <h1>Компьютерная мастерская на дому</h1>
-        </a>
-    </header>
+        <header>
+            <a href="index.html" style="text-decoration: none; color: white;">
+                <h1>Компьютерная мастерская на дому</h1>
+            </a>
+        </header>
 
-    <nav>
-    <a href="index.html">Главная</a>
-    <a href="faq.html">О нас</a>
-    <a href="common-issues.html">Частые проблемы</a>
-    <a href="download.html">Файлы</a>
-</nav>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="faq.html">О нас</a>
+            <a href="common-issues.html">Частые проблемы</a>
+            <a href="download.html">Файлы</a>
+        </nav>
 
     <div class="content">
         <section class="download-section">
