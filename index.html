@@ -99,19 +99,18 @@
         }
 
         body {
-    font-family: var(--system-font);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-    margin: 0;
-    padding: 0;
-    background: var(--background-color);
-    color: var(--text-color);
-    line-height: 1.6;
-    -webkit-text-size-adjust: 100%;
-    font-synthesis: none;
-    text-align: center;
-}
+            font-family: var(--system-font);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            margin: 0;
+            padding: 0;
+            background: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            -webkit-text-size-adjust: 100%;
+            font-synthesis: none;
+        }
 
         header {
             background: var(--primary-color);
@@ -637,16 +636,16 @@
     </style>
 </head>
 <body>
-        <header>
-        <a href="index.html" style="text-decoration: none; color: white;">
-            <h1>Компьютерная мастерская на дому</h1>
-        </a>
+    <header>
+	<a href="index.html" style="text-decoration: none; color: white;">
+        <h1>Компьютерная мастерская на дому</h1>
     </header>
-   <nav style="display: flex; justify-content: center; gap: 2rem; padding: 1rem; background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 2rem; text-align: center;">
-        <a href="index.html" style="color: var(--primary-color); text-decoration: none; font-weight: 500; font-size: 1rem;">Главная</a>
-        <a href="faq.html" style="color: var(--primary-color); text-decoration: none; font-weight: 500; font-size: 1rem;">О нас</a>
-        <a href="common-issues.html" style="color: var(--primary-color); text-decoration: none; font-weight: 500; font-size: 1rem;">Частые проблемы</a>
-        <a href="download.html" style="color: var(--primary-color); text-decoration: none; font-weight: 500; font-size: 1rem;">Файлы</a>
+
+    <nav style="text-align: center; padding: 1rem; background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <a href="index.html" style="color: #2563eb; text-decoration: none; font-weight: bold; font-size: 18px; margin: 0 1rem;">Главная</a>
+        <a href="faq.html" style="color: #2563eb; text-decoration: none; font-weight: bold; font-size: 18px; margin: 0 1rem;">О нас</a>
+	<a href="common-issues.html" style="color: #2563eb; text-decoration: none; font-weight: bold; font-size: 18px; margin: 0 1rem;">Частые проблемы</a>
+        <a href="download.html" style="color: #2563eb; text-decoration: none; font-weight: bold; font-size: 18px; margin: 0 1rem;">Файлы</a>
     </nav>
     
     <section id="services">
@@ -665,6 +664,7 @@
             <input type="text" id="name" placeholder="Ваше имя" name="name" required>
             <input type="tel" id="phone" placeholder="+7 (___) ___-__-__" name="phone" required>
             <textarea id="reason" rows="4" placeholder="Причина обращения" name="reason"></textarea>
+            <div style="display: flex; gap: 10px; justify-content: center;">
                 <button type="button" id="whatsapp-button" onclick="sendToWhatsApp()">Отправить в WhatsApp</button>
                 <button type="submit" id="telegram-button">Отправить в Telegram</button>
             </div>
