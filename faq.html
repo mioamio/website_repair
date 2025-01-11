@@ -12,16 +12,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-        --primary-color: #2563eb;
-        --secondary-color: #3b82f6;
-        --accent-color: #f43f5e;
-        --background-color: #f8fafc;
-        --text-color: #1e293b;
-        --section-bg: #ffffff;
-        --border-color: #e2e8f0;
-    }
+            --primary-color: #2563eb;
+            --secondary-color: #3b82f6;
+            --accent-color: #f43f5e;
+            --background-color: #f8fafc;
+            --text-color: #1e293b;
+            --section-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
 
-    body {
+        body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -33,7 +33,7 @@
     font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
 }
 
-    header {
+        header {
     background: var(--primary-color);
     color: white;
     padding: 1.5rem 1rem;
@@ -64,98 +64,51 @@ nav a {
     font-size: 1rem;
 }
 
-.content {
-        flex: 1;
-        max-width: 800px;
-        margin: 2rem auto;
-        padding: 1rem;
-        text-align: center;
-    }
+        .faq-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
 
-    .download-section {
-        background: var(--section-bg);
-        border-radius: 8px;
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-
-    .download-section h2 {
-        color: var(--primary-color);
-        margin-top: 0;
-    }
-
-    .download-button {
-        display: inline-block;
-        padding: 0.75rem 1.5rem;
-        font-size: 1rem;
-        color: white;
-        background: var(--primary-color);
-        border: none;
-        border-radius: 5px;
-        text-decoration: none;
-        cursor: pointer;
-        margin: 0.5rem 0.5rem;
-        transition: background 0.3s ease;
-    }
-
-    .download-button:hover {
-        background: var(--secondary-color);
-    }
-
-    .info-section {
-        background: var(--section-bg);
-        border-radius: 8px;
-        padding: 1.5rem;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-
-    .info-section h2 {
-        color: var(--primary-color);
-        margin-top: 0;
-    }
-
-        .partner-section {
+        .faq-item {
             background: var(--section-bg);
             border-radius: 8px;
             padding: 1.5rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
-        .partner-section h2 {
+        .faq-item h3 {
             color: var(--primary-color);
             margin-top: 0;
-            margin-bottom: 1.5rem;
         }
 
-        .partner-logo {
-            padding: 1rem;
-            background: white;
-            border-radius: 8px;
-            display: inline-block;
-            transition: transform 0.3s ease;
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
         }
 
-        .partner-logo:hover {
-            transform: scale(1.05);
+        .price-table th, .price-table td {
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            text-align: left;
         }
 
-        .partner-logo img {
-            max-width: 100%;
-            height: auto;
-            display: block;
+        .price-table th {
+            background: var(--primary-color);
+            color: white;
         }
 
-footer {
-        background: var(--primary-color);
-        color: white;
-        padding: 2rem;
-        text-align: center;
-        margin-top: auto;
-    }
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: auto;
+        }
 
-    @media (max-width: 768px) {
+       @media (max-width: 768px) {
     header h1 {
         font-size: 1.5rem;
     }
@@ -185,13 +138,7 @@ footer {
     }
 }
 
-        .download-button {
-            padding: 0.5rem 1rem;
-            font-size: 0.8rem;
-            margin: 0.3rem 0.2rem;
-        }
-        
-</style>
+    </style>
 </head>
 
 <body>
