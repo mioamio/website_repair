@@ -1,23 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-	<!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();
-   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-   ym(99489920, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true
-   });
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/99489920" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
-	
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,6 +11,7 @@
     <title>Ремонт компьютеров и ноутбуков</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        /* Используем те же стили, что и в основном файле */
         :root {
             --primary-color: #2563eb;
             --secondary-color: #3b82f6;
@@ -36,76 +20,75 @@
             --text-color: #1e293b;
             --section-bg: #ffffff;
             --border-color: #e2e8f0;
+	    --system-font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 
+                          Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 
+                          'Helvetica Neue', sans-serif;
         }
 
         body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
-    background: var(--background-color);
-    color: var(--text-color);
-    line-height: 1.6;
-    font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
-}
+            font-family: var(--system-font);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            margin: 0;
+            padding: 0;
+            background: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            -webkit-text-size-adjust: 100%;
+            font-synthesis: none;
+        }
 
         header {
             background: var(--primary-color);
             color: white;
-            padding: 1.5rem 1rem;
+            padding: 2rem 1rem;
             text-align: center;
+            position: relative;
             margin-bottom: 0;
         }
 
-        header h1 {
-            font-size: 1.8rem;
+	header h1 {
+            font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            font-size: 2rem;
             margin: 0;
-            font-weight: 700;
+            font-weight: 900;
+            letter-spacing: -0.025em;
+            position: relative;
+            z-index: 1;
         }
 
         nav {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            padding: 1rem;
-            background: white;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            margin-bottom: 0;
-	    text-align: center;
+            margin-top: 1rem;
         }
 
         nav a {
-            color: var(--primary-color);
+            color: #2563eb;
             text-decoration: none;
-            font-weight: 500;
-            font-size: 1rem;
+            font-weight: bold;
+            font-size: 18px;
+            margin: 0 1rem;
+            line-height: 1.5;
         }
 
-	    .content {
-		    flex: 1;
-		    max-width: 1200px;
-		    margin: 0 auto;
-		    padding: 2rem 1rem;
-		    box-sizing: border-box;
-	    }
+        .faq-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
 
-	    .partner-section {
-    background: transparent;
-    box-shadow: none;
-    margin: 0;
-    padding: 0;
-}
+        .faq-item {
+            background: var(--section-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
 
-.vk-link {
-    text-decoration: none;
-    color: white;
-}
-
-.vk-link svg {
-    vertical-align: middle;
-    margin-right: 10px;
-}
+        .faq-item h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
 
         .price-table {
             width: 100%;
@@ -124,82 +107,41 @@
             color: white;
         }
 
-       footer {
-        background: var(--primary-color);
-        color: white;
-        padding: 2rem;
-        text-align: center;
-        margin-top: auto;
-    }
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
 
         @media (max-width: 768px) {
-    nav {
-        padding: 0.5rem;
-        margin-bottom: 1rem;
-    }
-
-    nav a {
-        font-size: 14px;
-        padding: 0.4rem 0.6rem;
-    }
-}
-
-@media (max-width: 360px) {
-    nav a {
-        font-size: 13px;
-        padding: 0.3rem 0.5rem;
-    }
-}
-@media (max-width: 768px) {
-            header h1 {
-                font-size: 1.5rem;
+            .faq-container {
+		margin: 0.75rem;
+                padding: 1rem;
             }
-
-            nav {
-                gap: 1rem;
-                padding: 0.75rem;
-            }
-
-            nav a {
-                font-size: 0.9rem;
+            
+            .faq-item {
+                padding: 1rem;
             }
         }
 
-        @media (max-width: 360px) {
-            header h1 {
-                font-size: 1.3rem;
-            }
-
-            nav {
-                gap: 0.5rem;
-                padding: 0.5rem;
-            }
-
-            nav a {
-                font-size: 0.8rem;
-            }
-    }
     </style>
 </head>
 
-<body>
+<body style="text-align: center; margin: 0; padding: 0;">
     <header>
-        <a href="index.html" style="text-decoration: none; color: white;">
-            <h1>Компьютерная мастерская на дому</h1>
-        </a>
+	<a href="index.html" style="text-decoration: none; color: white;">
+        <h1>Компьютерная мастерская на дому</h1>
     </header>
 
-    <div class="faq-container">
-        <div class="faq-item">
-		</div>
-    </div>
+    <nav style="text-align: center; padding: 1rem; background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <a href="index.html" style="color: #2563eb; text-decoration: none; font-weight: bold; font-size: 18px; margin: 0 1rem;">Главная</a>
+        <a href="faq.html" style="color: #2563eb; text-decoration: none; font-weight: bold; font-size: 18px; margin: 0 1rem;">О нас</a>
+	<a href="common-issues.html" style="color: #2563eb; text-decoration: none; font-weight: bold; font-size: 18px; margin: 0 1rem;">Частые проблемы</a>
+        <a href="download.html" style="color: #2563eb; text-decoration: none; font-weight: bold; font-size: 18px; margin: 0 1rem;">Файлы</a>
+    </nav>
 
-<nav>
-    <a href="index.html">Главная</a>
-    <a href="faq.html">О нас</a>
-    <a href="common-issues.html">Частые проблемы</a>
-    <a href="download.html">Файлы</a>
-</nav>
     <div class="faq-container" style="max-width: 800px; margin: 0 auto; padding: 1rem;">
         <div class="faq-item" style="margin-bottom: 1.5rem;">
             <h3>⚡ Какие сроки ремонта?</h3>
@@ -217,7 +159,7 @@
             <p>Мы стремимся к тому, чтобы каждый наш клиент чувствовал себя уверенно и комфортно, зная, что его интересы находятся в надежных руках. Выбирая нашу мастерскую, вы выбираете качество, честность и индивидуальный подход.</p>
         </div>
 
-        <div class="faq-item" style="margin-bottom: 0;">
+        <div class="faq-item" style="margin-bottom: 1.5rem;">
             <h3>🗺️ Карта расположения</h3>
             <p>Мы находимся в Голубом, также обслуживаем близлежащий район Андреевка.</p>
             <iframe 
@@ -234,11 +176,12 @@
             <p>Ремонт компьютеров и ноутбуков в Голубом и Андреевке на дому</p>
         <p>Работаем ежедневно с 9:00 до 23:00</p>
         <p>Ваша задача - наша работа</p>
-        <div class="partner-section">
-        <a href="https://vk.com/netrepairru" target="_blank" rel="noopener" class="vk-link">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+        <div class="partner-section" style="background: transparent; box-shadow: none; margin: 0; padding: 0;">
+            <a href="https://vk.com/netrepairru" target="_blank" rel="noopener" style="text-decoration: none; color: white;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 10px;">
                     <path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.523-2.049-1.718-1.033-1.027-1.487-1.108-1.744-1.108-.356 0-.458.102-.458.597v1.574c0 .424-.135.675-1.241.675-1.83 0-3.863-1.108-5.293-3.162-2.148-3.365-2.725-5.906-2.725-6.42 0-.254.102-.491.597-.491h1.744c.44 0 .61.186.78.675.847 2.421 2.265 4.538 2.861 4.538.22 0 .322-.102.322-.66V9.793c-.068-1.186-.695-1.287-.695-1.71 0-.203.169-.406.44-.406h2.743c.372 0 .508.186.508.643v3.467c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.27-1.422 2.18-3.61 2.18-3.61.119-.254.305-.491.745-.491h1.744c.525 0 .643.27.525.643-.22 1.016-2.332 4.01-2.332 4.01-.186.305-.254.44 0 .78.186.254.796.779 1.202 1.253.745.88 1.32 1.625 1.473 2.129.17.491-.085.745-.576.745z"/>
                 </svg>
+                Мы в ВК
             </a>
         </div>
     </footer>
