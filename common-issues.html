@@ -84,52 +84,68 @@
             padding: 1rem;
         }
 
-        .grid-container {
+        .issues-container {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .issue-card {
+            flex: 1;
+            background: var(--section-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
         }
 
-        .grid-item {
-            display: flex;
-            background: var(--section-bg);
-            border-radius: 8px;
-            padding: 2rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        .issue-header {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--primary-color);
         }
 
-        .problem-description {
-            flex: 1;
-            padding-right: 2rem;
-            border-right: 1px solid var(--border-color);
-        }
-
-        .problem-solution {
-            flex: 1;
-            padding-left: 2rem;
-        }
-
-        .grid-item h3 {
+        .issue-header h3 {
             color: var(--primary-color);
-            margin-top: 0;
-            font-size: 1.3rem;
-            margin-bottom: 1.2rem;
+            margin: 0;
+            font-size: 1.4rem;
+            font-weight: 600;
         }
 
-        .grid-item p {
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-            color: var(--text-color);
+        .issue-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .grid-item ul, .grid-item ol {
-            font-size: 0.95rem;
+        .problem-section, .solution-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .problem-section h4, .solution-section h4 {
+            color: var(--secondary-color);
+            margin: 0 0 1rem 0;
+            font-size: 1.1rem;
+        }
+
+        .issue-card ul, .issue-card ol {
+            margin: 0;
             padding-left: 1.2rem;
-            margin: 0.8rem 0;
         }
 
-        .grid-item li {
+        .issue-card li {
             margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .issue-footer {
+            font-style: italic;
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            margin-top: auto;
+            padding-top: 1rem;
         }
 
         footer {
@@ -140,22 +156,13 @@
             margin-top: auto;
         }
 
-        @media (max-width: 768px) {
-            .grid-item {
+        @media (max-width: 1024px) {
+            .issues-container {
                 flex-direction: column;
-                padding: 1.5rem;
             }
 
-            .problem-description {
-                padding-right: 0;
-                border-right: none;
-                border-bottom: 1px solid var(--border-color);
-                padding-bottom: 1.5rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .problem-solution {
-                padding-left: 0;
+            .issue-card {
+                margin-bottom: 1rem;
             }
         }
     </style>
@@ -176,77 +183,95 @@
     </nav>
 
     <div class="content">
-        <section class="grid-container">
-            <div class="grid-item">
-                <div class="problem-description">
-                    <h3>Перегрев компьютера и ноутбука</h3>
-                    <p>Если компьютер стал шуметь и начал зависать - это первые признаки перегрева:</p>
-                    <ul>
-                        <li>Забитые пылью вентиляторы и радиаторы</li>
-                        <li>Старая термопаста на процессоре (CPU) и видеокарте (GPU)</li>
-                        <li>Высокая нагрузка на процессор</li>
-                        <li>Неисправный кулер</li>
-                    </ul>
+        <div class="issues-container">
+            <div class="issue-card">
+                <div class="issue-header">
+                    <h3>Перегрев компьютера</h3>
                 </div>
-                <div class="problem-solution">
-                    <h3>Решение проблемы</h3>
-                    <ol>
-                        <li>Чистка от пыли</li>
-                        <li>Замена термопасты</li>
-                        <li>Проверка на вирусы</li>
-                        <li>Диагностика и ремонт системы охлаждения</li>
-                    </ol>
-                    <p><em>Перегрев может привести к поломке дорогих компонентов</em></p>
+                <div class="issue-content">
+                    <div class="problem-section">
+                        <h4>Признаки проблемы</h4>
+                        <ul>
+                            <li>Забитые пылью вентиляторы и радиаторы</li>
+                            <li>Старая термопаста на CPU и GPU</li>
+                            <li>Высокая нагрузка на процессор</li>
+                            <li>Неисправный кулер</li>
+                        </ul>
+                    </div>
+                    <div class="solution-section">
+                        <h4>Решение</h4>
+                        <ol>
+                            <li>Чистка от пыли</li>
+                            <li>Замена термопасты</li>
+                            <li>Проверка на вирусы</li>
+                            <li>Диагностика системы охлаждения</li>
+                        </ol>
+                    </div>
+                    <div class="issue-footer">
+                        Перегрев может привести к поломке дорогих компонентов
+                    </div>
                 </div>
             </div>
 
-            <div class="grid-item">
-                <div class="problem-description">
+            <div class="issue-card">
+                <div class="issue-header">
                     <h3>Медленная работа Windows</h3>
-                    <p>Типичные жалобы пользователей:</p>
-                    <ul>
-                        <li>Длительная загрузка Windows</li>
-                        <li>Медленный запуск программ</li>
-                        <li>Зависания при работе</li>
-                        <li>Нехватка места на диске С:</li>
-                    </ul>
                 </div>
-                <div class="problem-solution">
-                    <h3>Как ускорить компьютер</h3>
-                    <ol>
-                        <li>Очистка системного диска от мусора</li>
-                        <li>Оптимизация автозагрузки Windows</li>
-                        <li>Антивирусная проверка системы</li>
-                        <li>Установка SSD накопителя</li>
-                        <li>Увеличение объема оперативной памяти</li>
-                    </ol>
-                    <p><em>В большинстве случаев переустановка Windows устраняет проблемы с производительностью</em></p>
+                <div class="issue-content">
+                    <div class="problem-section">
+                        <h4>Признаки проблемы</h4>
+                        <ul>
+                            <li>Длительная загрузка Windows</li>
+                            <li>Медленный запуск программ</li>
+                            <li>Зависания при работе</li>
+                            <li>Нехватка места на диске C:</li>
+                        </ul>
+                    </div>
+                    <div class="solution-section">
+                        <h4>Решение</h4>
+                        <ol>
+                            <li>Очистка системного диска</li>
+                            <li>Оптимизация автозагрузки</li>
+                            <li>Антивирусная проверка</li>
+                            <li>Установка SSD накопителя</li>
+                            <li>Увеличение оперативной памяти</li>
+                        </ol>
+                    </div>
+                    <div class="issue-footer">
+                        Переустановка Windows часто решает проблемы производительности
+                    </div>
                 </div>
             </div>
 
-            <div class="grid-item">
-                <div class="problem-description">
+            <div class="issue-card">
+                <div class="issue-header">
                     <h3>Самопроизвольные выключения</h3>
-                    <p>Распространенные ситуации:</p>
-                    <ul>
-                        <li>Выключение с черным экраном</li>
-                        <li>Появление синего экрана (BSOD)</li>
-                        <li>Перезагрузки при нагрузке</li>
-                        <li>Сигналы BIOS при включении</li>
-                    </ul>
                 </div>
-                <div class="problem-solution">
-                    <h3>Необходимая диагностика</h3>
-                    <ol>
-                        <li>Тестирование блока питания</li>
-                        <li>Проверка оперативной памяти</li>
-                        <li>Контроль температуры процессора</li>
-                        <li>Диагностика жесткого диска</li>
-                    </ol>
-                    <p><em>Выключения во время игр могут быть признаком серьезной неисправности</em></p>
+                <div class="issue-content">
+                    <div class="problem-section">
+                        <h4>Признаки проблемы</h4>
+                        <ul>
+                            <li>Выключение с черным экраном</li>
+                            <li>Появление синего экрана (BSOD)</li>
+                            <li>Перезагрузки при нагрузке</li>
+                            <li>Сигналы BIOS при включении</li>
+                        </ul>
+                    </div>
+                    <div class="solution-section">
+                        <h4>Решение</h4>
+                        <ol>
+                            <li>Тестирование блока питания</li>
+                            <li>Проверка оперативной памяти</li>
+                            <li>Контроль температуры CPU</li>
+                            <li>Диагностика жесткого диска</li>
+                        </ol>
+                    </div>
+                    <div class="issue-footer">
+                        Выключения во время игр - признак серьезной неисправности
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
     </div>
 
     <footer>
