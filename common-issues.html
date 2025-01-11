@@ -76,6 +76,7 @@ nav a {
     padding: 0 1rem;
     width: 100%;
     box-sizing: border-box;
+    text-align: center;
 }
 
     .issues-container {
@@ -85,21 +86,28 @@ nav a {
         flex-wrap: nowrap;
     }
 
-    .issue-card {
-        flex: 1;
-        background: var(--section-bg);
-        border-radius: 12px;
-        padding: 1.5rem;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        min-width: 0;
-    }
+   .issue-card {
+    flex: 1;
+    background: var(--section-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    min-width: 0;
+    text-align: center; /* Выравнивание текста по левому краю */
+}
 
+       .problem-section h4, 
+.solution-section h4 {
+    color: var(--secondary-color);
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem; /* Увеличиваем размер */
+}
     .issue-header h3 {
-        color: var(--primary-color);
-        margin: 0;
-        font-size: 1.2rem;
-        font-weight: 600;
-    }
+    color: var(--primary-color);
+    margin: 0;
+    font-size: 1.4rem; /* Увеличиваем размер */
+    font-weight: 600;
+}
 
     .issue-content {
         margin-top: 1rem;
@@ -118,22 +126,23 @@ nav a {
     }
 
     .issue-card ul, 
-    .issue-card ol {
-        margin: 0;
-        padding-left: 1.2rem;
-    }
+.issue-card ol {
+    margin: 0;
+    padding-left: 1.2rem;
+}
 
-    .issue-card li {
-        margin-bottom: 0.5rem;
-        font-size: 0.9rem;
-    }
+.issue-card li {
+    margin-bottom: 0.5rem;
+    font-size: 1rem; /* Увеличиваем размер */
+    line-height: 1.5;
+}
 
     .issue-footer {
-        font-style: italic;
-        color: var(--accent-color);
-        font-size: 0.85rem;
-        margin-top: 1rem;
-    }
+    font-style: italic;
+    color: var(--accent-color);
+    font-size: 0.95rem; /* Увеличиваем размер */
+    margin-top: 1rem;
+}
 
     footer {
         background: var(--primary-color);
@@ -142,6 +151,20 @@ nav a {
         text-align: center;
         margin-top: auto;
     }
+       @media (max-width: 768px) {
+    .issue-header h3 {
+        font-size: 1.2rem;
+    }
+    
+    .problem-section h4, 
+    .solution-section h4 {
+        font-size: 1.1rem;
+    }
+    
+    .issue-card li {
+        font-size: 0.95rem;
+    }
+}
 
         @media (max-width: 768px) {
     header h1 {
