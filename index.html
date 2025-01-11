@@ -122,7 +122,7 @@
             text-align: center;
             margin-bottom: 0;
         }
-
+        
         nav {
             margin-top: 1rem;
         }
@@ -133,6 +133,76 @@
             font-weight: bold;
             font-size: 18px;
             margin: 0 1rem;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            text-align: center; /* Центрируем содержимое страницы */
+        }
+
+        .download-section {
+            background: var(--section-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .download-section h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        .download-button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            color: white;
+            background: var(--primary-color);
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            margin: 0.5rem 0;
+            transition: background 0.3s ease;
+        }
+
+        .download-button:hover {
+            background: var(--secondary-color);
+        }
+
+        .info-section {
+            background: var(--section-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .info-section h2 {
+            color: var(--primary-color);
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 0 0.5rem;
+            }
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+            font-weight: 900;
+            letter-spacing: -0.025em;
         }
 
         @media (max-width: 768px) {
@@ -257,14 +327,6 @@
         form button:hover {
             background: var(--primary-color);
             transform: translateY(-2px);
-        }
-
-        footer {
-            background: var(--primary-color);
-            color: white;
-            padding: 2rem;
-            text-align: center;
-            margin-top: 4rem;
         }
 
         @media (max-width: 768px) {
