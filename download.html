@@ -38,105 +38,106 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2563eb;
-            --secondary-color: #3b82f6;
-            --accent-color: #f43f5e;
-            --background-color: #f8fafc;
-            --text-color: #1e293b;
-            --section-bg: #ffffff;
-            --border-color: #e2e8f0;
-        }
+        --primary-color: #2563eb;
+        --secondary-color: #3b82f6;
+        --accent-color: #f43f5e;
+        --background-color: #f8fafc;
+        --text-color: #1e293b;
+        --section-bg: #ffffff;
+        --border-color: #e2e8f0;
+    }
 
-       /* Добавим/изменим следующие стили в секции style */
-body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
-    background: var(--background-color);
-    color: var(--text-color);
-    line-height: 1.6;
-    font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
-}
+    body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+        background: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    }
 
 header {
-    background: var(--primary-color);
-    color: white;
-    padding: 2rem 1rem;
-    text-align: center;
-    margin-bottom: 0;
-}        
+        background: var(--primary-color);
+        color: white;
+        padding: 1.5rem 1rem;
+        text-align: center;
+        margin-bottom: 0;
+    }
+        header h1 {
+        font-size: 1.8rem;
+        margin: 0;
+        font-weight: 700;
+    }
         nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    background: white;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    margin-bottom: 2rem;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-}
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        padding: 1rem;
+        background: white;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        margin-bottom: 2rem;
+    }
 
-nav a {
-    color: #2563eb;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
-    padding: 0.5rem 1rem;
-    white-space: nowrap;
-}
+    nav a {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1rem;
+    }
 
 .content {
-    flex: 1;
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 1rem;
-    text-align: center;
-}
+        flex: 1;
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 1rem;
+        text-align: center;
+    }
 
-        .download-section {
-            background: var(--section-bg);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
+    .download-section {
+        background: var(--section-bg);
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
 
-        .download-section h2 {
-            color: var(--primary-color);
-            margin-top: 0;
-        }
+    .download-section h2 {
+        color: var(--primary-color);
+        margin-top: 0;
+    }
 
-        .download-button {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            font-size: 1rem;
-            color: white;
-            background: var(--primary-color);
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            cursor: pointer;
-            margin: 0.5rem 0;
-            transition: background 0.3s ease;
-        }
+    .download-button {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        color: white;
+        background: var(--primary-color);
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        cursor: pointer;
+        margin: 0.5rem 0.5rem;
+        transition: background 0.3s ease;
+    }
 
-        .download-button:hover {
-            background: var(--secondary-color);
-        }
+    .download-button:hover {
+        background: var(--secondary-color);
+    }
 
-        .info-section {
-            background: var(--section-bg);
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
+    .info-section {
+        background: var(--section-bg);
+        border-radius: 8px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
 
-        .info-section h2 {
-            color: var(--primary-color);
-        }
+    .info-section h2 {
+        color: var(--primary-color);
+        margin-top: 0;
+    }
 
         .partner-section {
             background: var(--section-bg);
@@ -171,37 +172,61 @@ nav a {
         }
 
 footer {
-    background: var(--primary-color);
-    color: white;
-    padding: 2rem;
-    text-align: center;
-    margin-top: auto;
-}
-
-        @media (max-width: 768px) {
-    nav {
-        padding: 0.5rem;
-        margin-bottom: 1rem;
+        background: var(--primary-color);
+        color: white;
+        padding: 2rem;
+        text-align: center;
+        margin-top: auto;
     }
 
-    nav a {
-        font-size: 14px;
-        padding: 0.4rem 0.6rem;
-    }
-}
+       @media (max-width: 768px) {
+        header h1 {
+            font-size: 1.5rem;
+        }
 
-@media (max-width: 360px) {
-    nav a {
-        font-size: 13px;
-        padding: 0.3rem 0.5rem;
+        nav {
+            gap: 1rem;
+            padding: 0.75rem;
+        }
+
+        nav a {
+            font-size: 0.9rem;
+        }
+
+        .download-button {
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
+            margin: 0.4rem 0.3rem;
+        }
     }
-}
-    </style>
+
+    @media (max-width: 360px) {
+        header h1 {
+            font-size: 1.3rem;
+        }
+
+        nav {
+            gap: 0.5rem;
+            padding: 0.5rem;
+        }
+
+        nav a {
+            font-size: 0.8rem;
+        }
+
+        .download-button {
+            padding: 0.5rem 1rem;
+            font-size: 0.8rem;
+            margin: 0.3rem 0.2rem;
+        }
+    }
+</style>
 </head>
 
 <body style="text-align: center; margin: 0; padding: 0;">
+    <body>
     <header>
-        <a href="index.html" style="text-decoration: none; color: white;">
+        <a href="index.html">
             <h1>Компьютерная мастерская на дому</h1>
         </a>
     </header>
