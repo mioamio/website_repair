@@ -86,53 +86,63 @@
     </script>
     <style>
         :root {
-    --primary-color: #2563eb; /* Основной цвет */
-    --background-color: #f8fafc; /* Цвет фона */
-    --text-color: #1e293b; /* Цвет текста */
-}
+            --primary-color: #2563eb;
+            --secondary-color: #3b82f6;
+            --accent-color: #f43f5e;
+            --background-color: #f8fafc;
+            --text-color: #1e293b;
+            --section-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --system-font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 
+                          Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 
+                          'Helvetica Neue', sans-serif;
+        }
 
-body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
-    background: var(--background-color);
-    color: var(--text-color);
-    line-height: 1.6;
-    font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
-}
+        body {
+            font-family: var(--system-font);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            margin: 0;
+            padding: 0;
+            background: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            -webkit-text-size-adjust: 100%;
+            font-synthesis: none;
+        }
 
-header {
-    background: var(--primary-color);
-    color: white;
-    padding: 1.5rem 1rem;
-    text-align: center;
-    margin-bottom: 0;
-}
+        header {
+            background: var(--primary-color);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            position: relative;
+            margin-bottom: 0;
+        }
 
-header h1 {
-    font-size: 1.8rem;
-    margin: 0;
-    font-weight: 700;
-}
+        header h1 {
+            font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            font-size: 2rem;
+            margin: 0;
+            font-weight: 900;
+            letter-spacing: -0.025em;
+            position: relative;
+            z-index: 1;
+        }
 
-nav {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    padding: 1rem;
-    background: white;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    margin-bottom: 2rem;
-}
+        nav {
+            margin-top: 1rem;
+        }
 
-nav a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1rem;
-}
+        nav a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            margin: 0 1rem;
+            line-height: 1.5;
+        }
 
         section {
             max-width: 1200px;
@@ -203,30 +213,53 @@ nav a {
         }
 
         form {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 0 1rem; /* Добавляем отступы по бокам */
-}
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-form input,
-form textarea {
-    width: 100%;
-    padding: 1rem;
-    border: 2px solid #e1e1e1;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    background: var(--button-bg);
-    color: var(--text-color);
-    box-sizing: border-box; /* Учитываем padding в ширине */
-}
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e1e1e1;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: var(--button-bg);
+            color: var(--text-color);
+        }
 
-form div {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-top: 1.5rem;
-}
+        form input:focus,
+        form textarea:focus {
+            border-color: var(--secondary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+
+        form button {
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        form button:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
 
         @media (max-width: 768px) {
             section {
@@ -257,50 +290,6 @@ form div {
             border-color: #2ecc71 !important;
         }
 
-      @media (max-width: 768px) {
-    form {
-        width: 100%;
-        max-width: 100%;
-        padding: 0 1rem;
-        box-sizing: border-box;
-    }
-
-    form input,
-    form textarea {
-        width: 100%;
-        margin: 0 auto;
-        display: block;
-    }
-
-    form div {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    form button {
-        width: 100%;
-        margin: 0.5rem 0;
-    }
-}
-       @media (max-width: 768px) {
-    body {
-        padding-bottom: 120px; /* Отступ для футера */
-    }
-
-    section {
-        margin: 1rem auto;
-        padding: 1rem;
-    }
-
-    .service-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .service-button {
-        width: 100%;
-    }
-}
-       
         @keyframes shake {
             0%, 100% { transform: translateX(0); }
             25% { transform: translateX(-5px); }
@@ -377,29 +366,7 @@ form div {
             justify-content: center;
             margin-top: 1.5rem;
         }
-       
-       @media (max-width: 768px) {
-    footer {
-        padding: 1.5rem;
-    }
 
-    footer p {
-        font-size: 0.9rem;
-    }
-}
-
-       footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: var(--primary-color);
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    z-index: 1000;
-}
-       
         @media (max-width: 768px) {
             section {
                 margin: 1rem;
@@ -670,17 +637,16 @@ form div {
 </head>
 <body>
     <header>
-    <a href="index.html" style="text-decoration: none; color: white;">
+	<a href="index.html" style="text-decoration: none; color: white;">
         <h1>Компьютерная мастерская на дому</h1>
-    </a>
-</header>
+    </header>
 
-<nav>
-    <a href="index.html">Главная</a>
-    <a href="faq.html">О нас</a>
-    <a href="common-issues.html">Частые проблемы</a>
-    <a href="download.html">Файлы</a>
-</nav>
+    <nav style="text-align: center; padding: 1rem; background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <a href="index.html" style="color: #2563eb; text-decoration: none; font-weight: bold; font-size: 18px; margin: 0 1rem;">Главная</a>
+        <a href="faq.html" style="color: #2563eb; text-decoration: none; font-weight: bold; font-size: 18px; margin: 0 1rem;">О нас</a>
+	<a href="common-issues.html" style="color: #2563eb; text-decoration: none; font-weight: bold; font-size: 18px; margin: 0 1rem;">Частые проблемы</a>
+        <a href="download.html" style="color: #2563eb; text-decoration: none; font-weight: bold; font-size: 18px; margin: 0 1rem;">Файлы</a>
+    </nav>
     
     <section id="services">
         <h2>Наши услуги</h2>
@@ -705,8 +671,8 @@ form div {
         </form>
     </section>
    
-   <footer>
-        <p>Ремонт компьютеров и ноутбуков в Голубом и Андреевке на дому</p>
+    <footer>
+            <p>Ремонт компьютеров и ноутбуков в Голубом и Андреевке на дому</p>
         <p>Работаем ежедневно с 9:00 до 23:00</p>
         <p>Ваша задача - наша работа</p>
         <div class="partner-section" style="background: transparent; box-shadow: none; margin: 0; padding: 0;">
@@ -947,32 +913,6 @@ ${locationInfo}`;
                 formatPhoneNumber(this);
             });
         });
-
-        // Отключаем различные счетания клавиш
-        document.addEventListener('keydown', function(e) {
-            // Ctrl+U (просмотр исходного кода)
-            if (e.ctrlKey && e.keyCode == 85) {
-                e.preventDefault();
-                return false;
-            }
-
-            // Ctrl+S (сохранение страницы)
-            if (e.ctrlKey && e.keyCode == 83) {
-                e.preventDefault();
-                return false;
-            }
-        });
-
-        // Отключаем выделение текста
-        document.addEventListener('selectstart', function(e) {
-            e.preventDefault();
-        });
-
-        // Отключаем перетаскивание элементов
-        document.addEventListener('dragstart', function(e) {
-            e.preventDefault();
-        });
-
     </script>
 </body>
 </html>
