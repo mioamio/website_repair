@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+       m[i].l=1*new Date();
+       for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+       k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+       (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+       ym(99489920, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true
+       });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/99489920" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,47 +39,47 @@
         }
 
         body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
-    background: var(--background-color);
-    color: var(--text-color);
-    line-height: 1.6;
-    font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
-}
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            padding: 0;
+            background: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
+        }
 
         header {
-    background: var(--primary-color);
-    color: white;
-    padding: 1.5rem 1rem;
-    text-align: center;
-    margin-bottom: 0;
-}
+            background: var(--primary-color);
+            color: white;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            margin-bottom: 0;
+        }
 
-header h1 {
-    font-size: 1.8rem;
-    margin: 0;
-    font-weight: 700;
-}
+        header h1 {
+            font-size: 1.8rem;
+            margin: 0;
+            font-weight: 700;
+        }
 
-nav {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    padding: 1rem;
-    background: white;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    margin-bottom: 2rem;
-}
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 1rem;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
 
-nav a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1rem;
-}
+        nav a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+        }
 
         .faq-container {
             max-width: 800px;
@@ -108,36 +125,44 @@ nav a {
             margin-top: auto;
         }
 
-       @media (max-width: 768px) {
-    header h1 {
-        font-size: 1.5rem;
-    }
+        @media (max-width: 768px) {
+            .faq-container {
+                margin: 0.75rem;
+                padding: 1rem;
+            }
+            
+            .faq-item {
+                padding: 1rem;
+            }
 
-    nav {
-        gap: 1rem;
-        padding: 0.75rem;
-    }
+            header h1 {
+                font-size: 1.5rem;
+            }
 
-    nav a {
-        font-size: 0.9rem;
-    }
-}
+            nav {
+                gap: 1rem;
+                padding: 0.75rem;
+            }
 
-@media (max-width: 360px) {
-    header h1 {
-        font-size: 1.3rem;
-    }
+            nav a {
+                font-size: 0.9rem;
+            }
+        }
 
-    nav {
-        gap: 0.5rem;
-        padding: 0.5rem;
-    }
+        @media (max-width: 360px) {
+            header h1 {
+                font-size: 1.3rem;
+            }
 
-    nav a {
-        font-size: 0.8rem;
-    }
-}
+            nav {
+                gap: 0.5rem;
+                padding: 0.5rem;
+            }
 
+            nav a {
+                font-size: 0.8rem;
+            }
+        }
     </style>
 </head>
 
@@ -155,13 +180,13 @@ nav a {
         <a href="download.html">Файлы</a>
     </nav>
 
-    <div class="faq-container" style="max-width: 800px; margin: 0 auto; padding: 1rem;">
-        <div class="faq-item" style="margin-bottom: 1.5rem;">
+    <div class="faq-container">
+        <div class="faq-item">
             <h3>⚡ Какие сроки ремонта?</h3>
             <p>Большинство ремонтных работ выполняется в течение 1-2 дней. Сложные случаи могут занять до 3 дней. Всегда стараемся выполнить ремонт на месте и сразу. Наша цель — минимизировать ваши неудобства и обеспечить быстрое восстановление работоспособности.</p>
         </div>
 
-        <div class="faq-item" style="margin-bottom: 1.5rem;">
+        <div class="faq-item">
             <h3>🤝 О нас:</h3>
             <p>В нашей мастерской мы гордимся тем, что работаем честно и открыто. Мы понимаем, как важно для вас знать, за что вы платите, и именно поэтому мы не используем посредников. Это позволяет нам устанавливать прямые и прозрачные отношения с клиентами, а также предлагать лучшие условия.</p>
 
@@ -172,7 +197,7 @@ nav a {
             <p>Мы стремимся к тому, чтобы каждый наш клиент чувствовал себя уверенно и комфортно, зная, что его интересы находятся в надежных руках. Выбирая нашу мастерскую, вы выбираете качество, честность и индивидуальный подход.</p>
         </div>
 
-        <div class="faq-item" style="margin-bottom: 1.5rem;">
+        <div class="faq-item">
             <h3>🗺️ Карта расположения</h3>
             <p>Мы находимся в Голубом, также обслуживаем близлежащий район Андреевка.</p>
             <iframe 
@@ -186,7 +211,7 @@ nav a {
     </div>
 
     <footer>
-            <p>Ремонт компьютеров и ноутбуков в Голубом и Андреевке на дому</p>
+        <p>Ремонт компьютеров и ноутбуков в Голубом и Андреевке на дому</p>
         <p>Работаем ежедневно с 9:00 до 23:00</p>
         <p>Ваша задача - наша работа</p>
         <div class="partner-section" style="background: transparent; box-shadow: none; margin: 0; padding: 0;">
