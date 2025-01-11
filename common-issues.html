@@ -73,7 +73,7 @@
             color: #2563eb;
             text-decoration: none;
             font-weight: bold;
-            font-size: 18px;
+            font-size: 16px;
             margin: 0 1rem;
         }
 
@@ -85,21 +85,51 @@
         }
 
         .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            display: flex;
+            flex-direction: column;
             gap: 1.5rem;
         }
 
         .grid-item {
+            display: flex;
             background: var(--section-bg);
             border-radius: 8px;
-            padding: 1.5rem;
+            padding: 2rem;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .problem-description {
+            flex: 1;
+            padding-right: 2rem;
+            border-right: 1px solid var(--border-color);
+        }
+
+        .problem-solution {
+            flex: 1;
+            padding-left: 2rem;
         }
 
         .grid-item h3 {
             color: var(--primary-color);
             margin-top: 0;
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .grid-item p {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .grid-item ul, .grid-item ol {
+            font-size: 0.95rem;
+            padding-left: 1.2rem;
+            margin: 0.8rem 0;
+        }
+
+        .grid-item li {
+            margin-bottom: 0.5rem;
         }
 
         footer {
@@ -111,16 +141,22 @@
         }
 
         @media (max-width: 768px) {
-            .content {
-                padding: 0 0.5rem;
+            .grid-item {
+                flex-direction: column;
+                padding: 1.5rem;
             }
-        }
 
-        header h1 {
-            font-size: 2rem;
-            margin: 0;
-            font-weight: 900;
-            letter-spacing: -0.025em;
+            .problem-description {
+                padding-right: 0;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+                padding-bottom: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .problem-solution {
+                padding-left: 0;
+            }
         }
     </style>
 </head>
@@ -142,61 +178,73 @@
     <div class="content">
         <section class="grid-container">
             <div class="grid-item">
-                <h3>Перегрев компьютера и ноутбука</h3>
-                <p>Если компьютер стал шуметь, как пылесос и начал зависать - это первые признаки перегрева:</p>
-                <ul>
-                    <li>Забитые пылью вентиляторы и радиаторы</li>
-                    <li>Старая термопаста на процессоре (CPU) и видеокарте (GPU)</li>
-                    <li>Высокая нагрузка на процессор</li>
-                    <li>Неисправный кулер</li>
-                </ul>
-                <p><strong>Решение проблемы:</strong></p>
-                <ol>
-                    <li>Чистка от пыли</li>
-                    <li>Замена термопасты</li>
-                    <li>Проверка на вирусы</li>
-                    <li>Диагностика и ремонт системы охлаждения</li>
-                </ol>
-                <p><em>Перегрев может привести к поломке дорогих компонентов</em></p>
+                <div class="problem-description">
+                    <h3>Перегрев компьютера и ноутбука</h3>
+                    <p>Если компьютер стал шуметь и начал зависать - это первые признаки перегрева:</p>
+                    <ul>
+                        <li>Забитые пылью вентиляторы и радиаторы</li>
+                        <li>Старая термопаста на процессоре (CPU) и видеокарте (GPU)</li>
+                        <li>Высокая нагрузка на процессор</li>
+                        <li>Неисправный кулер</li>
+                    </ul>
+                </div>
+                <div class="problem-solution">
+                    <h3>Решение проблемы</h3>
+                    <ol>
+                        <li>Чистка от пыли</li>
+                        <li>Замена термопасты</li>
+                        <li>Проверка на вирусы</li>
+                        <li>Диагностика и ремонт системы охлаждения</li>
+                    </ol>
+                    <p><em>Перегрев может привести к поломке дорогих компонентов</em></p>
+                </div>
             </div>
 
             <div class="grid-item">
-                <h3>Компьютер тормозит и долго загружается Windows</h3>
-                <p>Типичные жалобы пользователей:</p>
-                <ul>
-                    <li>Длительная загрузка Windows</li>
-                    <li>Медленный запуск программ</li>
-                    <li>Зависания при работе</li>
-                    <li>Нехватка места на диске С:</li>
-                </ul>
-                <p><strong>Как ускорить компьютер:</strong></p>
-                <ol>
-                    <li>Очистка системного диска от мусора</li>
-                    <li>Оптимизация автозагрузки Windows</li>
-                    <li>Антивирусная проверка системы</li>
-                    <li>Установка SSD накопителя</li>
-                    <li>Увеличение объема оперативной памяти</li>
-                </ol>
-                <p><em>В большинстве случаев простая переустановка Windows устраняет проблемы с производительностью</em></p>
+                <div class="problem-description">
+                    <h3>Медленная работа Windows</h3>
+                    <p>Типичные жалобы пользователей:</p>
+                    <ul>
+                        <li>Длительная загрузка Windows</li>
+                        <li>Медленный запуск программ</li>
+                        <li>Зависания при работе</li>
+                        <li>Нехватка места на диске С:</li>
+                    </ul>
+                </div>
+                <div class="problem-solution">
+                    <h3>Как ускорить компьютер</h3>
+                    <ol>
+                        <li>Очистка системного диска от мусора</li>
+                        <li>Оптимизация автозагрузки Windows</li>
+                        <li>Антивирусная проверка системы</li>
+                        <li>Установка SSD накопителя</li>
+                        <li>Увеличение объема оперативной памяти</li>
+                    </ol>
+                    <p><em>В большинстве случаев переустановка Windows устраняет проблемы с производительностью</em></p>
+                </div>
             </div>
 
             <div class="grid-item">
-                <h3>Компьютер сам выключается или перезагружается</h3>
-                <p>Распространенные ситуации:</p>
-                <ul>
-                    <li>Выключение с черным экраном</li>
-                    <li>Появление синего экрана (BSOD)</li>
-                    <li>Перезагрузки при нагрузке</li>
-                    <li>Сигналы BIOS при включении</li>
-                </ul>
-                <p><strong>Необходимая диагностика:</strong></p>
-                <ol>
-                    <li>Тестирование блока питания</li>
-                    <li>Проверка оперативной памяти</li>
-                    <li>Контроль температуры процессора</li>
-                    <li>Диагностика жесткого диска</li>
-                </ol>
-                <p><em>Если компьютер выключается во время игр - это может быть признаком серьезной неисправности</em></p>
+                <div class="problem-description">
+                    <h3>Самопроизвольные выключения</h3>
+                    <p>Распространенные ситуации:</p>
+                    <ul>
+                        <li>Выключение с черным экраном</li>
+                        <li>Появление синего экрана (BSOD)</li>
+                        <li>Перезагрузки при нагрузке</li>
+                        <li>Сигналы BIOS при включении</li>
+                    </ul>
+                </div>
+                <div class="problem-solution">
+                    <h3>Необходимая диагностика</h3>
+                    <ol>
+                        <li>Тестирование блока питания</li>
+                        <li>Проверка оперативной памяти</li>
+                        <li>Контроль температуры процессора</li>
+                        <li>Диагностика жесткого диска</li>
+                    </ol>
+                    <p><em>Выключения во время игр могут быть признаком серьезной неисправности</em></p>
+                </div>
             </div>
         </section>
     </div>
