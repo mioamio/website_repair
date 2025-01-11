@@ -29,62 +29,57 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-        --primary-color: #2563eb;
-        --secondary-color: #3b82f6;
-        --accent-color: #f43f5e;
-        --background-color: #f8fafc;
-        --text-color: #1e293b;
-        --section-bg: #ffffff;
-        --border-color: #e2e8f0;
-    }
+            --primary-color: #2563eb;
+            --secondary-color: #3b82f6;
+            --accent-color: #f43f5e;
+            --background-color: #f8fafc;
+            --text-color: #1e293b;
+            --section-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
 
-    body {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        margin: 0;
-        padding: 0;
-        background: var(--background-color);
-        color: var(--text-color);
-        line-height: 1.6;
-        font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
-    }
+        body {
+            font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
         header {
-        background: var(--primary-color);
-        color: white;
-        padding: 1.5rem 1rem;
-        text-align: center;
-        margin-bottom: 0;
-    }
+            background: var(--primary-color);
+            color: white;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            margin-bottom: 0;
+        }
 
-    header h1 {
-        font-size: 1.8rem;
-        margin: 0;
-        font-weight: 700;
-    }
-
-    header a {
-        text-decoration: none;
-        color: white;
-    }
+        header h1 {
+            font-size: 1.8rem;
+            margin: 0;
+            font-weight: 700;
+        }
 
         nav {
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        padding: 1rem;
-        background: white;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        margin-bottom: 2rem;
-    }
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 1rem;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
 
-    nav a {
-        color: var(--primary-color);
-        text-decoration: none;
-        font-weight: 500;
-        font-size: 1rem;
-    }
+        nav a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+        }
 
         faq-container {
         max-width: 800px;
@@ -169,53 +164,41 @@
         padding: 0.3rem 0.5rem;
     }
 }
-	    @media (max-width: 768px) {
-        header h1 {
-            font-size: 1.5rem;
+@media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            nav {
+                gap: 1rem;
+                padding: 0.75rem;
+            }
+
+            nav a {
+                font-size: 0.9rem;
+            }
         }
 
-        nav {
-            gap: 1rem;
-            padding: 0.75rem;
-        }
+        @media (max-width: 360px) {
+            header h1 {
+                font-size: 1.3rem;
+            }
 
-        nav a {
-            font-size: 0.9rem;
-        }
+            nav {
+                gap: 0.5rem;
+                padding: 0.5rem;
+            }
 
-        .faq-container {
-            padding: 0 0.75rem;
-        }
-
-        .faq-item {
-            padding: 1.25rem;
-        }
-    }
-
-    @media (max-width: 360px) {
-        header h1 {
-            font-size: 1.3rem;
-        }
-
-        nav {
-            gap: 0.5rem;
-            padding: 0.5rem;
-        }
-
-        nav a {
-            font-size: 0.8rem;
-        }
-
-        .faq-item {
-            padding: 1rem;
-        }
+            nav a {
+                font-size: 0.8rem;
+            }
     }
     </style>
 </head>
 
 <body>
     <header>
-        <a href="index.html">
+        <a href="index.html" style="text-decoration: none; color: white;">
             <h1>Компьютерная мастерская на дому</h1>
         </a>
     </header>
@@ -226,7 +209,7 @@
     </div>
 </header>
 
-    <nav>
+<nav>
     <a href="index.html">Главная</a>
     <a href="faq.html">О нас</a>
     <a href="common-issues.html">Частые проблемы</a>
