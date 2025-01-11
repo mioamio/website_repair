@@ -38,12 +38,18 @@
             --border-color: #e2e8f0;
         }
 
+        html {
+            overflow-y: scroll;
+        }
+
         body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            overflow-x: hidden;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            margin: 0;
-            padding: 0;
             background: var(--background-color);
             color: var(--text-color);
             line-height: 1.6;
