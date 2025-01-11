@@ -97,7 +97,9 @@
                           Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 
                           'Helvetica Neue', sans-serif;
         }
-
+	    html {
+    overflow-y: scroll;
+}
         body {
             font-family: var(--system-font);
             -webkit-font-smoothing: antialiased;
@@ -110,39 +112,40 @@
             line-height: 1.6;
             -webkit-text-size-adjust: 100%;
             font-synthesis: none;
-        }
+	    width: 100vw;
+	    overflow-x: hidden; 
+}
 
         header {
-            background: var(--primary-color);
-            color: white;
-            padding: 2rem 1rem;
-            text-align: center;
-            position: relative;
-            margin-bottom: 0;
-        }
+    background: var(--primary-color);
+    color: white;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    margin-bottom: 0;
+}
 
-        header h1 {
-            font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
-            font-size: 2rem;
-            margin: 0;
-            font-weight: 900;
-            letter-spacing: -0.025em;
-            position: relative;
-            z-index: 1;
-        }
+header h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    font-weight: 700;
+}
 
         nav {
-            margin-top: 1rem;
-        }
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+    background: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
 
-        nav a {
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 18px;
-            margin: 0 1rem;
-            line-height: 1.5;
-        }
+nav a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+}
 
         section {
             max-width: 1200px;
@@ -261,6 +264,28 @@
             margin-top: 4rem;
         }
 
+	@media (max-width: 768px) {
+    nav {
+        gap: 1rem;
+        padding: 0.75rem;
+    }
+
+    nav a {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 360px) {
+    nav {
+        gap: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    nav a {
+        font-size: 0.8rem;
+    }
+}
+	
         @media (max-width: 768px) {
             section {
                 margin: 0.75rem;
@@ -637,16 +662,17 @@
 </head>
 <body>
     <header>
-	<a href="index.html" style="text-decoration: none; color: white;">
+    <a href="index.html" style="text-decoration: none; color: white;">
         <h1>Компьютерная мастерская на дому</h1>
-    </header>
+    </a>
+</header>
 
-    <nav style="text-align: center; padding: 1rem; background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-        <a href="index.html" style="color: #2563eb; text-decoration: none; font-weight: bold; font-size: 18px; margin: 0 1rem;">Главная</a>
-        <a href="faq.html" style="color: #2563eb; text-decoration: none; font-weight: bold; font-size: 18px; margin: 0 1rem;">О нас</a>
-	<a href="common-issues.html" style="color: #2563eb; text-decoration: none; font-weight: bold; font-size: 18px; margin: 0 1rem;">Частые проблемы</a>
-        <a href="download.html" style="color: #2563eb; text-decoration: none; font-weight: bold; font-size: 18px; margin: 0 1rem;">Файлы</a>
-    </nav>
+    <nav>
+    <a href="index.html">Главная</a>
+    <a href="faq.html">О нас</a>
+    <a href="common-issues.html">Частые проблемы</a>
+    <a href="download.html">Файлы</a>
+</nav>
     
     <section id="services">
         <h2>Наши услуги</h2>
