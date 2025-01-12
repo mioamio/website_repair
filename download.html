@@ -2,21 +2,21 @@
 <html lang="ru">
 <head>
     <!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();
-   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-   ym(99489920, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true
-   });
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/99489920" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
+        ym(99489920, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/99489920" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
     
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <meta charset="UTF-8">
@@ -29,117 +29,123 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-        --primary-color: #2563eb;
-        --secondary-color: #3b82f6;
-        --accent-color: #f43f5e;
-        --background-color: #f8fafc;
-        --text-color: #1e293b;
-        --section-bg: #ffffff;
-        --border-color: #e2e8f0;
-    }
+            --primary-color: #2563eb;
+            --secondary-color: #3b82f6;
+            --accent-color: #f43f5e;
+            --background-color: #f8fafc;
+            --text-color: #1e293b;
+            --section-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         html {
-    overflow-y: scroll; /* Всегда показывать вертикальную полосу прокрутки */
-}
-    body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
-    background: var(--background-color);
-    color: var(--text-color);
-    line-height: 1.6;
-    font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
-    width: 100vw;
-    overflow-x: hidden;
-}
+            overflow-y: scroll; /* Всегда показывать вертикальную полосу прокрутки */
+        }
 
-    header {
-    width: 100%;
-    background: var(--primary-color);
-    color: white;
-    padding: 1.5rem 1rem;
-    text-align: center;
-    margin-bottom: 0;
-}
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            width: 100%;
+            overflow-x: hidden;
+        }
 
-header h1 {
-    font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
-    font-size: 1.8rem;
-    margin: 0;
-    font-weight: 700;
-    letter-spacing: normal;
-    line-height: 1.2;
-    padding: 0;
-}
+        header {
+            width: 100%;
+            background: var(--primary-color);
+            color: white;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            margin-bottom: 0;
+        }
 
-nav {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    padding: 1rem;
-    background: white;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    margin-bottom: 2rem;
-}
+        header h1 {
+            font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            font-size: 1.8rem;
+            margin: 0;
+            font-weight: 700;
+            letter-spacing: normal;
+            line-height: 1.2;
+            padding: 0;
+        }
 
-nav a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1rem;
-}
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 1rem;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
 
-.content {
-        flex: 1;
-        max-width: 800px;
-        margin: 2rem auto;
-        padding: 1rem;
-        text-align: center;
-    }
+        nav a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+        }
 
-    .download-section {
-        background: var(--section-bg);
-        border-radius: 8px;
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
+        .content {
+            flex: 1;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            text-align: center;
+        }
 
-    .download-section h2 {
-        color: var(--primary-color);
-        margin-top: 0;
-    }
+        .download-section {
+            background: var(--section-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
 
-    .download-button {
-        display: inline-block;
-        padding: 0.75rem 1.5rem;
-        font-size: 1rem;
-        color: white;
-        background: var(--primary-color);
-        border: none;
-        border-radius: 5px;
-        text-decoration: none;
-        cursor: pointer;
-        margin: 0.5rem 0.5rem;
-        transition: background 0.3s ease;
-    }
+        .download-section h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
 
-    .download-button:hover {
-        background: var(--secondary-color);
-    }
+        .download-button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            color: white;
+            background: var(--primary-color);
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            margin: 0.5rem 0.5rem;
+            transition: background 0.3s ease;
+        }
 
-    .info-section {
-        background: var(--section-bg);
-        border-radius: 8px;
-        padding: 1.5rem;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
+        .download-button:hover {
+            background: var(--secondary-color);
+        }
 
-    .info-section h2 {
-        color: var(--primary-color);
-        margin-top: 0;
-    }
+        .info-section {
+            background: var(--section-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .info-section h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
 
         .partner-section {
             background: var(--section-bg);
@@ -173,60 +179,69 @@ nav a {
             display: block;
         }
 
-footer {
-        background: var(--primary-color);
-        color: white;
-        padding: 2rem;
-        text-align: center;
-        margin-top: auto;
-    }
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: auto;
+        }
 
-    @media (max-width: 768px) {
-    header h1 {
-        font-size: 1.5rem;
-    }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
 
-    nav {
-        gap: 1rem;
-        padding: 0.75rem;
-    }
+            nav {
+                gap: 1rem;
+                padding: 0.75rem;
+            }
 
-    nav a {
-        font-size: 0.9rem;
-    }
-}
+            nav a {
+                font-size: 0.9rem;
+            }
+        }
 
-@media (max-width: 360px) {
-    header h1 {
-        font-size: 1.3rem;
-    }
+        @media (max-width: 360px) {
+            header h1 {
+                font-size: 1.3rem;
+            }
 
-    nav {
-        gap: 0.5rem;
-        padding: 0.5rem;
-    }
+            nav {
+                gap: 0.5rem;
+                padding: 0.5rem;
+            }
 
-    nav a {
-        font-size: 0.8rem;
-    }
-}
+            nav a {
+                font-size: 0.8rem;
+            }
+        }
 
         .download-button {
             padding: 0.5rem 1rem;
             font-size: 0.8rem;
             margin: 0.3rem 0.2rem;
         }
-        
-</style>
+
+        /* Убираем вертикальную прокрутку на десктопе */
+        @media (min-width: 769px) {
+            html {
+                overflow-y: hidden;
+            }
+
+            body {
+                overflow-y: hidden;
+            }
+        }
+    </style>
 </head>
 
-<body style="text-align: center; margin: 0; padding: 0;">
-        <body>
+<body>
     <header>
-    <a href="index.html" style="text-decoration: none; color: white;">
-        <h1>Компьютерная мастерская на дому</h1>
-    </a>
-</header>
+        <a href="index.html" style="text-decoration: none; color: white;">
+            <h1>Компьютерная мастерская на дому</h1>
+        </a>
+    </header>
 
     <nav>
         <a href="index.html">Главная</a>
@@ -247,14 +262,15 @@ footer {
         <section class="info-section">
             <h2>Дополнительная информация</h2>
             <p>Здесь вы можете скачать операционные системы Windows 11 и Windows 10, а также утилиты Rufus и Ventoy для записи образов на носители.
-<br>Образы Windows предоставляются в формате торрент-файлов.
-<br>Для загрузки потребуется программа для работы с торрентами.
-<br>По запросу установим Linux с драйверами
+                <br>Образы Windows предоставляются в формате торрент-файлов.
+                <br>Для загрузки потребуется программа для работы с торрентами.
+                <br>По запросу установим Linux с драйверами
+            </p>
         </section>
     </div>
 
-        <footer>
-            <p>Ремонт компьютеров и ноутбуков в Голубом и Андреевке на дому</p>
+    <footer>
+        <p>Ремонт компьютеров и ноутбуков в Голубом и Андреевке на дому</p>
         <p>Работаем ежедневно с 9:00 до 23:00</p>
         <p>Ваша задача - наша работа</p>
         <div class="partner-section" style="background: transparent; box-shadow: none; margin: 0; padding: 0;">
@@ -265,3 +281,5 @@ footer {
             </a>
         </div>
     </footer>
+</body>
+</html>
