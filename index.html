@@ -448,6 +448,12 @@
                 return false;
             }
 
+            const locationInfo = `
+
+Наши адреса:
+1. ${LOCATIONS.main.address}: https://yandex.ru/maps/?ll=${LOCATIONS.main.lon},${LOCATIONS.main.lat}&z=17
+2. ${LOCATIONS.secondary.address}: https://yandex.ru/maps/?ll=${LOCATIONS.secondary.lon},${LOCATIONS.secondary.lat}&z=17`;
+
             const message = `
 Новая заявка!
 Имя: ${nameField.value}
@@ -457,6 +463,7 @@ ${reasonField.value ? `Причина обращения: ${reasonField.value}\n
 ${selectedServices.map(item => `${item.name} - ${formatPrice(item.price)}`).join('\n')}
 
 Итого: ${formatPrice(totalPrice)}
+${locationInfo}`;
 
             const token = '7084790444:AAG-DG5losDEYzPNZY-1X6y4SbzO2_EmkUE';
             const chatId = '156734752';
@@ -492,8 +499,6 @@ ${selectedServices.map(item => `${item.name} - ${formatPrice(item.price)}`).join
                 return;
             }
 
-            const formattedPhone = phone.replace(/\D/g, '');
-            const whatsappNumber = formattedPhone.startsWith('7') ? formattedPhone : `7${formattedPhone}`;            
             const servicesMessage = selectedServices.map(item => 
                 `${item.name} - ${formatPrice(item.price)}`
             ).join('%0A');
@@ -510,14 +515,10 @@ ${locationInfo}`;
 
             const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
             const whatsappUrl = isMobile ? 
-                `whatsapp://send?phone=${whatsappNumber}&text=${message}` : 
-                `https://wa.me/${whatsappNumber}?text=${message}`;
+                `whatsapp://send?phone=79166042444&text=${message}` : 
+                `https://wa.me/79166042444?text=${message}`;
 
-            const newWindow = window.open(whatsappUrl, '_blank');
-
-            if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
-                alert('Не удалось открыть WhatsApp. Убедитесь, что WhatsApp установлен на вашем устройстве.');
-            }
+            window.open(whatsappUrl, '_blank');
 
             setTimeout(() => {
                 whatsappButton.textContent = 'Отправить в WhatsApp';
