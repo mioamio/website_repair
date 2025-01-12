@@ -496,41 +496,40 @@ ${locationInfo}`;
             return false;
         }
 
-        function sendToWhatsApp() {
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const reason = document.getElementById('reason').value;
+       function sendToWhatsApp() {
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const reason = document.getElementById('reason').value;
 
-            if (!name || !phone) {
-                alert('Пожалуйста, заполните имя и номер телефона');
-                return;
-            }
+    if (!name || !phone) {
+        alert('Пожалуйста, заполните имя и номер телефона');
+        return;
+    }
 
             const servicesMessage = selectedServices.map(item => 
-                `${item.name} - ${formatPrice(item.price)}`
-            ).join('%0A');
-            
-            const message = `Имя: ${name}%0A
+        `${item.name} - ${formatPrice(item.price)}`
+    ).join('%0A');
+    
+    const message = `Имя: ${name}%0A
 Телефон: ${phone}%0A
 ${reason ? `Причина обращения: ${reason}%0A` : ''}
 %0AВыбранные услуги:%0A${servicesMessage}
-%0AИтого: ${formatPrice(totalPrice)}
-${locationInfo}`;
+%0AИтого: ${formatPrice(totalPrice)}`;
 
             const whatsappButton = document.getElementById('whatsapp-button');
-            whatsappButton.textContent = 'Перенаправляем в чат...';
+    whatsappButton.textContent = 'Перенаправляем в чат...';
 
             const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-            const whatsappUrl = isMobile ? 
-                `whatsapp://send?phone=79166042444&text=${message}` : 
-                `https://wa.me/79166042444?text=${message}`;
+    const whatsappUrl = isMobile ? 
+    `whatsapp://send?phone=79166042444&text=${message}` : 
+    `https://wa.me/79166042444?text=${message}`;
 
-            window.open(whatsappUrl, '_blank');
+    window.open(whatsappUrl, '_blank');
 
             setTimeout(() => {
-                whatsappButton.textContent = 'Отправить в WhatsApp';
-            }, 3000);
-        }
+        whatsappButton.textContent = 'Отправить в WhatsApp';
+    }, 3000);
+}
 
         function formatPhoneNumber(input) {
             const cursorPos = input.selectionStart;
