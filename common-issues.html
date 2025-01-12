@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <script type="text/javascript" >
-       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-       m[i].l=1*new Date();
-       for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-       k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-       (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-       ym(99489920, "init", {
+        ym(99489920, "init", {
             clickmap:true,
             trackLinks:true,
             accurateTrackBounce:true
-       });
+        });
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/99489920" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     
@@ -26,7 +26,7 @@
     <title>Ремонт компьютеров и ноутбуков</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     
-   <style>
+    <style>
         :root {
             --primary-color: #2563eb;
             --secondary-color: #3b82f6;
@@ -37,6 +37,12 @@
             --border-color: #e2e8f0;
         }
 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         html, body {
             height: 100%;
             margin: 0;
@@ -45,43 +51,40 @@
         }
 
         body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background: var(--background-color);
-    color: var(--text-color);
-    line-height: 1.6;
-    font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
-}
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
+        }
 
-        header {
-    width: 100%;
-    background: var(--primary-color);
-    color: white;
-    padding: 1.5rem 1rem;
-    text-align: center;
-    margin-bottom: 0;
-}
+        header, footer {
+            width: 100%;
+            background: var(--primary-color);
+            color: white;
+            padding: 1.5rem 1rem;
+            text-align: center;
+        }
 
-        header h1 {
+        header h1, footer p {
             font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
             font-size: 1.8rem;
             margin: 0;
             font-weight: 700;
-            letter-spacing: normal;
             line-height: 1.2;
-            padding: 0;
         }
 
         nav {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    padding: 1rem;
-    background: white;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    margin-bottom: 2rem;
-}
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 1rem;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
 
         nav a {
             color: var(--primary-color);
@@ -91,31 +94,31 @@
         }
 
         .content {
-    flex: 1;
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-    width: 100%;
-    box-sizing: border-box;
-    text-align: center;
-}
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+        }
 
         .issues-container {
-    display: flex;
-    gap: 2rem;
-    margin-bottom: 2rem;
-    flex-wrap: wrap;
-    justify-content: center;
-}
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
 
         .issue-card {
-    flex: 1 1 300px;
-    background: var(--section-bg);
-    border-radius: 12px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    text-align: center;
-}
+            flex: 1 1 300px;
+            background: var(--section-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
 
         .problem-section h4, 
         .solution-section h4 {
@@ -160,21 +163,36 @@
         }
 
         footer {
-            width: 100%;
-            background: var(--primary-color);
-            color: white;
-            padding: 2rem;
-            text-align: center;
             margin-top: auto;
         }
-       
-       @media (max-width: 768px) {
-    .issue-card {
-        flex: 1 1 100%;
-    }
-}
+
+        footer p {
+            font-size: 1rem;
+            margin: 0.5rem 0;
+        }
+
+        .partner-section {
+            background: transparent;
+            box-shadow: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .partner-section a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .partner-section svg {
+            vertical-align: middle;
+            margin-right: 10px;
+        }
 
         @media (max-width: 768px) {
+            .issue-card {
+                flex: 1 1 100%;
+            }
+
             .issue-header h3 {
                 font-size: 1.2rem;
             }
@@ -188,7 +206,7 @@
                 font-size: 0.95rem;
             }
 
-            header h1 {
+            header h1, footer p {
                 font-size: 1.5rem;
             }
 
@@ -203,7 +221,7 @@
         }
 
         @media (max-width: 360px) {
-            header h1 {
+            header h1, footer p {
                 font-size: 1.3rem;
             }
 
@@ -214,6 +232,17 @@
 
             nav a {
                 font-size: 0.8rem;
+            }
+        }
+
+        /* Убираем вертикальную прокрутку на десктопе */
+        @media (min-width: 769px) {
+            html {
+                overflow-y: hidden;
+            }
+
+            body {
+                overflow-y: hidden;
             }
         }
     </style>
@@ -329,9 +358,9 @@
         <p>Ремонт компьютеров и ноутбуков в Голубом и Андреевке на дому</p>
         <p>Работаем ежедневно с 9:00 до 23:00</p>
         <p>Ваша задача - наша работа</p>
-        <div class="partner-section" style="background: transparent; box-shadow: none; margin: 0; padding: 0;">
-            <a href="https://vk.com/netrepairru" target="_blank" rel="noopener" style="text-decoration: none; color: white;">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 10px;">
+        <div class="partner-section">
+            <a href="https://vk.com/netrepairru" target="_blank" rel="noopener">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
                     <path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.523-2.049-1.718-1.033-1.027-1.487-1.108-1.744-1.108-.356 0-.458.102-.458.597v1.574c0 .424-.135.675-1.241.675-1.83 0-3.863-1.108-5.293-3.162-2.148-3.365-2.725-5.906-2.725-6.42 0-.254.102-.491.597-.491h1.744c.44 0 .61.186.78.675.847 2.421 2.265 4.538 2.861 4.538.22 0 .322-.102.322-.66V9.793c-.068-1.186-.695-1.287-.695-1.71 0-.203.169-.406.44-.406h2.743c.372 0 .508.186.508.643v3.467c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.27-1.422 2.18-3.61 2.18-3.61.119-.254.305-.491.745-.491h1.744c.525 0 .643.27.525.643-.22 1.016-2.332 4.01-2.332 4.01-.186.305-.254.44 0 .78.186.254.796.779 1.202 1.253.745.88 1.32 1.625 1.473 2.129.17.491-.085.745-.576.745z"/>
                 </svg>
             </a>
