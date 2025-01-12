@@ -39,33 +39,37 @@
             --system-font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
 
-        body {
-            width: 100vw;
-            font-family: var(--system-font);
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
             background: var(--background-color);
             color: var(--text-color);
             line-height: 1.6;
+            font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            width: 100%;
         }
 
-        header {
+        header, footer {
             width: 100%;
             background: var(--primary-color);
             color: white;
             padding: 1.5rem 1rem;
             text-align: center;
-            margin-bottom: 0;
         }
 
-        header h1 {
+        header h1, footer p {
             font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
             font-size: 1.8rem;
             margin: 0;
             font-weight: 700;
-            letter-spacing: normal;
             line-height: 1.2;
-            padding: 0;
         }
 
         nav {
@@ -79,12 +83,23 @@
         }
 
         nav a {
-        color: var(--primary-color);
-        text-decoration: none;
-        font-weight: 500;
-        font-size: 1rem;
-        font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
-    }
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .content {
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            text-align: center;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
         section {
             max-width: 1200px;
@@ -251,15 +266,33 @@
         }
 
         footer {
-            background: var(--primary-color);
+            margin-top: auto;
+        }
+
+        footer p {
+            font-size: 1rem;
+            margin: 0.5rem 0;
+        }
+
+        .partner-section {
+            background: transparent;
+            box-shadow: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .partner-section a {
+            text-decoration: none;
             color: white;
-            padding: 2rem;
-            text-align: center;
-            margin-top: 4rem;
+        }
+
+        .partner-section svg {
+            vertical-align: middle;
+            margin-right: 10px;
         }
 
         @media (max-width: 768px) {
-            header h1 {
+            header h1, footer p {
                 font-size: 1.5rem;
             }
 
@@ -271,10 +304,16 @@
             nav a {
                 font-size: 0.9rem;
             }
+
+            .download-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+                margin: 0.3rem 0.2rem;
+            }
         }
 
         @media (max-width: 360px) {
-            header h1 {
+            header h1, footer p {
                 font-size: 1.3rem;
             }
 
@@ -303,36 +342,38 @@
         <a href="download.html">Файлы</a>
     </nav>
 
-    <section id="services">
-        <h2>Наши услуги</h2>
-        <div class="service-grid">
-            <button class="service-button" onclick="toggleService('Ремонт ПК/Ноутбука', 2000)">Ремонт ПК/Ноутбука</button>
-            <button class="service-button" onclick="toggleService('Сборка игрового компьютера', 5000)">Сборка игрового компьютера</button>
-            <button class="service-button" onclick="toggleService('Помощь в подборе комплектующих', 1000)">Помощь в подборе комплектующих</button>
-            <button class="service-button" onclick="toggleService('Установка ОС', 500)">Установка ОС</button>
-        </div>
-    </section>
-
-    <section id="form">
-        <h2>Оставить заявку</h2>
-        <form id="request-form" onsubmit="return orderCall()">
-            <input type="text" id="name" placeholder="Ваше имя" name="name" required>
-            <input type="tel" id="phone" placeholder="+7 (___) ___-__-__" name="phone" required>
-            <textarea id="reason" rows="4" placeholder="Причина обращения" name="reason"></textarea>
-            <div style="display: flex; gap: 10px; justify-content: center;">
-                <button type="button" id="whatsapp-button" onclick="sendToWhatsApp()">Отправить в WhatsApp</button>
-                <button type="submit" id="telegram-button">Отправить в Telegram</button>
+    <div class="content">
+        <section id="services">
+            <h2>Наши услуги</h2>
+            <div class="service-grid">
+                <button class="service-button" onclick="toggleService('Ремонт ПК/Ноутбука', 2000)">Ремонт ПК/Ноутбука</button>
+                <button class="service-button" onclick="toggleService('Сборка игрового компьютера', 5000)">Сборка игрового компьютера</button>
+                <button class="service-button" onclick="toggleService('Помощь в подборе комплектующих', 1000)">Помощь в подборе комплектующих</button>
+                <button class="service-button" onclick="toggleService('Установка ОС', 500)">Установка ОС</button>
             </div>
-        </form>
-    </section>
+        </section>
+
+        <section id="form">
+            <h2>Оставить заявку</h2>
+            <form id="request-form" onsubmit="return orderCall()">
+                <input type="text" id="name" placeholder="Ваше имя" name="name" required>
+                <input type="tel" id="phone" placeholder="+7 (___) ___-__-__" name="phone" required>
+                <textarea id="reason" rows="4" placeholder="Причина обращения" name="reason"></textarea>
+                <div style="display: flex; gap: 10px; justify-content: center;">
+                    <button type="button" id="whatsapp-button" onclick="sendToWhatsApp()">Отправить в WhatsApp</button>
+                    <button type="submit" id="telegram-button">Отправить в Telegram</button>
+                </div>
+            </form>
+        </section>
+    </div>
 
     <footer>
         <p>Ремонт компьютеров и ноутбуков в Голубом и Андреевке на дому</p>
         <p>Работаем ежедневно с 9:00 до 23:00</p>
         <p>Ваша задача - наша работа</p>
-        <div class="partner-section" style="background: transparent; box-shadow: none; margin: 0; padding: 0;">
-            <a href="https://vk.com/netrepairru" target="_blank" rel="noopener" style="text-decoration: none; color: white;">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 10px;">
+        <div class="partner-section">
+            <a href="https://vk.com/netrepairru" target="_blank" rel="noopener">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
                     <path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.523-2.049-1.718-1.033-1.027-1.487-1.108-1.744-1.108-.356 0-.458.102-.458.597v1.574c0 .424-.135.675-1.241.675-1.83 0-3.863-1.108-5.293-3.162-2.148-3.365-2.725-5.906-2.725-6.42 0-.254.102-.491.597-.491h1.744c.44 0 .61.186.78.675.847 2.421 2.265 4.538 2.861 4.538.22 0 .322-.102.322-.66V9.793c-.068-1.186-.695-1.287-.695-1.71 0-.203.169-.406.44-.406h2.743c.372 0 .508.186.508.643v3.467c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.27-1.422 2.18-3.61 2.18-3.61.119-.254.305-.491.745-.491h1.744c.525 0 .643.27.525.643-.22 1.016-2.332 4.01-2.332 4.01-.186.305-.254.44 0 .78.186.254.796.779 1.202 1.253.745.88 1.32 1.625 1.473 2.129.17.491-.085.745-.576.745z"/>
                 </svg>
             </a>
