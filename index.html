@@ -56,6 +56,9 @@
             padding: 1.5rem 1rem;
             text-align: center;
             margin-bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         header h1 {
@@ -79,12 +82,12 @@
         }
 
         nav a {
-        color: var(--primary-color);
-        text-decoration: none;
-        font-weight: 500;
-        font-size: 1rem;
-        font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
-    }
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
+        }
 
         section {
             max-width: 1200px;
@@ -221,6 +224,7 @@
         form {
             max-width: 600px;
             margin: 0 auto;
+            padding: 0 1rem; /* Добавлено для центрирования на мобильных устройствах */
         }
 
         form input,
@@ -256,6 +260,10 @@
             padding: 2rem;
             text-align: center;
             margin-top: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         @media (max-width: 768px) {
@@ -270,6 +278,10 @@
 
             nav a {
                 font-size: 0.9rem;
+            }
+
+            form {
+                padding: 0 1rem; /* Убедимся, что форма центрирована на мобильных устройствах */
             }
         }
 
@@ -491,40 +503,40 @@ ${locationInfo}`;
             return false;
         }
 
-       function sendToWhatsApp() {
-    const name = document.getElementById('name').value;
-    const phone = document.getElementById('phone').value;
-    const reason = document.getElementById('reason').value;
+        function sendToWhatsApp() {
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const reason = document.getElementById('reason').value;
 
-    if (!name || !phone) {
-        alert('Пожалуйста, заполните имя и номер телефона');
-        return;
-    }
+            if (!name || !phone) {
+                alert('Пожалуйста, заполните имя и номер телефона');
+                return;
+            }
 
             const servicesMessage = selectedServices.map(item => 
-        `${item.name} - ${formatPrice(item.price)}`
-    ).join('%0A');
-    
-    const message = `Имя: ${name}%0A
+                `${item.name} - ${formatPrice(item.price)}`
+            ).join('%0A');
+            
+            const message = `Имя: ${name}%0A
 Телефон: ${phone}%0A
 ${reason ? `Причина обращения: ${reason}%0A` : ''}
 %0AВыбранные услуги:%0A${servicesMessage}
 %0AИтого: ${formatPrice(totalPrice)}`;
 
             const whatsappButton = document.getElementById('whatsapp-button');
-    whatsappButton.textContent = 'Перенаправляем в чат...';
+            whatsappButton.textContent = 'Перенаправляем в чат...';
 
             const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    const whatsappUrl = isMobile ? 
-    `whatsapp://send?phone=79166042444&text=${message}` : 
-    `https://wa.me/79166042444?text=${message}`;
+            const whatsappUrl = isMobile ? 
+                `whatsapp://send?phone=79166042444&text=${message}` : 
+                `https://wa.me/79166042444?text=${message}`;
 
-    window.open(whatsappUrl, '_blank');
+            window.open(whatsappUrl, '_blank');
 
             setTimeout(() => {
-        whatsappButton.textContent = 'Отправить в WhatsApp';
-    }, 3000);
-}
+                whatsappButton.textContent = 'Отправить в WhatsApp';
+            }, 3000);
+        }
 
         function formatPhoneNumber(input) {
             const cursorPos = input.selectionStart;
