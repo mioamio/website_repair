@@ -26,16 +26,16 @@
     <meta name="geo.region" content="RU-MOS">
     <meta name="geo.placename" content="Голубое">
     <title>Ремонт компьютеров и ноутбуков</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2563eb;
-            --secondary-color: #3b82f6;
-            --accent-color: #f43f5e;
-            --background-color: #f8fafc;
-            --text-color: #1e293b;
-            --section-bg: #ffffff;
-            --border-color: #e2e8f0;
+            --primary-color: #2563EB;
+            --secondary-color: #1E40AF;
+            --background-color: #F9FAFB;
+            --text-color: #111827;
+            --section-bg: #FFFFFF;
+            --border-color: #E5E7EB;
         }
 
         * {
@@ -51,170 +51,181 @@
             background: var(--background-color);
             color: var(--text-color);
             line-height: 1.6;
-            font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
-            width: 100%;
-            
+            font-family: 'Inter', sans-serif;
         }
 
-        header, footer {
-            width: 100%;
-            background: var(--primary-color);
-            color: white;
-            padding: 1.5rem 1rem;
+        header {
+            background: var(--section-bg);
+            padding: 2rem 1rem;
             text-align: center;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        header h1, footer p {
-            font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
-            font-size: 1.8rem;
-            margin: 0;
+        header h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 2.5rem;
             font-weight: 700;
-            line-height: 1.2;
+            color: var(--text-color);
+            margin: 0;
         }
 
         nav {
             display: flex;
             justify-content: center;
             gap: 2rem;
-            padding: 1rem;
-            background: white;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--section-bg);
+            border-bottom: 1px solid var(--border-color);
         }
 
         nav a {
-            color: var(--primary-color);
+            color: var(--text-color);
             text-decoration: none;
             font-weight: 500;
             font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
         }
 
         .content {
             flex: 1;
             max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem;
-            text-align: center;
+            margin: 2rem auto;
+            padding: 0 1rem;
             width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
 
-        .download-section {
+        .download-section, .info-section {
             background: var(--section-bg);
-            border-radius: 8px;
-            padding: 1.5rem;
+            border-radius: 12px;
+            padding: 2.5rem;
             margin-bottom: 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            width: 100%;
-            max-width: 800px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
 
-        .download-section h2 {
-            color: var(--primary-color);
-            margin-top: 0;
+        .download-section h2, .info-section h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .download-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
         }
 
         .download-button {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.25rem;
             font-size: 1rem;
             color: white;
             background: var(--primary-color);
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             text-decoration: none;
             cursor: pointer;
-            margin: 0.5rem 0.5rem;
-            transition: background 0.3s ease;
+            transition: transform 0.3s ease, background 0.3s ease;
         }
 
         .download-button:hover {
             background: var(--secondary-color);
+            transform: translateY(-3px);
         }
 
-        .info-section {
-            background: var(--section-bg);
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            width: 100%;
-            max-width: 800px;
+        .download-button i {
+            margin-right: 0.75rem;
         }
 
-        .info-section h2 {
-            color: var(--primary-color);
-            margin-top: 0;
+        .info-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-color);
+            text-align: center;
         }
 
         footer {
+            background: var(--section-bg);
+            padding: 2rem 1rem;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
             margin-top: auto;
         }
 
         footer p {
-            font-size: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-color);
             margin: 0.5rem 0;
         }
 
         .partner-section {
-            background: transparent;
-            box-shadow: none;
-            margin: 0;
-            padding: 0;
+            margin-top: 1rem;
         }
 
         .partner-section a {
             text-decoration: none;
-            color: white;
+            color: var(--primary-color);
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 2rem;
         }
 
-        .partner-section svg {
-            vertical-align: middle;
-            margin-right: 10px;
-        }
+        .partner-section a:hover {
+    text-decoration: none;
+}
 
         @media (max-width: 768px) {
-            header h1, footer p {
-                font-size: 1.5rem;
+            header h1 {
+                font-size: 2rem;
             }
 
             nav {
                 gap: 1rem;
-                padding: 0.75rem;
+                padding: 1rem;
             }
 
             nav a {
                 font-size: 0.9rem;
             }
 
+            .download-buttons {
+                grid-template-columns: 1fr;
+            }
+
             .download-button {
-                padding: 0.5rem 1rem;
-                font-size: 0.8rem;
-                margin: 0.3rem 0.2rem;
+                padding: 1rem;
             }
         }
 
         @media (max-width: 360px) {
-            header h1, footer p {
-                font-size: 1.3rem;
+            header h1 {
+                font-size: 1.8rem;
             }
 
             nav {
                 gap: 0.5rem;
-                padding: 0.5rem;
+                padding: 0.75rem;
             }
 
             nav a {
                 font-size: 0.8rem;
             }
         }
-        }
     </style>
 </head>
 
 <body>
-    <header>
+   <header>
         <a href="index.html" style="text-decoration: none; color: white;">
             <h1>Компьютерная мастерская на дому</h1>
         </a>
@@ -230,18 +241,29 @@
     <div class="content">
         <section class="download-section">
             <h2>Скачать</h2>
-            <a href="/downloads/RU_windows_11_24h2.iso.torrent" class="download-button" download>Windows 11</a>
-            <a href="/downloads/RU_windows_10_22h2.iso.torrent" class="download-button" download>Windows 10</a>
-            <a href="/downloads/rufus-4.6.exe" class="download-button" download>Rufus</a>
-            <a href="/downloads/ventoy-1.0.99-windows.zip" class="download-button" download>Ventoy</a>
+            <div class="download-buttons">
+                <a href="/downloads/RU_windows_11_24h2.iso.torrent" class="download-button" download>
+                    <i class="fas fa-download"></i> Windows 11
+                </a>
+                <a href="/downloads/RU_windows_10_22h2.iso.torrent" class="download-button" download>
+                    <i class="fas fa-download"></i> Windows 10
+                </a>
+                <a href="/downloads/rufus-4.6.exe" class="download-button" download>
+                    <i class="fas fa-download"></i> Rufus
+                </a>
+                <a href="/downloads/ventoy-1.0.99-windows.zip" class="download-button" download>
+                    <i class="fas fa-download"></i> Ventoy
+                </a>
+            </div>
         </section>
 
         <section class="info-section">
             <h2>Дополнительная информация</h2>
-            <p>Здесь вы можете скачать операционные системы Windows 11 и Windows 10, а также утилиты Rufus и Ventoy для записи образов на носители.
+            <p>
+                Здесь вы можете скачать операционные системы Windows 11 и Windows 10, а также утилиты Rufus и Ventoy для записи образов на носители.
                 <br>Образы Windows предоставляются в формате торрент-файлов.
                 <br>Для загрузки потребуется программа для работы с торрентами.
-                <br>По запросу установим Linux с драйверами
+                <br>По запросу установим Linux с драйверами.
             </p>
         </section>
     </div>
@@ -249,12 +271,9 @@
     <footer>
         <p>Ремонт компьютеров и ноутбуков в Голубом и Андреевке на дому</p>
         <p>Работаем ежедневно с 9:00 до 23:00</p>
-        <p>Ваша задача - наша работа</p>
         <div class="partner-section">
             <a href="https://vk.com/netrepairru" target="_blank" rel="noopener">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.523-2.049-1.718-1.033-1.027-1.487-1.108-1.744-1.108-.356 0-.458.102-.458.597v1.574c0 .424-.135.675-1.241.675-1.83 0-3.863-1.108-5.293-3.162-2.148-3.365-2.725-5.906-2.725-6.42 0-.254.102-.491.597-.491h1.744c.44 0 .61.186.78.675.847 2.421 2.265 4.538 2.861 4.538.22 0 .322-.102.322-.66V9.793c-.068-1.186-.695-1.287-.695-1.71 0-.203.169-.406.44-.406h2.743c.372 0 .508.186.508.643v3.467c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.27-1.422 2.18-3.61 2.18-3.61.119-.254.305-.491.745-.491h1.744c.525 0 .643.27.525.643-.22 1.016-2.332 4.01-2.332 4.01-.186.305-.254.44 0 .78.186.254.796.779 1.202 1.253.745.88 1.32 1.625 1.473 2.129.17.491-.085.745-.576.745z"/>
-                </svg>
+                <i class="fab fa-vk"></i>
             </a>
         </div>
     </footer>
