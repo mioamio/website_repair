@@ -467,11 +467,11 @@ ${selectedServices.map(item => `${item.name} - ${formatPrice(item.price)}`).join
 Итого: ${formatPrice(totalPrice)}
 ${locationInfo}`;
 
-            const token = process.env.TELEGRAM_BOT_TOKEN;
-            const chatId = process.env.TELEGRAM_CHAT_ID;
+            const token = '7084790444:AAG-DG5losDEYzPNZY-1X6y4SbzO2_EmkUE';
+            const chatId = '156734752';
             const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+            
             fetch(url)
-                
                 .then(response => {
                     if (response.ok) {
                         const telegramButton = document.getElementById('telegram-button');
