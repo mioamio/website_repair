@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();
-   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-   ym(99182843, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true
-   });
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/99182843" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
-
+        ym(99182843, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/99182843" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,129 +27,61 @@
     <meta name="geo.placename" content="Голубое">
     <title>Ремонт компьютеров и ноутбуков</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <script type="application/ld+json">
-    {
-        "@context": "http://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Компьютерная мастерская в Голубом",
-        "description": "Ремонт компьютеров и ноутбуков, установка ПО в Голубом",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Голубое",
-            "addressRegion": "Московская область",
-            "addressCountry": "RU"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "55.984108",
-            "longitude": "37.100303"
-        },
-        "url": "https://netrepair.ru",
-        "telephone": "+79166042444",
-        "openingHours": "Mo-Su 09:00-21:00",
-        "priceRange": "₽₽",
-        "additionalType": "http://schema.org/ComputerStore",
-        "hasMap": "https://yandex.ru/maps/?ll=37.100298,55.984109&z=17",
-        "areaServed": ["Зеленоград", "Андреевка", "Голубое"],
-        "location": [
-            {
-                "@type": "Place",
-                "address": {
-                    "@type": "PostalAddress",
-                    "addressLocality": "Зеленоград",
-                    "addressRegion": "Москва",
-                    "addressCountry": "RU"
-                },
-                "geo": {
-                    "@type": "GeoCoordinates",
-                    "latitude": "55.984108",
-                    "longitude": "37.100303"
-                }
-            },
-            {
-                "@type": "Place",
-                "address": {
-                    "@type": "PostalAddress",
-                    "addressLocality": "Андреевка",
-                    "addressRegion": "Московская область",
-                    "addressCountry": "RU"
-                },
-                "geo": {
-                    "@type": "GeoCoordinates",
-                    "latitude": "55.984108",
-                    "longitude": "37.100303"
-                }
-            }
-        ]
-    }
-    </script>
     <style>
+html {
+        overflow-y: scroll;
+    }
         :root {
             --primary-color: #2563eb;
-            --secondary-color: #3b82f6;
-            --accent-color: #f43f5e;
-            --background-color: #f8fafc;
-            --text-color: #1e293b;
-            --section-bg: #ffffff;
-            --border-color: #e2e8f0;
-            --system-font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 
-                          Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 
-                          'Helvetica Neue', sans-serif;
-        }
-	    html {
-    overflow-y: scroll;
-}
+        --secondary-color: #3b82f6;
+        --accent-color: #f43f5e;
+        --background-color: #f8fafc;
+        --text-color: #1e293b;
+        --section-bg: #ffffff;
+        --border-color: #e2e8f0;
+        --system-font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
         body {
+	    width: 100vw;
+            overflow-x: hidden;
             font-family: var(--system-font);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-rendering: optimizeLegibility;
             margin: 0;
             padding: 0;
             background: var(--background-color);
             color: var(--text-color);
             line-height: 1.6;
-            -webkit-text-size-adjust: 100%;
-            font-synthesis: none;
-	    width: 100vw;
-	    overflow-x: hidden; 
-}
+        }
 
         header {
-    width: 100%;
-    background: var(--primary-color);
-    color: white;
-    padding: 1.5rem 1rem;
-    text-align: center;
-    margin-bottom: 0;
-}
+            background: var(--primary-color);
+            color: white;
+            padding: 1.5rem 1rem;
+            text-align: center;
+        }
 
-header h1 {
-    font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
-    font-size: 1.8rem;
-    margin: 0;
-    font-weight: 700;
-    letter-spacing: normal;
-    line-height: 1.2;
-    padding: 0;
-}
+        header h1 {
+            font-size: 1.8rem;
+            margin: 0;
+            font-weight: 700;
+        }
 
-nav {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    padding: 1rem;
-    background: white;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    margin-bottom: 2rem;
-}
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 1rem;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
 
-nav a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1rem;
-}
+        nav a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+        }
 
         section {
             max-width: 1200px;
@@ -159,12 +90,9 @@ nav a {
             background: var(--section-bg);
             border-radius: 12px;
             box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.05);
-            position: relative;
-            z-index: 2;
         }
 
         h2 {
-            color: var(--text-color);
             font-size: 1.875rem;
             font-weight: 700;
             margin-bottom: 2rem;
@@ -188,243 +116,12 @@ nav a {
             color: var(--text-color);
             cursor: pointer;
             transition: all 0.2s ease;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        }
-
-        .service-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 20px -10px rgba(37, 99, 235, 0.15);
-            border-color: var(--primary-color);
         }
 
         .service-button.selected {
             background: var(--primary-color);
             color: white;
             border-color: var(--primary-color);
-        }
-
-        .summary {
-            text-align: center;
-            max-width: 800px;
-            margin: 2rem auto;
-        }
-
-        .summary ul {
-            text-align: left;
-            max-width: 600px;
-            margin: 1rem auto;
-        }
-
-        .summary ul li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        form input,
-        form textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid #e1e1e1;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            background: var(--button-bg);
-            color: var(--text-color);
-        }
-
-        form input:focus,
-        form textarea:focus {
-            border-color: var(--secondary-color);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
-        }
-
-        form button {
-            background: var(--secondary-color);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 1rem 2rem;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        form button:hover {
-            background: var(--primary-color);
-            transform: translateY(-2px);
-        }
-
-        footer {
-            background: var(--primary-color);
-            color: white;
-            padding: 2rem;
-            text-align: center;
-            margin-top: 4rem;
-        }
-	    @media (max-width: 768px) {
-    form {
-        padding: 0 1rem;
-    }
-
-    form input,
-    form textarea {
-        width: calc(100% - 2rem);
-        margin: 0 auto;
-        display: block;
-    }
-
-    form div {
-        flex-direction: column;
-        align-items: center;
-    }
-
-	@media (max-width: 768px) {
-    nav {
-        gap: 1rem;
-        padding: 0.75rem;
-    }
-
-    nav a {
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 360px) {
-    nav {
-        gap: 0.5rem;
-        padding: 0.5rem;
-    }
-
-    nav a {
-        font-size: 0.8rem;
-    }
-}
-	
-        @media (max-width: 768px) {
-            section {
-                margin: 0.75rem;
-                padding: 1rem;
-            }
-
-            header h1 {
-                font-size: 1.75rem;
-            }
-
-            .service-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .theme-switch-wrapper {
-                top: auto;
-                bottom: 1rem;
-            }
-        }
-
-        .error {
-            border-color: var(--accent-color) !important;
-            animation: shake 0.5s;
-        }
-
-        .success {
-            border-color: #2ecc71 !important;
-        }
-
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            75% { transform: translateX(5px); }
-        }
-
-        .service-description {
-            margin: 1.5rem auto;
-            line-height: 1.6;
-            color: var(--text-color);
-            text-align: left;
-            max-width: 800px;
-            padding: 0 1rem;
-        }
-
-        .service-features {
-            margin: 1.5rem auto;
-            text-align: left;
-            max-width: 600px;
-        }
-
-        .service-features h4 {
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-
-        .service-features ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .service-features li {
-            margin-bottom: 0.8rem;
-            padding-left: 2rem;
-            position: relative;
-            line-height: 1.4;
-        }
-
-        .service-features li:before {
-            content: "•";
-            position: absolute;
-            left: 0.8rem;
-            color: var(--secondary-color);
-            font-size: 1.2rem;
-            line-height: 1;
-        }
-
-        .service-price {
-            margin-top: 2rem;
-            padding: 1rem;
-            text-align: center;
-        }
-
-        .price-note {
-            font-size: 0.9rem;
-            color: #666;
-            font-style: italic;
-        }
-
-        .summary h3 {
-            color: var(--primary-color);
-            margin-top: 0;
-        }
-
-        .price-amount::after {
-            content: ' ₽';
-            font-family: Arial, sans-serif;
-        }
-
-        form div {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            margin-top: 1.5rem;
-        }
-
-        @media (max-width: 768px) {
-            section {
-                margin: 1rem;
-                padding: 1.5rem;
-            }
-
-            .service-description,
-            .service-features,
-            .summary,
-            form {
-                max-width: 100%;
-            }
         }
 
         .cart {
@@ -437,7 +134,6 @@ nav a {
         }
 
         .cart h3 {
-            color: var(--text-color);
             font-size: 1.5rem;
             margin-bottom: 1.5rem;
             text-align: center;
@@ -453,15 +149,9 @@ nav a {
             background: var(--background-color);
             border-radius: 8px;
             margin-bottom: 0.75rem;
-            transition: all 0.2s ease;
         }
 
-        .cart-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .cart-item span:first-child {
+        .cart-item span {
             font-weight: 500;
             color: var(--text-color);
         }
@@ -469,8 +159,26 @@ nav a {
         .cart-item span:last-of-type {
             font-weight: 600;
             color: var(--primary-color);
-            text-align: center;
-            min-width: 100px;
+        }
+
+        .remove-item-btn {
+            background: transparent;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            border-radius: 8px;
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            transition: all 0.2s ease;
+        }
+
+        .remove-item-btn:hover {
+            background: var(--accent-color);
+            color: white;
         }
 
         .cart-total {
@@ -487,28 +195,6 @@ nav a {
             font-size: 1.25rem;
             font-weight: 600;
             color: var(--text-color);
-            text-align: right;
-        }
-
-        .remove-item-btn {
-            background: transparent;
-            color: var(--accent-color);
-            border: 1px solid var(--accent-color);
-            border-radius: 8px;
-            width: 32px;
-            height: 32px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
-            transition: all 0.2s ease;
-            margin-left: 1rem;
-        }
-
-        .remove-item-btn:hover {
-            background: var(--accent-color);
-            color: white;
         }
 
         .clear-cart-btn {
@@ -529,172 +215,61 @@ nav a {
             color: white;
         }
 
-        .clear-cart-btn::before {
-            content: '×';
-            font-size: 1.25rem;
+        form {
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        @media (max-width: 768px) {
-            .cart {
-                margin: 1rem;
-                padding: 1rem;
-                border-radius: 10px;
-            }
-
-            .cart h3 {
-                font-size: 1.25rem;
-                margin-bottom: 1rem;
-            }
-
-            .cart-item {
-                grid-template-columns: 1fr;
-                text-align: center;
-                padding: 0.75rem;
-                gap: 0.5rem;
-            }
-
-            .cart-item span {
-                display: block;
-                margin: 0.25rem 0;
-            }
-
-            .cart-item span:last-of-type {
-                min-width: auto;
-            }
-
-            .remove-item-btn {
-                margin: 0.5rem auto 0;
-                width: 28px;
-                height: 28px;
-                font-size: 1rem;
-            }
-
-            .cart-total {
-                margin-top: 1.5rem;
-                padding-top: 1rem;
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .cart-total p {
-                font-size: 1.1rem;
-                text-align: center;
-                margin: 0;
-            }
-
-            .clear-cart-btn {
-                padding: 0.6rem 1rem;
-                font-size: 0.9rem;
-                margin-top: 0.75rem;
-            }
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e1e1e1;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            margin-bottom: 1rem;
         }
 
-        @media (max-width: 360px) {
-            .cart {
-                margin: 0.75rem;
-                padding: 0.75rem;
-            }
-
-            .cart-item {
-                padding: 0.5rem;
-                font-size: 0.9rem;
-            }
-
-            .cart h3 {
-                font-size: 1.1rem;
-            }
-
-            .cart-total p {
-                font-size: 1rem;
-            }
-
-            .clear-cart-btn {
-                padding: 0.5rem 0.75rem;
-                font-size: 0.85rem;
-            }
+        form button {
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
-        .hidden {
-            display: none;
+        form button:hover {
+            background: var(--primary-color);
         }
 
-        .service-button {
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .service-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .summary {
-            transition: opacity 0.3s ease;
-        }
-
-        @media (hover: none) {
-            .service-button:hover {
-                transform: none;
-                box-shadow: none;
-            }
-            
-            .cart-item:hover {
-                transform: none;
-                box-shadow: none;
-            }
-        }
-
-        @supports (-webkit-touch-callout: none) {
-            input, 
-            textarea {
-                font-size: 16px;
-            }
-        }
-
-        @media (forced-colors: active) {
-            .service-button,
-            .cart-item,
-            form input,
-            form textarea {
-                border: 1px solid CanvasText;
-            }
-        }
-
-        /* Дополнительные оптимизации для очень маленьких экранов */
-        @media (max-width: 360px) {
-            header h1 {
-                font-size: 1.5rem;
-            }
-
-            .service-button {
-                padding: 0.6rem;
-                font-size: 0.85rem;
-            }
-
-            form div {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            form button {
-                width: 100%;
-            }
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 4rem;
         }
     </style>
 </head>
 <body>
     <header>
-    <a href="index.html" style="text-decoration: none; color: white;">
-        <h1>Компьютерная мастерская на дому</h1>
-    </a>
-</header>
+        <a href="index.html" style="text-decoration: none; color: white;">
+            <h1>Компьютерная мастерская на дому</h1>
+        </a>
+    </header>
 
-<nav>
-    <a href="index.html">Главная</a>
-    <a href="faq.html">О нас</a>
-    <a href="common-issues.html">Частые проблемы</a>
-    <a href="download.html">Файлы</a>
-</nav>
-    
+    <nav>
+        <a href="index.html">Главная</a>
+        <a href="faq.html">О нас</a>
+        <a href="common-issues.html">Частые проблемы</a>
+        <a href="download.html">Файлы</a>
+    </nav>
+
     <section id="services">
         <h2>Наши услуги</h2>
         <div class="service-grid">
@@ -717,18 +292,11 @@ nav a {
             </div>
         </form>
     </section>
-   
+
     <footer>
-            <p>Ремонт компьютеров и ноутбуков в Голубом и Андреевке на дому</p>
+        <p>Ремонт компьютеров и ноутбуков в Голубом и Андреевке на дому</p>
         <p>Работаем ежедневно с 9:00 до 23:00</p>
         <p>Ваша задача - наша работа</p>
-        <div class="partner-section" style="background: transparent; box-shadow: none; margin: 0; padding: 0;">
-            <a href="https://vk.com/netrepairru" target="_blank" rel="noopener" style="text-decoration: none; color: white;">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 10px;">
-                    <path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.523-2.049-1.718-1.033-1.027-1.487-1.108-1.744-1.108-.356 0-.458.102-.458.597v1.574c0 .424-.135.675-1.241.675-1.83 0-3.863-1.108-5.293-3.162-2.148-3.365-2.725-5.906-2.725-6.42 0-.254.102-.491.597-.491h1.744c.44 0 .61.186.78.675.847 2.421 2.265 4.538 2.861 4.538.22 0 .322-.102.322-.66V9.793c-.068-1.186-.695-1.287-.695-1.71 0-.203.169-.406.44-.406h2.743c.372 0 .508.186.508.643v3.467c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.27-1.422 2.18-3.61 2.18-3.61.119-.254.305-.491.745-.491h1.744c.525 0 .643.27.525.643-.22 1.016-2.332 4.01-2.332 4.01-.186.305-.254.44 0 .78.186.254.796.779 1.202 1.253.745.88 1.32 1.625 1.473 2.129.17.491-.085.745-.576.745z"/>
-                </svg>
-            </a>
-        </div>
     </footer>
 
     <script>
@@ -843,7 +411,6 @@ nav a {
             }
 
             const locationInfo = `
-
 Наши адреса:
 1. ${LOCATIONS.main.address}: https://yandex.ru/maps/?ll=${LOCATIONS.main.lon},${LOCATIONS.main.lat}&z=17
 2. ${LOCATIONS.secondary.address}: https://yandex.ru/maps/?ll=${LOCATIONS.secondary.lon},${LOCATIONS.secondary.lat}&z=17`;
@@ -884,88 +451,87 @@ ${locationInfo}`;
         }
 
         function sendToWhatsApp() {
-    const name = document.getElementById('name').value;
-    const phone = document.getElementById('phone').value;
-    const reason = document.getElementById('reason').value;
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const reason = document.getElementById('reason').value;
 
-    if (!name || !phone) {
-        alert('Пожалуйста, заполните имя и номер телефона');
-        return;
-    }
+            if (!name || !phone) {
+                alert('Пожалуйста, заполните имя и номер телефона');
+                return;
+            }
 
-    // Очищаем номер телефона от лишних символов
-    const formattedPhone = phone.replace(/\D/g, ''); // Удаляем всё, кроме цифр
-    const whatsappNumber = formattedPhone.startsWith('7') ? formattedPhone : `7${formattedPhone}`;
+            const formattedPhone = phone.replace(/\D/g, '');
+            const whatsappNumber = formattedPhone.startsWith('7') ? formattedPhone : `7${formattedPhone}`;
 
-    const locationInfo = `
+            const locationInfo = `
 %0AНаши адреса:%0A
 1. ${LOCATIONS.main.address}: https://yandex.ru/maps/?ll=${LOCATIONS.main.lon},${LOCATIONS.main.lat}&z=17%0A
 2. ${LOCATIONS.secondary.address}: https://yandex.ru/maps/?ll=${LOCATIONS.secondary.lon},${LOCATIONS.secondary.lat}&z=17`;
-    
-    const servicesMessage = selectedServices.map(item => 
-        `${item.name} - ${formatPrice(item.price)}`
-    ).join('%0A');
-    
-    const message = `Имя: ${name}%0A
+            
+            const servicesMessage = selectedServices.map(item => 
+                `${item.name} - ${formatPrice(item.price)}`
+            ).join('%0A');
+            
+            const message = `Имя: ${name}%0A
 Телефон: ${phone}%0A
 ${reason ? `Причина обращения: ${reason}%0A` : ''}
 %0AВыбранные услуги:%0A${servicesMessage}
 %0AИтого: ${formatPrice(totalPrice)}
 ${locationInfo}`;
 
-    const whatsappButton = document.getElementById('whatsapp-button');
-    whatsappButton.textContent = 'Перенаправляем в чат...';
+            const whatsappButton = document.getElementById('whatsapp-button');
+            whatsappButton.textContent = 'Перенаправляем в чат...';
 
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    const whatsappUrl = isMobile ? 
-        `whatsapp://send?phone=${whatsappNumber}&text=${message}` : 
-        `https://wa.me/${whatsappNumber}?text=${message}`;
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            const whatsappUrl = isMobile ? 
+                `whatsapp://send?phone=${whatsappNumber}&text=${message}` : 
+                `https://wa.me/${whatsappNumber}?text=${message}`;
 
-    const newWindow = window.open(whatsappUrl, '_blank');
+            const newWindow = window.open(whatsappUrl, '_blank');
 
-    if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
-        alert('Не удалось открыть WhatsApp. Убедитесь, что WhatsApp установлен на вашем устройстве.');
-    }
+            if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+                alert('Не удалось открыть WhatsApp. Убедитесь, что WhatsApp установлен на вашем устройстве.');
+            }
 
-    setTimeout(() => {
-        whatsappButton.textContent = 'Отправить в WhatsApp';
-    }, 3000);
-}
+            setTimeout(() => {
+                whatsappButton.textContent = 'Отправить в WhatsApp';
+            }, 3000);
+        }
 
         function formatPhoneNumber(input) {
-    const cursorPos = input.selectionStart;
-    const oldLength = input.value.length;
-    
-    let value = input.value.replace(/\D/g, ''); // Удаляем всё, кроме цифр
-    if (value.length === 0) {
-        input.value = '';
-        return;
-    }
-    
-    if (value[0] === '7' || value[0] === '8') {
-        value = value.substring(1);
-    }
-    
-    let formattedNumber = '+7';
-    if (value.length > 0) {
-        formattedNumber += ' (' + value.substring(0, 3);
-    }
-    if (value.length > 3) {
-        formattedNumber += ') ' + value.substring(3, 6);
-    }
-    if (value.length > 6) {
-        formattedNumber += '-' + value.substring(6, 8);
-    }
-    if (value.length > 8) {
-        formattedNumber += '-' + value.substring(8, 10);
-    }
-    
-    input.value = formattedNumber;
+            const cursorPos = input.selectionStart;
+            const oldLength = input.value.length;
+            
+            let value = input.value.replace(/\D/g, '');
+            if (value.length === 0) {
+                input.value = '';
+                return;
+            }
+            
+            if (value[0] === '7' || value[0] === '8') {
+                value = value.substring(1);
+            }
+            
+            let formattedNumber = '+7';
+            if (value.length > 0) {
+                formattedNumber += ' (' + value.substring(0, 3);
+            }
+            if (value.length > 3) {
+                formattedNumber += ') ' + value.substring(3, 6);
+            }
+            if (value.length > 6) {
+                formattedNumber += '-' + value.substring(6, 8);
+            }
+            if (value.length > 8) {
+                formattedNumber += '-' + value.substring(8, 10);
+            }
+            
+            input.value = formattedNumber;
 
-    const newLength = input.value.length;
-    const newCursorPos = cursorPos + (newLength - oldLength);
-    input.setSelectionRange(newCursorPos, newCursorPos);
-}
+            const newLength = input.value.length;
+            const newCursorPos = cursorPos + (newLength - oldLength);
+            input.setSelectionRange(newCursorPos, newCursorPos);
+        }
 
         document.addEventListener('DOMContentLoaded', function() {
             const phoneInput = document.getElementById('phone');
