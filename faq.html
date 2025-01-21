@@ -45,7 +45,6 @@
         }
 
         html, body {
-            overflow-x: hidden;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -53,6 +52,19 @@
             color: var(--text-color);
             line-height: 1.6;
             font-family: 'Inter', sans-serif;
+            width: 100%;
+            overflow-x: hidden; /* Убираем горизонтальный скролл */
+        }
+
+        /* Скрыть полосу прокрутки, но оставить возможность прокрутки */
+        body::-webkit-scrollbar {
+            width: 0; /* Убираем ширину полосы прокрутки */
+            background: transparent; /* Делаем фон прозрачным */
+        }
+
+        body {
+            scrollbar-width: none; /* Для Firefox */
+            -ms-overflow-style: none; /* Для Internet Explorer и Edge */
         }
 
         header {
@@ -127,6 +139,7 @@
             border-radius: 12px;
             margin-top: 1rem;
             max-width: 100%;
+            width: 100%; /* Добавлено для корректного отображения карты */
         }
 
         footer {
