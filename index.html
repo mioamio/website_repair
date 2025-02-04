@@ -116,7 +116,6 @@
             text-align: center;
         }
 
-        /* Изменения для блока "Наши услуги" */
         .service-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -142,7 +141,6 @@
             border-color: var(--primary-color);
         }
 
-        /* Изменения для блока "Оставить заявку" */
         form {
             max-width: 500px;
             margin: 0 auto;
@@ -223,6 +221,83 @@
 
         .partner-section a:hover {
             text-decoration: none;
+        }
+
+        /* Новые стили для корзины */
+        .cart {
+            background: var(--section-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .cart h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.9rem;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item span {
+            color: var(--text-color);
+        }
+
+        .cart-item button {
+            background: none;
+            border: none;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .cart-item button:hover {
+            color: var(--primary-color);
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+
+        .clear-cart-btn {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 0.75rem 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .clear-cart-btn:hover {
+            background: var(--primary-color);
         }
 
         @media (max-width: 768px) {
@@ -347,7 +422,8 @@
                         <h3>Корзина услуг</h3>
                         <div id="cart-items"></div>
                         <div class="cart-total">
-                            <p>Итого: <span id="cart-total">${formatPrice(totalPrice)}</span></p>
+                            <p>Итого:</p>
+                            <p><span id="cart-total">${formatPrice(totalPrice)}</span></p>
                         </div>
                         <button onclick="clearCart()" class="clear-cart-btn">Очистить корзину</button>
                     </div>
