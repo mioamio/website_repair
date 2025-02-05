@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
         (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
         m[i].l=1*new Date();
@@ -8,29 +9,30 @@
         k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
         (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-        ym(99489920, "init", {
+        ym(99182843, "init", {
             clickmap:true,
             trackLinks:true,
             accurateTrackBounce:true
         });
     </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/99489920" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    
+    <noscript><div><img src="https://mc.yandex.ru/watch/99182843" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ответы на частые вопросы о ремонте компьютеров в Голубом Сроки ремонта Выезд мастера на дом">
-    <meta name="keywords" content="FAQ ремонт компьютеров Голубое, цены ремонт ноутбуков Голубое, стоимость компьютерной помощи Голубое, выезд мастера Голубое">
+    <meta name="description" content="Ремонт компьютеров моноблоков и ноутбуков в Голубом и Андреевке. Выезд мастера">
+    <meta name="keywords" content="ремонт компьютеров Голубое, ремонт ноутбуков Голубое, компьютерный мастер Голубое, ремонт пк Голубое, компьютерная помощь Голубое">
     <meta name="geo.region" content="RU-MOS">
     <meta name="geo.placename" content="Голубое">
     <title>Ремонт компьютеров и ноутбуков</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    
     <style>
         :root {
             --primary-color: #2563EB;
             --secondary-color: #1E40AF;
+            --accent-color: #f43f5e;
             --background-color: #F9FAFB;
             --text-color: #111827;
             --section-bg: #FFFFFF;
@@ -97,54 +99,96 @@
             width: 100%;
         }
 
-        .issues-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .issue-card {
+        section {
             background: var(--section-bg);
             border-radius: 12px;
             padding: 2rem;
+            margin-bottom: 2rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            text-align: left;
         }
 
-        .issue-header h3 {
+        h2 {
             font-family: 'Merriweather', serif;
-            font-size: 1.5rem;
+            font-size: 2rem;
             font-weight: 700;
-            color: var(--primary-color);
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 0.75rem;
             margin-bottom: 1rem;
         }
 
-        .problem-section h4, 
-        .solution-section h4 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--secondary-color);
+        .service-button {
+            background: var(--section-bg);
+            border: 1px solid var(--border-color);
+            padding: 0.75rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .service-button.selected {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            width: 100%;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
             margin-bottom: 0.75rem;
         }
 
-        .issue-card ul, 
-        .issue-card ol {
-            margin: 0;
-            padding-left: 1.2rem;
+        form textarea {
+            resize: vertical;
+            min-height: 100px;
         }
 
-        .issue-card li {
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-            line-height: 1.5;
+        form button {
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 0.75rem 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
         }
 
-        .issue-footer {
-            font-style: italic;
-            color: var(--text-color);
-            font-size: 0.95rem;
-            margin-top: 1rem;
+        form button:hover {
+            background: var(--primary-color);
+        }
+
+        .form-buttons {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+        }
+
+        .form-buttons button {
+            flex: 1;
         }
 
         footer {
@@ -179,58 +223,105 @@
             text-decoration: none;
         }
 
-        /* Удалите эти медиа-запросы */
-        /*
+        /* Новые стили для корзины */
+        .cart {
+            background: var(--section-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .cart h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.9rem;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item span {
+            color: var(--text-color);
+        }
+
+        .cart-item button {
+            background: none;
+            border: none;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .cart-item button:hover {
+            color: var(--primary-color);
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+
+        .clear-cart-btn {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 0.75rem 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .clear-cart-btn:hover {
+            background: var(--primary-color);
+        }
+
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 2rem;
+            .service-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             }
 
-            nav {
-                gap: 1rem;
-                padding: 1rem;
-            }
-
-            nav a {
-                font-size: 0.9rem;
-            }
-
-            .issues-container {
-                grid-template-columns: 1fr;
-            }
-
-            .issue-card {
-                padding: 1.5rem;
-            }
-
-            .issue-header h3 {
-                font-size: 1.3rem;
-            }
-
-            .problem-section h4, 
-            .solution-section h4 {
-                font-size: 1.1rem;
+            form button {
+                padding: 0.5rem 1rem;
             }
         }
 
         @media (max-width: 360px) {
-            header h1 {
-                font-size: 1.8rem;
+            .service-grid {
+                grid-template-columns: 1fr;
             }
 
-            nav {
+            .form-buttons {
+                flex-direction: column;
                 gap: 0.5rem;
-                padding: 0.75rem;
-            }
-
-            nav a {
-                font-size: 0.8rem;
             }
         }
-        */
     </style>
 </head>
-
 <body>
     <header>
         <a href="index.html" style="text-decoration: none; color: white;">
@@ -246,95 +337,28 @@
     </nav>
 
     <div class="content">
-        <div class="issues-container">
-            <div class="issue-card">
-                <div class="issue-header">
-                    <h3>Перегрев компьютера</h3>
-                </div>
-                <div class="issue-content">
-                    <div class="problem-section">
-                        <h4>Признаки проблемы</h4>
-                        <ul>
-                            <li>Забитые пылью вентиляторы и радиаторы</li>
-                            <li>Старая термопаста на CPU и GPU</li>
-                            <li>Высокая нагрузка на процессор</li>
-                            <li>Неисправный кулер</li>
-                        </ul>
-                    </div>
-                    <div class="solution-section">
-                        <h4>Решение</h4>
-                        <ol>
-                            <li>Чистка от пыли</li>
-                            <li>Замена термопасты</li>
-                            <li>Проверка на вирусы</li>
-                            <li>Диагностика системы охлаждения</li>
-                        </ol>
-                    </div>
-                    <div class="issue-footer">
-                        Перегрев может привести к поломке дорогих компонентов
-                    </div>
-                </div>
+        <section id="services">
+            <h2>Наши услуги</h2>
+            <div class="service-grid">
+                <button class="service-button" onclick="toggleService('Ремонт ПК/Ноутбука', 2000)">Ремонт ПК/Ноутбука</button>
+                <button class="service-button" onclick="toggleService('Сборка игрового компьютера', 5000)">Сборка игрового компьютера</button>
+                <button class="service-button" onclick="toggleService('Помощь в подборе комплектующих', 1000)">Помощь в подборе комплектующих</button>
+                <button class="service-button" onclick="toggleService('Установка ОС', 500)">Установка ОС</button>
             </div>
+        </section>
 
-            <div class="issue-card">
-                <div class="issue-header">
-                    <h3>Медленная работа Windows</h3>
+        <section id="form">
+            <h2>Оставить заявку</h2>
+            <form id="request-form" onsubmit="return orderCall()">
+                <input type="text" id="name" placeholder="Ваше имя" name="name" required>
+                <input type="tel" id="phone" placeholder="+7 (___) ___-__-__" name="phone" required>
+                <textarea id="reason" rows="3" placeholder="Причина обращения" name="reason"></textarea>
+                <div class="form-buttons">
+                    <button type="button" id="whatsapp-button" onclick="sendToWhatsApp()">Отправить в WhatsApp</button>
+                    <button type="submit" id="telegram-button">Отправить в Telegram</button>
                 </div>
-                <div class="issue-content">
-                    <div class="problem-section">
-                        <h4>Признаки проблемы</h4>
-                        <ul>
-                            <li>Длительная загрузка Windows</li>
-                            <li>Медленный запуск программ</li>
-                            <li>Зависания при работе</li>
-                            <li>Нехватка места на диске C:</li>
-                        </ul>
-                    </div>
-                    <div class="solution-section">
-                        <h4>Решение</h4>
-                        <ol>
-                            <li>Очистка системного диска</li>
-                            <li>Оптимизация автозагрузки</li>
-                            <li>Антивирусная проверка</li>
-                            <li>Установка SSD накопителя</li>
-                            <li>Увеличение оперативной памяти</li>
-                        </ol>
-                    </div>
-                    <div class="issue-footer">
-                        Переустановка Windows часто решает проблемы производительности
-                    </div>
-                </div>
-            </div>
-
-            <div class="issue-card">
-                <div class="issue-header">
-                    <h3>Самопроизвольные выключения</h3>
-                </div>
-                <div class="issue-content">
-                    <div class="problem-section">
-                        <h4>Признаки проблемы</h4>
-                        <ul>
-                            <li>Выключение с черным экраном</li>
-                            <li>Появление синего экрана (BSOD)</li>
-                            <li>Перезагрузки при нагрузке</li>
-                            <li>Сигналы BIOS при включении</li>
-                        </ul>
-                    </div>
-                    <div class="solution-section">
-                        <h4>Решение</h4>
-                        <ol>
-                            <li>Тестирование блока питания</li>
-                            <li>Проверка оперативной памяти</li>
-                            <li>Контроль температуры CPU</li>
-                            <li>Диагностика жесткого диска</li>
-                        </ol>
-                    </div>
-                    <div class="issue-footer">
-                        Выключения во время игр - признак серьезной неисправности
-                    </div>
-                </div>
-            </div>
-        </div>
+            </form>
+        </section>
     </div>
 
     <footer>
@@ -346,5 +370,236 @@
             </a>
         </div>
     </footer>
+
+    <script>
+        let selectedServices = [];
+        let totalPrice = 0;
+
+        const LOCATIONS = {
+            main: {
+                lat: 55.984108,
+                lon: 37.100303,
+                address: "Зеленоград"
+            },
+            secondary: {
+                lat: 55.984108,
+                lon: 37.100303,
+                address: "Андреевка"
+            }
+        };
+
+        function toggleService(service, price) {
+            const normalizedService = service.normalize();
+            const index = selectedServices.findIndex(item => item.name === normalizedService);
+            const button = Array.from(document.querySelectorAll('.service-button'))
+                .find(btn => btn.textContent.normalize() === normalizedService);
+
+            if (index === -1) {
+                selectedServices.push({ name: normalizedService, price });
+                button.classList.add('selected');
+                totalPrice += price;
+            } else {
+                selectedServices.splice(index, 1);
+                button.classList.remove('selected');
+                totalPrice -= price;
+            }
+
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartDiv = document.getElementById('cart');
+            
+            if (selectedServices.length === 0) {
+                cartDiv?.remove();
+                return;
+            }
+
+            if (!cartDiv && selectedServices.length > 0) {
+                const servicesSection = document.getElementById('services');
+                const cartHTML = `
+                    <div id="cart" class="cart">
+                        <h3>Корзина услуг</h3>
+                        <div id="cart-items"></div>
+                        <div class="cart-total">
+                            <p>Итого:</p>
+                            <p><span id="cart-total">${formatPrice(totalPrice)}</span></p>
+                        </div>
+                        <button onclick="clearCart()" class="clear-cart-btn">Очистить корзину</button>
+                    </div>
+                `;
+                servicesSection.insertAdjacentHTML('beforeend', cartHTML);
+            }
+
+            const cartItemsDiv = document.getElementById('cart-items');
+            const cartTotalSpan = document.getElementById('cart-total');
+            
+            cartItemsDiv.innerHTML = selectedServices.map(item => `
+                <div class="cart-item">
+                    <span>${item.name}</span>
+                    <span>${formatPrice(item.price)}</span>
+                    <button onclick="removeFromCart('${encodeURIComponent(item.name)}')" class="remove-item-btn">×</button>
+                </div>
+            `).join('');
+            cartTotalSpan.textContent = formatPrice(totalPrice);
+        }
+
+        function removeFromCart(serviceName) {
+            const decodedName = decodeURIComponent(serviceName);
+            const index = selectedServices.findIndex(item => item.name === decodedName);
+            if (index > -1) {
+                const button = Array.from(document.querySelectorAll('.service-button'))
+                    .find(btn => btn.textContent === decodedName);
+                button.classList.remove('selected');
+                totalPrice -= selectedServices[index].price;
+                selectedServices.splice(index, 1);
+                updateCart();
+            }
+        }
+
+        function clearCart() {
+            selectedServices = [];
+            totalPrice = 0;
+            document.querySelectorAll('.service-button').forEach(btn => btn.classList.remove('selected'));
+            updateCart();
+        }
+
+        function formatPrice(price) {
+            return new Intl.NumberFormat('ru-RU', {
+                style: 'currency',
+                currency: 'RUB',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(price);
+        }
+
+        function orderCall() {
+            const nameField = document.getElementById('name');
+            const phoneField = document.getElementById('phone');
+            const reasonField = document.getElementById('reason');
+
+            if (!nameField.value || !phoneField.value) {
+                alert('Пожалуйста, заполните имя и номер телефона');
+                return false;
+            }
+
+            const locationInfo = `
+
+Наши адреса:
+1. ${LOCATIONS.main.address}: https://yandex.ru/maps/?ll=${LOCATIONS.main.lon},${LOCATIONS.main.lat}&z=17
+2. ${LOCATIONS.secondary.address}: https://yandex.ru/maps/?ll=${LOCATIONS.secondary.lon},${LOCATIONS.secondary.lat}&z=17`;
+
+            const message = `
+Новая заявка!
+Имя: ${nameField.value}
+Телефон: ${phoneField.value}
+${reasonField.value ? `Причина обращения: ${reasonField.value}\n` : ''}
+Выбранные услуги:
+${selectedServices.map(item => `${item.name} - ${formatPrice(item.price)}`).join('\n')}
+
+Итого: ${formatPrice(totalPrice)}
+${locationInfo}`;
+
+            const token = 'Необходимо сгенерировать новый коен';
+            const chatId = '156734752';
+            const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+            
+            fetch(url)
+                .then(response => {
+                    if (response.ok) {
+                        const telegramButton = document.getElementById('telegram-button');
+                        telegramButton.textContent = 'Отправлено';
+                        setTimeout(() => {
+                            telegramButton.textContent = 'Отправить в Telegram';
+                        }, 3000);
+                    } else {
+                        alert('Произошла ошибка при отправке сообщения');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Произошла ошибка при отправке сообщения');
+                });
+
+            return false;
+        }
+
+        function sendToWhatsApp() {
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const reason = document.getElementById('reason').value;
+
+            if (!name || !phone) {
+                alert('Пожалуйста, заполните имя и номер телефона');
+                return;
+            }
+
+            const servicesMessage = selectedServices.map(item => 
+                `${item.name} - ${formatPrice(item.price)}`
+            ).join('%0A');
+            
+            const message = `Имя: ${name}%0A
+Телефон: ${phone}%0A
+${reason ? `Причина обращения: ${reason}%0A` : ''}
+%0AВыбранные услуги:%0A${servicesMessage}
+%0AИтого: ${formatPrice(totalPrice)}`;
+
+            const whatsappButton = document.getElementById('whatsapp-button');
+            whatsappButton.textContent = 'Перенаправляем в чат...';
+
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            const whatsappUrl = isMobile ? 
+                `whatsapp://send?phone=79166042444&text=${message}` : 
+                `https://wa.me/79166042444?text=${message}`;
+
+            window.open(whatsappUrl, '_blank');
+
+            setTimeout(() => {
+                whatsappButton.textContent = 'Отправить в WhatsApp';
+            }, 3000);
+        }
+
+        function formatPhoneNumber(input) {
+            const cursorPos = input.selectionStart;
+            const oldLength = input.value.length;
+            
+            let value = input.value.replace(/\D/g, '');
+            if (value.length === 0) {
+                input.value = '';
+                return;
+            }
+            
+            if (value[0] === '7' || value[0] === '8') {
+                value = value.substring(1);
+            }
+            
+            let formattedNumber = '+7';
+            if (value.length > 0) {
+                formattedNumber += ' (' + value.substring(0, 3);
+            }
+            if (value.length > 3) {
+                formattedNumber += ') ' + value.substring(3, 6);
+            }
+            if (value.length > 6) {
+                formattedNumber += '-' + value.substring(6, 8);
+            }
+            if (value.length > 8) {
+                formattedNumber += '-' + value.substring(8, 10);
+            }
+            
+            input.value = formattedNumber;
+
+            const newLength = input.value.length;
+            const newCursorPos = cursorPos + (newLength - oldLength);
+            input.setSelectionRange(newCursorPos, newCursorPos);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const phoneInput = document.getElementById('phone');
+            phoneInput.addEventListener('input', function() {
+                formatPhoneNumber(this);
+            });
+        });
+    </script>
 </body>
 </html>
