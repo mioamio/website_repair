@@ -64,7 +64,7 @@
 
         header h1 {
             font-family: 'Merriweather', serif;
-            font-size: 2.5rem; /* Фиксированный размер для всех устройств */
+            font-size: 2.5rem;
             font-weight: 700;
             color: var(--text-color);
             margin: 0;
@@ -228,9 +228,19 @@
             background: var(--section-bg);
             border-radius: 12px;
             padding: 1.5rem;
-            margin-top: 1.5rem;
+            margin: 1.5rem auto;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             border: 1px solid var(--border-color);
+            max-width: 500px;
+            width: 100%;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .cart.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .cart h3 {
@@ -249,14 +259,17 @@
             padding: 0.75rem 0;
             border-bottom: 1px solid var(--border-color);
             font-size: 0.9rem;
-        }
-
-        .cart-item:last-child {
-            border-bottom: none;
+            gap: 1rem; /* Отступ между названием и ценой */
         }
 
         .cart-item span {
             color: var(--text-color);
+            flex: 1; /* Название услуги занимает всё доступное пространство */
+        }
+
+        .cart-item .price {
+            width: 100px; /* Фиксированная ширина для блока с ценой */
+            text-align: right; /* Выравниваем цену по правому краю */
         }
 
         .cart-item button {
@@ -429,6 +442,11 @@
                     </div>
                 `;
                 servicesSection.insertAdjacentHTML('beforeend', cartHTML);
+                
+                // Добавляем класс visible для анимации
+                setTimeout(() => {
+                    document.getElementById('cart').classList.add('visible');
+                }, 10);
             }
 
             const cartItemsDiv = document.getElementById('cart-items');
@@ -437,7 +455,7 @@
             cartItemsDiv.innerHTML = selectedServices.map(item => `
                 <div class="cart-item">
                     <span>${item.name}</span>
-                    <span>${formatPrice(item.price)}</span>
+                    <span class="price">${formatPrice(item.price)}</span>
                     <button onclick="removeFromCart('${encodeURIComponent(item.name)}')" class="remove-item-btn">×</button>
                 </div>
             `).join('');
