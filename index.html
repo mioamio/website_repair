@@ -313,28 +313,47 @@
             background: var(--primary-color);
         }
 
-        @media (max-width: 768px) {
-            .service-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+
+@media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
             }
 
-            form button {
-                padding: 0.5rem 1rem;
+            nav {
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            nav a {
+                font-size: 0.9rem;
+            }
+
+            .download-buttons {
+                grid-template-columns: 1fr;
+            }
+
+            .download-button {
+                padding: 1rem;
             }
         }
 
         @media (max-width: 360px) {
-            .service-grid {
-                grid-template-columns: 1fr;
+            header h1 {
+                font-size: 1.8rem;
             }
 
-            .form-buttons {
-                flex-direction: column;
+            nav {
                 gap: 0.5rem;
+                padding: 0.75rem;
+            }
+
+            nav a {
+                font-size: 0.8rem;
             }
         }
     </style>
 </head>
+
 <body>
     <header>
         <a href="index.html" style="text-decoration: none; color: white;">
