@@ -1,5 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-  <rect width="200" height="200" fill="#FFFFFF" />
-  <path d="M20,100 C20,45 95,20 180,20 L180,180 C180,180 95,180 20,180 Z" fill="#007bff" stroke="#FFFFFF" stroke-width="4"/>
-  <text x="50" y="120" font-family="sans-serif" font-size="30" fill="#FFFFFF" text-anchor="start">netrepair</text>
-</svg>
