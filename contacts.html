@@ -2,31 +2,31 @@
 <html lang="ru">
 <head>
     <!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();
-   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    <script type="text/javascript" >
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-   ym(99980682, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true,
-        webvisor:true
-   });
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/99980682" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
-    
-<link rel="icon" type="image/png" href="favicon.png" sizes="120x120">
+        ym(99980682, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/99980682" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
+    <link rel="icon" type="image/png" href="favicon.png" sizes="120x120">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Контакты компьютерной мастерской в Голубом. Выезд мастера на дом">
-    <meta name="keywords" content="контакты ремонт компьютеров Голубое, выезд мастера Голубое, ремонт ноутбуков Голубое">
+    <meta name="description" content="Свяжитесь с компьютерным мастером в Голубом и Андреевке. Выезд на дом, телефон для записи. Мы находимся здесь.">
+    <meta name="keywords" content="контакты ремонт компьютеров Голубое, выезд мастера Голубое, ремонт ноутбуков Голубое, компьютерный мастер Андреевка">
     <meta name="geo.region" content="RU-MOS">
     <meta name="geo.placename" content="Голубое">
-    <title>Контакты | Ремонт компьютеров и ноутбуков</title>
+    <title>Контакты | Компьютерный Мастер в Голубом и Андреевке</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
@@ -37,6 +37,8 @@
             --text-color: #111827;
             --section-bg: #FFFFFF;
             --border-color: #E5E7EB;
+            --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
 
         * {
@@ -104,7 +106,11 @@
             border-radius: 12px;
             padding: 2.5rem;
             margin-bottom: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            box-shadow: var(--shadow-medium);
+            transition: transform 0.2s ease-in-out;
+        }
+        .contact-section:hover {
+            transform: translateY(-5px);
         }
 
         .contact-section h2 {
@@ -125,9 +131,9 @@
 
         iframe {
             border-radius: 12px;
-            margin-top: 1rem;
+            margin-top: 1.5rem; /* Increased margin for better spacing */
             width: 100%;
-            height: 300px;
+            height: 350px; /* Slightly increased height for better map view */
             border: none;
         }
 
@@ -156,11 +162,12 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            font-size: 2rem;
+            font-size: 1.5rem; /* Adjusted for better balance */
+            transition: color 0.3s ease;
         }
 
         .partner-section a:hover {
-            text-decoration: none;
+            color: var(--secondary-color);
         }
 
         @media (max-width: 768px) {
@@ -175,6 +182,12 @@
 
             nav a {
                 font-size: 0.9rem;
+            }
+            .contact-section {
+                padding: 1.5rem;
+            }
+            iframe {
+                height: 250px;
             }
         }
 
@@ -193,11 +206,44 @@
             }
         }
     </style>
+    <!-- Schema.org LocalBusiness Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Компьютерная мастерская на дому",
+      "image": "https://вашсайт.ru/favicon.png", 
+      "url": "https://вашсайт.ru/",
+      "telephone": "+79166042444", 
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Голубое", 
+        "addressLocality": "Голубое",
+        "addressRegion": "Московская область",
+        "addressCountry": "RU"
+      },
+      "priceRange": "$", 
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+          ],
+          "opens": "09:00",
+          "closes": "23:00"
+        }
+      ],
+      "hasMap": "https://yandex.ru/map-widget/v1/-/CCU8g1g4?ll=37.100298,55.984109&z=15",
+      "sameAs": [
+        "https://vk.com/netrepairru"
+      ]
+    }
+    </script>
 </head>
 
 <body>
     <header>
-        <a href="index.html" style="text-decoration: none; color: white;">
+        <a href="index.html" style="text-decoration: none; color: inherit;">
             <h1>Компьютерная мастерская на дому</h1>
         </a>
     </header>
@@ -213,11 +259,11 @@
         <section class="contact-section">
             <h2>Контакты</h2>
             <p>Мы находимся в Голубом, также обслуживаем близлежащий район Андреевка.</p>
-            <iframe 
-                src="https://yandex.ru/map-widget/v1/-/CCU8g1g4?ll=37.100298,55.984109&z=15&mode=search&ol=geo&pt=37.100298,55.984109,pm2dgl" 
-                width="100%" 
-                height="300" 
-                frameborder="0" 
+            <iframe
+                src="https://yandex.ru/map-widget/v1/-/CCU8g1g4?ll=37.100298,55.984109&z=15&mode=search&ol=geo&pt=37.100298,55.984109,pm2dgl"
+                width="100%"
+                height="300"
+                frameborder="0"
                 allowfullscreen="true">
             </iframe>
         </section>
